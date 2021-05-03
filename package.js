@@ -1,0 +1,1 @@
+let current_version = 0;

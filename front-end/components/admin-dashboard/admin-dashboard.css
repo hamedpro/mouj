@@ -1,0 +1,11 @@
+#admin-dashboard .test{
+    width:100%;
+    border-radius: 14px 0 14px 0;
+    margin: 30px;
+    border: none;
+    height:100px;
+    /* box-sizing: content-box; */
+    background-color: antiquewhite;
+    box-shadow: 5px 5px 5px 5px rgb(150 150 150 / 50%);
+    font-size: 60px;
+}

@@ -1,0 +1,58 @@
+html,body{
+	width:100%;
+	height:100%;
+	padding:0px;
+	margin:0px;
+}
+.relative_container{
+	position:relative;width:100%;height:100%;
+}
+
+#app {
+	position: relative;
+	width: 100%;
+	margin: 0px;
+	height: 100%;
+	overflow: scroll;
+	overflow-x: hidden;
+	padding: 0px;
+}
+#app .background{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-color: rgb(36,36,38);
+}
+#app .content-container{
+	position: relative;
+	width: auto;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+#app .tips_container{
+	direction:rtl ;
+}
+#app .dir_rtl{
+	direction: rtl;
+}
+/* animations */
+/* ------------------------------------ */
+
+.fade_out_left{
+	transition: 0.7s;
+	transform: translateX(-10px);
+	opacity:0;
+}
+.fade_in_right{
+	transition: 0.7s;
+	transform: translateX(10px);
+	opacity:1;
+}
+
+
+
+
+
+
