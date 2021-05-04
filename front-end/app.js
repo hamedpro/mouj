@@ -1,62 +1,25 @@
-let store = new Vuex.Store({
-    state:{
-        app_title:"hamed"
-    },
-    mutations:{
-        change_app_title(state,here){
-            this.state.app_title = here.join("/");
-        }
-    }
-})
-
-
-let routes = [
-    {
-        path:"/",
-        component:{
-            template:"<home></home>"
-        }
-    },
-    {
-        path:"/admin-dashboard",
-        component:{
-            template:"<admin-dashboard></admin-dashboard>"
-        }
-    },
-    {
-        path:"/charts",
-        component:{
-            template:"<charts></charts>"
-        }
-    },
-    {
-        path:"/support",
-        component:{
-            template:'<support></support>'
-        }
-    },
-    {
-        path:"/user-home",
-        component:{
-            template:"<user-home></user-home>"
-        }
-    },
-    {
-        path:"/new",
-        component:{
-            template:"<new></new>"
-        }
-    },
-    {
-        path:'/register',
-        component:{
-            template:'<register></register>'
-        }
-    }
-]
-let router = new VueRouter({
-    routes
-})
+function fade_out_left(element){
+    $(element).removeClass('fade_in_right')
+    $(element).addClass('fade_out_left');
+}
+function fade_in_right(element){
+    $(element).removeClass('fade_out_left')
+    $(element).addClass('fade_in_right')
+}
+function change_content_with_animation(element,new_content){
+    setTimeout(()=>{
+        fade_out_left(element);
+    },0)
+    setTimeout(()=>{
+        element.html(new_content);
+    },1000)
+    setTimeout(()=>{
+        fade_in_right(element);
+    },1050)
+}
+function change_main_background_color(new_color){
+    $('.background').css({'background-color':new_color})
+}
 function update_header_navbar(){
     let path = window.location.href.split('#');
     let last_child = path[path.length-1] == "/" ? "" : path[path.length-1];

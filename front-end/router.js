@@ -1,0 +1,47 @@
+let routes = [
+    {
+        path:"/",
+        component:{
+            template:"<home></home>"
+        }
+    },
+    {
+        path:"/admin-dashboard",
+        component:{
+            template:"<admin-dashboard></admin-dashboard>"
+        }
+    },
+    {
+        path:"/charts",
+        component:{
+            template:"<charts></charts>"
+        }
+    },
+    {
+        path:"/support",
+        component:{
+            template:'<support></support>'
+        }
+    },
+    {
+        path:"/user-home",
+        component:{
+            template:"<user-home></user-home>"
+        }
+    },
+    {
+        path:"/new",
+        component:{
+            template:"<new></new>"
+        }
+    },
+    {
+        path:'/register',
+        component:{
+            template:'<register></register>'
+        }
+    }
+]
+let router = new VueRouter({
+    routes
+})

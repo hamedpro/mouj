@@ -63,10 +63,16 @@ auto_load.load_files = async function (paths,load_mode = "local_max"){
 		
 	}
 }
+function build_components_urls(component_names_array){
+	let results = [];
+	component_names_array.forEach(component_name =>{
+		results.push(`./front-end/components/${component_name}/${component_name}.css`);
+		results.push(`./front-end/components/${component_name}/${component_name}.js`);
+	})
+	return results;
+};
 
-
-let js_files = [
-	"./package.js",
+let dependencies = [
 	"./api/api.js",
 	{urls:{local_max:'./front-end/archive/chart.js'},load_from_cache:true},
 	{urls:{local_max:"./front-end/archive/jquery-3.5.1.js"},load_from_cache:true},
@@ -74,41 +80,35 @@ let js_files = [
 	{urls:{local_max:"./front-end/archive/vue-router.js"},load_from_cache:true},
 	{urls:{local_max:"./front-end/archive/vuex.js"},load_from_cache:true},
 	{urls:{local_max:"./front-end/archive/bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.js"},load_from_cache:true},
-	"./front-end/archive/common.js",
-	'./front-end/components/home/home.js',
-	'./front-end/components/home-option/home-option.js',
-	'./front-end/components/header/header.js',
-	'./front-end/components/admin-dashboard/admin-dashboard.js',
-	'./front-end/components/charts/charts.js',
-	
-	'./front-end/components/support/support.js',
-	'./front-end/components/support/support-option/support-option.js',
-	'./front-end/components/user-home/user-home.js',
-	'./front-end/components/new/new.js',
-	'./front-end/components/new/tip-component/tip.js',
 	"./front-end/archive/loading-bar.js",
-	'./front-end/components/register/register.js',
+	{urls:{local_max:"./front-end/archive/bootstrap-5.0.0-beta2-dist/css/bootstrap.rtl.css"},load_from_cache:true},
+	"./front-end/archive/common.css",
+	"./front-end/archive/loading-bar.css"
+]
+let components_names = [
+	'home',
+	'home-option',
+	'header',
+	'admin-dashboard',
+	'charts',
+	'support',
+	'user-home',
+	'new',
+	'register',
+	'support-option',
+	'tip'
+]
+let js_vue_app_files = [
+	'./front-end/router.js',
+	'./front-end/store.js',
 	'./front-end/app.js'
 ]
 
-
-let css_files = [
-	{urls:{local_max:"./front-end/archive/bootstrap-5.0.0-beta2-dist/css/bootstrap.rtl.css"},load_from_cache:true},
-	"./front-end/archive/common.css",
-	'./front-end/components/home/home.css',
-	'./front-end/components/home-option/home-option.css',
-	'./front-end/components/header/header.css',
-	'./front-end/components/admin-dashboard/admin-dashboard.css',
-	'./front-end/components/charts/charts.css',
-	"./front-end/archive/loading-bar.css",
-	'./front-end/components/support/support.css',
-	'./front-end/components/user-home/user-home.css',
-	'./front-end/components/new/new.css',
-	'./front-end/components/new/tip-component/tip.css',
-	'./front-end/components/register/register.css',
-	'./front-end/components/support/support-option/support-option.css',
-]
-auto_load.load_files(js_files)
-auto_load.load_files(css_files)
-
+auto_load.load_files(dependencies)
+.then(()=>{
+	return auto_load.load_files(build_components_urls(components_names))
+})
+.then(()=>{
+	return auto_load.load_files(js_vue_app_files)
+})
 
