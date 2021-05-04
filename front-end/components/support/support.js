@@ -20,7 +20,7 @@ var template =
 
         <div class="container">
             <div class="row support-option-header mb-2" dir='rtl'>
-                <div class="align-items-center col-2 d-flex justify-content-center"><img src="./archive/bootstrap-icons/link-45deg-white.svg"></div>
+                <div class="align-items-center col-2 d-flex justify-content-center"><img src="./front-end/archive/bootstrap-icons/link-45deg-white.svg"></div>
                 <div class="col p-0"><h1 class='text-light p-2'>اطلاعات خود موسسه</h1></div>
             </div>
             
@@ -54,12 +54,12 @@ var template =
             <hr>
 
             <div class="row support-option-header mb-2" dir='rtl'>
-                <div class="align-items-center col-2 d-flex justify-content-center"><img src="./archive/bootstrap-icons/mailbox2-white.svg"></div>
+                <div class="align-items-center col-2 d-flex justify-content-center"><img src="./front-end/archive/bootstrap-icons/mailbox2-white.svg"></div>
                 <div class="col p-0"><h1 class='text-light p-2'>ثبت درخواست پشتیبانی جدید</h1></div>
             </div>
            
-            <support-option icon_src='./archive/bootstrap-icons/bug-fill-white.svg'><h5 class='text-info'>گزارش اشکال نرم افزاری</h5></support-option>
-            <support-option icon_src='./archive/bootstrap-icons/lightning-fill-white.svg'><h5 class='text-info'>درخواست پشتیبانی سریع</h5></support-option>
+            <support-option icon_src='./front-end/archive/bootstrap-icons/bug-fill-white.svg'><h5 class='text-info'>گزارش اشکال نرم افزاری</h5></support-option>
+            <support-option icon_src='./front-end/archive/bootstrap-icons/lightning-fill-white.svg'><h5 class='text-info'>درخواست پشتیبانی سریع</h5></support-option>
             
         </div>
         

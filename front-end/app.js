@@ -35,7 +35,6 @@ let routes = [
             template:'<support></support>'
         }
     },
-    
     {
         path:"/user-home",
         component:{
