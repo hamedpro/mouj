@@ -37,6 +37,9 @@ html,body{
 #app .dir_rtl{
 	direction: rtl;
 }
+a{
+	text-underline-position: under;
+}
 /* animations */
 /* ------------------------------------ */
 

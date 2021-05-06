@@ -53,16 +53,22 @@ $db_instance->query($query);
 
 $query = "create table if not exists support_messages(
     id int(5) primary key auto_increment,
-    type varchar(50),
-    sender_username varchar(100),
-    message varchar(500),
-    status varchar(50)
+    username varchar(50),
+    subject varchar(100),
+    content varchar(500),
+    status varchar(100)
 )";
 $db_instance->query($query);
 
 $query = "create table if not exists done_works(
     id int(5) primary key auto_increment,
     title varchar(100),
+    content varchar(500) 
+)";
+$db_instance->query($query);
+
+$query = "create table if not exists logs(
+    id int(5) primary key auto_increment,
     content varchar(500) 
 )";
 $db_instance->query($query);

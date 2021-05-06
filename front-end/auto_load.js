@@ -96,7 +96,9 @@ let components_names = [
 	'new',
 	'register',
 	'support-option',
-	'tip'
+	'tip',
+	'support-form',
+	'payment-success'
 ]
 let js_vue_app_files = [
 	'./front-end/router.js',

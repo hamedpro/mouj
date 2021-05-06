@@ -40,6 +40,18 @@ let routes = [
         component:{
             template:'<register></register>'
         }
+    },
+    {
+        path:'/payment-success/:transaction_id',
+        component:{
+            template:'<payment-success></payment-success>'
+        }
+    },
+    {
+        path:'/support-form',
+        component:{
+            template:'<support-form></support-form>'
+        }
     }
 ]
 let router = new VueRouter({

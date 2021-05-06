@@ -1,6 +1,30 @@
 <?php
 include('database.php');
-
+function delete_database(){
+    global $db_instance;
+    $query = "drop database if exists vahed";
+    echo $db_instance->query($query) ? "true" : $db_instance->error;
+}
+function get_table_as_json(){
+    global $db_instance;
+    $table_name = $_REQUEST['table_name'];
+    $query = "select * from $table_name";
+    $results = [];
+    $query_results = $db_instance->query($query);
+    echo mysqli_fetch_assoc($query_results) ? "":$db_instance->error;
+    while($row = mysqli_fetch_assoc($query_results)){
+        $results[] = $row;
+    };
+    echo json_encode($results);
+}
+function get_last_transaction_id(){
+    global $db_instance;
+    $query = "select * from transactions order by id desc limit 1";
+    $query_results = $db_instance->query($query);
+    if(!$query_results) return $db_instance->error;
+    return mysqli_fetch_assoc($query_results)['id'];
+    
+};
 function is_username_available(){
     global $db_instance;
     $username = $_REQUEST['username'];
@@ -26,16 +50,7 @@ function add_new_user(){
         echo $db_instance->error;
     };
 };
-function get_users_as_json(){
-    global $db_instance;
-    $query = "select * from users";
-    $results = [];
-    $query_results = $db_instance->query($query);
-    while($row = mysqli_fetch_assoc($query_results)){
-        $results[] = $row;
-    };
-    echo json_encode($results);
-};
+
 
 function get_value_from_main_table(){
     global $db_instance;
@@ -72,17 +87,18 @@ function new_transaction(){
 };
 function new_issue(){
     global $db_instance;
-    $type = $_REQUEST['type'];
-    $sender_username = $_REQUEST['sender_username'];
-    $message = $_REQUEST['message'];
-
-    $query = "insert into support_messages (type,sender_username,message) values ('$type','$sender_username','$message')";
+    
+    $username = $_REQUEST['username'];
+    $content = $_REQUEST['content'];
+    $subject = $_REQUEST['subject'];
+    $query = "insert into support_messages (username,subject,content) values ('$username','$subject','$content')";
     if($db_instance->query($query)){
         echo 'true';
     }else{
         echo $db_instance->error;
     }
 };
+
 function is_issue_open(){
     global $db_instance;
     $issue_id = (int)$_REQUEST['issue_id'];
@@ -92,16 +108,7 @@ function is_issue_open(){
         return true;
     };
 };
-function get_issues_as_json(){
-    global $db_instance;
-    $query = "select * from support_messages";
-    $results = [];
-    $query_results = $db_instance->query($query);
-    while($row = mysqli_fetch_assoc($query_results)){
-        $results[] = $row;
-    };
-    echo json_encode($results);
-};
+
 function toggle_issue_status(){
     global $db_instance;
     $issue_id = (int)$_REQUEST["issue_id"];
@@ -113,17 +120,7 @@ function toggle_issue_status(){
         $db_instance->query($query);
     }
 };
-function get_done_works_as_json(){
-    global $db_instance;
-    $query = "select * from done_works";
-    $results = [];
-    $query_results = $db_instance->query($query);
-    while($row = mysqli_fetch_assoc($query_results)){
-        $results[] = $row;
-    };
-    echo json_encode($results);
-    
-};
+
 function new_done_work(){
     global $db_instance;
     $title = $_REQUEST['title'];
@@ -136,26 +133,13 @@ function new_done_work(){
         echo $db_instance->error;
     };
 };
-function get_user_transactions_as_json(){
+function get_paid_money(){
     global $db_instance;
-    $username = $_REQUEST['username'];
-    $query = "select * from transactions where username = '$username'";
-    $results = [];
-    if(!$db_instance->query($query)){echo $db_instance->error;};
+    $query = 'select amount from transactions';
     $query_results = $db_instance->query($query);
+    $amount = 0;
     while($row = mysqli_fetch_assoc($query_results)){
-        $results[] = $row;
+        $amount += $row['amount'];
     };
-    echo json_encode($results);
-};
-function get_transactions_as_json(){
-    global $db_instance;
-    $query = "select * from transactions";
-    $results = [];
-    if(!$db_instance->query($query)){echo $db_instance->error;};
-    $query_results = $db_instance->query($query);
-    while($row = mysqli_fetch_assoc($query_results)){
-        $results[] = $row;
-    };
-    echo json_encode($results);
+    echo $amount;
 };

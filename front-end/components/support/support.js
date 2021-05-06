@@ -58,8 +58,7 @@ var template =
                 <div class="col p-0"><h1 class='text-light p-2'>ثبت درخواست پشتیبانی جدید</h1></div>
             </div>
            
-            <support-option icon_src='./front-end/archive/bootstrap-icons/bug-fill-white.svg'><h5 class='text-info'>گزارش اشکال نرم افزاری</h5></support-option>
-            <support-option icon_src='./front-end/archive/bootstrap-icons/lightning-fill-white.svg'><h5 class='text-info'>درخواست پشتیبانی سریع</h5></support-option>
+            <support-option icon_src='./front-end/archive/bootstrap-icons/lightning-fill-white.svg'><a class='text-info' href="#/support-form"><h5>درخواست پشتیبانی سریع</h5></a></support-option>
             
         </div>
         

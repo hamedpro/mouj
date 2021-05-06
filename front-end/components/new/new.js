@@ -24,7 +24,7 @@ var template =
             <option value="vahed">شرکت در طرح واحد</option>
                 <option value="anese">کمک به همین موسسه</option>
             </select>
-            <button class="btn btn-success" @click="submit_changes">ارسال</button>            
+            <button class="btn btn-success" @click="redirect_to_payment_gateway">ارسال</button>            
         </div>
     </div>
     <div class="row justify-content-center">
@@ -54,23 +54,19 @@ Vue.component("new",{
         
     },
     methods:{
-        submit_changes:function(){
+        redirect_to_payment_gateway:function(){
             let user_confirm = confirm('آیا صحت اطلاعات را تایید می کنید؟')
-            if(!user_confirm) return false;
-            //prepar data object for send to our api
-            let data_object = {
-                function_name:"new_transaction",
-                username:$('#new input#username').val(),
-                category:$('#new select#category').val(),
-                amount:$('#new input#amount').val()
-            }
-            take_action(data_object).then(message =>{
-                if(message == "true") {
-                    alert('اطلاعات شما با موفقیت ثبت شد !');
-                }else{
-                    alert('خطایی پیش آمد،لطفا دوباره امتحان کنید');
-                }
-            })
+            if(!user_confirm) return;
+            //redirect to payment gateway =>
+            let amount = $('#amount').val();
+            let username = $('input#username').val();
+            let category = $('select#category').val();
+            
+            /*  payment gateway on success, should redirect to this url =>
+            `./back-end/payment-success-redirector.php?function_name=new_transaction&username=${username}&amount=${amount}&category=${category}`
+            */
+            let generated_url = ``;
+            window.location.replace(generated_url);
         }
     }
 })
