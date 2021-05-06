@@ -1,0 +1,9 @@
+#support-form h1,
+#support-form input,
+#support-form h5{
+    direction:rtl;
+}
+#support-form h1,
+#support-form h5{
+    text-align:center;
+}
