@@ -65,7 +65,7 @@ Vue.component("new",{
             /*  payment gateway on success, should redirect to this url =>
             `./back-end/payment-success-redirector.php?function_name=new_transaction&username=${username}&amount=${amount}&category=${category}`
             */
-            let generated_url = ``;
+            let generated_url = `./back-end/payment-gateway-simulator.php`;
             window.location.replace(generated_url);
         }
     }
