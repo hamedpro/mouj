@@ -1,2 +1,0 @@
-change get last transaction id fetching method and use 
-multi query instead 
