@@ -5,6 +5,12 @@ function delete_database(){
     $query = "drop database if exists vahed";
     echo $db_instance->query($query) ? "true" : $db_instance->error;
 }
+function new_log(){
+    global $db_instance;
+    $content = $_REQUEST['content'];
+    $query = "insert into logs (content) values ('$content')";
+    echo $db_instance->query($query) == true ? 'true' : $db_instance->error;
+}
 function get_table_as_json(){
     global $db_instance;
     $table_name = $_REQUEST['table_name'];

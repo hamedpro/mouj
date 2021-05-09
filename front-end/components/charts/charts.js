@@ -1,88 +1,39 @@
 var template = 
 `
 <div id="charts" class="content-container">
-    <div class="row py-2 mb-2" dir='rtl'>
-        <div class="col d-flex justify-content-center align-items-center">
-            <canvas id='chart1'></canvas>
+    <div class="row" style="height:130px;">
+        <div class="purple">
+            <h2 class="text-light">30000 +</h2>
         </div>
     </div>
-    <div class="row ">
-        <div class="col d-flex justify-content-center align-items-center">
-            <h2 class="text-primary">موضوع اصلی میاد اینجا</h2>
+    <div class="row justify-content-center d-flex">
+        <div class="col-8">
+            <h3 class="text-info rtl-center">تا به حال جه کرده ایم ؟</h3>
         </div>
-        
     </div>
-    <div class="row justify-content-center d-flex" dir='rtl'>
+    <div class="row justify-content-center d-flex">
         <div class="col-10">
-            <h3 class="text-secondary" style="text-align:center;">حامد اینجا است و می خواهد اینجا بماند و اگر اینجا ماندن را دوست داشت می تواند بیشتر هم بماند</h3>
-        </div>
-        
-    </div>
-    <hr class="bg-info m-4">
-    <div class="row py-2 mb-2" dir='rtl'>
-        <div class="col d-flex justify-content-center align-items-center">
-            <canvas id='chart2'></canvas>
+            <h5 class="text-secondary rtl-center">آمار فعالیت ما را در لحظه مشاهده کنید و نظر بدهدید و بیسار و فلان</h5>
         </div>
     </div>
-    <div class="row">
-        <div class="col d-flex justify-content-center align-items-center">
-            <h2 class="text-primary">موضوع اصلی میاد اینجا</h2>
-        </div>
-        
+    <div class="row d-flex justify-content-around flex-wrap" style="height:400px;" id="info_buttons_container">
+        <button class="btn btn-info">hamed</button>
+        <button class="btn btn-info">hamed</button>
+        <button class="btn btn-info">hamed</button>
+        <button class="btn btn-info">hamed</button>
+        <button class="btn btn-info">hamed</button>
     </div>
-    <div class="row justify-content-center d-flex" dir='rtl'>
-        <div class="col-10">
-            <h3 class="text-secondary" style="text-align:center;">حامد اینجا است و می خواهد اینجا بماند و اگر اینجا ماندن را دوست داشت می تواند بیشتر هم بماند</h3>
-        </div>
-        
-    </div>
-
 </div>
 `;
 Vue.component('charts',{
     template,
     created:function(){
         $("#charts").ready(()=>{
-            console.log('hamed')
-            let chart1 = new Chart('chart1',{
-                type:'pie',
-                label:"hamed",
-                data:{
-                    datasets:[{
-                        labels:["good",'bad','new','s','sfsd'],
-                        data:[40,30,20,11,26],
-                        backgroundColor:['blue','brown','purple'],
-                        borderColor:"blue"
-                    }]
-                        
-                },
-                options:{
-                    responsive:false
-                }
-            })
-            let chart2 = new Chart('chart2',{
-                type:'pie',
-                label:"hamed",
-                data:{
-                    datasets:[{
-                        labels:["good",'bad','new'],
-                        data:[20,30,40],
-                        backgroundColor:['blue','green','purple'],
-                        borderColor:"blue"
-                    }]
-                        
-                },
-                options:{
-                    responsive:false
-                }
-            })
-            
+        
         })
     },
     methods:{
-        load_charts(){
-            
-        }
+        
         
     }
 })
