@@ -2,7 +2,7 @@
 import * as hamed from "./hamed.js"; */
 
 //require('chartjs')
-import "bootstrap/dist/css/bootstrap.css";
+/* import "bootstrap/dist/css/bootstrap.css"; */
 
 import Vue from 'vue'
 import App from './App.vue'
@@ -14,8 +14,8 @@ import newTransaction from './components/new.vue'
 import paymentSuccess from './components/payment-success.vue'
 import register from './components/register.vue'
 import supportForm from './components/support-form.vue'
-/* import supportOption from './components/support-option.vue'
- */import support from './components/support.vue'
+/* import supportOption from './components/support-option.vue' */
+import support from './components/support.vue'
 /* import tip from './components/tip.vue' */
 import userHome from './components/user-home.vue'
 import home from "./components/home.vue";
