@@ -1,0 +1,9 @@
+.loading-bar{
+    width:0px;
+    height: 3px;
+    background-color: fuchsia;
+    position: fixed;
+    top:0px;
+    left:0px;
+    z-index:5;
+}
