@@ -12,13 +12,19 @@
 </template>
 
 <script>
+
 export default {
-    name:'home-option',
+    name:'homeOption',
     props:{
         title:String,
         info:String,
         image_src:String,
         link:String
+    },
+    methods:{
+        getImgUrl(pic){
+            return require('../assets/'+pic)
+        }
     }
 }
 </script>

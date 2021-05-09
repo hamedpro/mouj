@@ -19,7 +19,7 @@
 
         <div class="container">
             <div class="row support-option-header mb-2" dir='rtl'>
-                <div class="align-items-center col-2 d-flex justify-content-center"><img src="./front-end/archive/bootstrap-icons/link-45deg-white.svg"></div>
+                <div class="align-items-center col-2 d-flex justify-content-center"><img src="../assets/bootstrap-icons/link-45deg-white.svg"></div>
                 <div class="col p-0"><h1 class='text-light p-2'>اطلاعات خود موسسه</h1></div>
             </div>
             
@@ -53,11 +53,11 @@
             <hr>
 
             <div class="row support-option-header mb-2" dir='rtl'>
-                <div class="align-items-center col-2 d-flex justify-content-center"><img src="./front-end/archive/bootstrap-icons/mailbox2-white.svg"></div>
+                <div class="align-items-center col-2 d-flex justify-content-center"><img src="../assets/bootstrap-icons/mailbox2-white.svg"></div>
                 <div class="col p-0"><h1 class='text-light p-2'>ثبت درخواست پشتیبانی جدید</h1></div>
             </div>
            
-            <support-option icon_src='./front-end/archive/bootstrap-icons/lightning-fill-white.svg'><a class='text-info' href="#/support-form"><h5>درخواست پشتیبانی سریع</h5></a></support-option>
+            <supportOption icon_src='../assets/bootstrap-icons/lightning-fill-white.svg'><a class='text-info' href="#/support-form"><h5>درخواست پشتیبانی سریع</h5></a></supportOption>
             
         </div>
         
@@ -67,7 +67,10 @@
 <script>
 import supportOption from "./support-option.vue"
 export default {
-    name:'support'
+    name:'support',
+    components:{
+        supportOption
+    }
 }
 </script>
 

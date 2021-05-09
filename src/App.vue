@@ -1,20 +1,18 @@
 <template>
   <div id="app">
+    <link rel="stylesheet" href="./assets/bootstrap-5.0.0-beta2-dist/css/bootstrap.css">
     <div class="background"></div>
-    <my-header></my-header>
+    <myHeader></myHeader>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-//import home from "./components/home.vue"
+import myHeader from "./components/header.vue"
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    myHeader
+  }
 }
 </script>
-
-<style>
-#app {
-  
-}
-</style>

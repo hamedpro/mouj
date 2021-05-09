@@ -1,19 +1,22 @@
-let hamed = require('hamed.mjs');
-//window.$ = window.jQuery = require('jquery')
+/* import * as $ from "./assets/jquery-3.5.1.js"
+import * as hamed from "./hamed.js"; */
+
 //require('chartjs')
+import "bootstrap/dist/css/bootstrap.css";
+
 import Vue from 'vue'
 import App from './App.vue'
 import adminDashboard from './components/admin-dashboard.vue'
 import charts from './components/charts.vue'
-import header from './components/header.vue'
-import homeOption from './components/home-option.vue'
-//import newTransaction from './components/new.vue'
+/* import myHeader from './components/header.vue' */
+/* import homeOption from './components/home-option.vue' */
+import newTransaction from './components/new.vue'
 import paymentSuccess from './components/payment-success.vue'
 import register from './components/register.vue'
 import supportForm from './components/support-form.vue'
-import supportOption from './components/support-option.vue'
-import support from './components/support.vue'
-import tip from './components/tip.vue'
+/* import supportOption from './components/support-option.vue'
+ */import support from './components/support.vue'
+/* import tip from './components/tip.vue' */
 import userHome from './components/user-home.vue'
 import home from "./components/home.vue";
 import VueRouter from 'vue-router';
@@ -44,7 +47,7 @@ let routes = [
   },
   {
       path:"/new",
-      component:newx
+      component:newTransaction
   },
   {
       path:'/register',
@@ -59,18 +62,19 @@ let routes = [
       component:supportForm
   }
 ]
+let router = new VueRouter({routes})
 new Vue({
   render: h => h(App),
   router,
   watch:{
-        $route(to,from){
+        /* $route(to,from){
             hamed.update_header_navbar()
 
-        }
+        } */
     },
     created:function(){
-        $(document).ready(()=>{ //make sure about it
+        /* $(document).ready(()=>{ //make sure about it
             hamed.update_header_navbar()
-        })
+        }) */
     }
 }).$mount('#app')
