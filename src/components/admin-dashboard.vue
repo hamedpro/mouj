@@ -11,20 +11,20 @@
 export default {
     name:'adminDashboard',
     methods:{
-        reset_factory(){
+       /*  reset_factory(){
             if(!confirm('are you sure ?')) return;
             take_action({
                 function_name:'delete_database'
             }).then(message =>{
                 alert(message=='true' ? 'done':'error')
             })
-        }
+        } */
     }
 }
 </script>
 
 <style scoped>
-#admin-dashboard .test{
+.test{
     width:100%;
     border-radius: 14px 0 14px 0;
     margin: 30px;

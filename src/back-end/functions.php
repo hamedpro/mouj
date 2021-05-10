@@ -29,7 +29,7 @@ function get_last_transaction_id(){
     $query_results = $db_instance->query($query);
     if(!$query_results) return $db_instance->error;
     return mysqli_fetch_assoc($query_results)['id'];
-    
+    //todo : user multi query instead (to get last inserted row id)
 };
 function is_username_available(){
     global $db_instance;
@@ -67,6 +67,7 @@ function get_value_from_main_table(){
     }else{
         echo $db_instance->error;
     };
+    
 
 };
 function set_value_in_main_table(){
@@ -80,6 +81,7 @@ function set_value_in_main_table(){
     }else{
         echo $db_instance->error;
     };
+    //todo : this should overwrite value if that exists not insert new row
 };
 function new_transaction(){
     global $db_instance;

@@ -58,7 +58,7 @@ export default {
     },
     methods:{
         submit_data:function(){
-            if(!confirm('آیا صحت اطلاعات را تایید می کنید؟')) return 
+            /* if(!confirm('آیا صحت اطلاعات را تایید می کنید؟')) return 
             //build object for send into our api =>
             let data_object = {
                 function_name : 'new_issue',
@@ -74,7 +74,7 @@ export default {
                 }else{
                     alert('مشکلی پیش آمد ، لطفا دوباره امتحان کنید.')
                 };
-            })
+            }) */
 
         }
     }
@@ -82,13 +82,13 @@ export default {
 </script>
 
 <style scoped>
-#support-form h1,
-#support-form input,
-#support-form h5{
+h1,
+input,
+h5{
     direction:rtl;
 }
-#support-form h1,
-#support-form h5{
+h1,
+h5{
     text-align:center;
 }
 </style>

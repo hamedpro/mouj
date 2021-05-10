@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    
     <div class="background"></div>
     <myHeader></myHeader>
     <router-view></router-view>
@@ -23,5 +22,7 @@ export default {
 </script>
 
 <style>
-@import './assets/bootstrap.min.css'
+@import './assets/bootstrap.min.css';
+@import './assets/common.css'
+
 </style>

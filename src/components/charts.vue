@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-#charts .purple{
+.purple{
     width: 49%;
     background-color: purple;
     height: 61px;
@@ -46,14 +46,14 @@ export default {
     justify-content: center;
 
 }
-#charts .purple *{
+.purple *{
     transform:skew(10deg,0deg);
 }
-#charts .rtl-center{
+.rtl-center{
     direction: rtl;
     text-align:center;
 }
-#charts button{
+button{
     height:30px;
     width:initial;
 }

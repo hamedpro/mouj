@@ -21,7 +21,7 @@
     <div class="row justify-content-center mb-2">
         <div class="col-9">
             <div class="tips_container mt-1">
-                <tip v-if="just_english_warning">تنها از حروف انگلیسی و اعداد استفاده کنید</tip>
+                
                 <tip v-if="username_is_taken"><span class="text-danger">کاربر دیگری این نام کاربری را انتخاب کرده است </span></tip>
                 
             </div>
@@ -45,29 +45,29 @@
 import tip from "./tip.vue";
 
 var created = function(){
-    let this_component = this;
+    /* let this_component = this;
     
 
-    $('#register').ready(function(){
-        $("#register input#username_input").on('input',function(){
-            take_action({
-                function_name:'is_username_available',
-                username:$("#register input#username_input").val()
-            }).then(message=>{
-                if(message == "true"){
-                    this_component.username_is_taken = false;
-                    $("#register .submit_button").removeClass('disabled')
-                }else if(message == 'false'){
-                    this_component.username_is_taken = true;
-                    $("#register .submit_button").addClass('disabled')
-                }
-            })
+    document.getElementById('username_input').addEventListener('input',function(){
+        let url ;
+        fetch(url,{
+            method:"POST",
+            body:JSON.stringify({
+                function_name:'is_username_avaiable',
+                username:document.getElementById('username_input').value
+        }).then(response =>{
+            if(response.ok){
+                this_component.username_is_taken = response.json() == "true" ? false : true
+            }
         })
-    })
+        })
+    }) */
+            
+        
 }
 var methods = {
     submit:function(){
-        let user_confirm = confirm('صحت اطلاعات را تایید می کنید ؟');
+        /* let user_confirm = confirm('صحت اطلاعات را تایید می کنید ؟');
         if(!user_confirm) return false; 
         console.log('test');
         //prepare data object for our api =>
@@ -80,7 +80,7 @@ var methods = {
             if(message == "true"){
                 alert('اطلاعات شما با موفقیت ثبت شد.')
             }
-        })
+        }) */
     }
 };
 
@@ -93,7 +93,6 @@ export default {
     methods,
     data:function(){
         return {
-        just_english_warning:false,
         username_is_taken:false
      }
     }
@@ -101,7 +100,7 @@ export default {
 </script>
 
 <style scoped>
-#register .submit_button{
+.submit_button{
     transition:0.4s;
 }
 

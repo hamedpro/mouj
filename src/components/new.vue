@@ -48,29 +48,29 @@ export default {
     },
     methods:{
         redirect_to_payment_gateway:function(){
-            let user_confirm = confirm('آیا صحت اطلاعات را تایید می کنید؟')
+          /*   let user_confirm = confirm('آیا صحت اطلاعات را تایید می کنید؟')
             if(!user_confirm) return;
             //redirect to payment gateway =>
-            let amount = $('#amount').val();
-            let username = $('input#username').val();
-            let category = $('select#category').val();
+            let amount = document.getElementById('amount').value;
+            let username = document.getElementById('username').value;
+            let category = document.getElementById('category').value;
             
-            /*  payment gateway on success, should redirect to this url =>
+             payment gateway on success, should redirect to this url =>
             `./back-end/payment-success-redirector.php?function_name=new_transaction&username=${username}&amount=${amount}&category=${category}`
-            */
+           
             let generated_url = `./back-end/payment-gateway-simulator.php`;
-            window.location.replace(generated_url);
+            window.location.replace(generated_url); */
         }
     }
 }
 </script>
 
 <style scoped>
-#new .title{
+.title{
     direction:rtl;
     text-align:center;
 }
-#new input,select{
+input,select{
     direction: rtl;
 }
 

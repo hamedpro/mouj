@@ -1,5 +1,5 @@
-/* import * as $ from "./assets/jquery-3.5.1.js"
-import * as hamed from "./hamed.js"; */
+//import * as $j from "./static/jquery-3.5.1.js";
+/* import * as hamed from "./hamed.js"; */
 
 //require('chartjs')
 /* import "bootstrap/dist/css/bootstrap.css"; */
@@ -76,5 +76,6 @@ new Vue({
         /* $(document).ready(()=>{ //make sure about it
             hamed.update_header_navbar()
         }) */
+        
     }
 }).$mount('#app')
