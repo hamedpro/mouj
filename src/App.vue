@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <link rel="stylesheet" href="./assets/bootstrap-5.0.0-beta2-dist/css/bootstrap.css">
+    
     <div class="background"></div>
     <myHeader></myHeader>
     <router-view></router-view>
@@ -13,6 +13,15 @@ export default {
   name: 'App',
   components:{
     myHeader
+  },
+  data(){
+    return{
+      publicPath:process.env.BASE_URL
+    }
   }
 }
 </script>
+
+<style>
+@import './assets/bootstrap.min.css'
+</style>

@@ -6,19 +6,19 @@ import * as hamed from "./hamed.js"; */
 
 import Vue from 'vue'
 import App from './App.vue'
-import adminDashboard from './components/admin-dashboard.vue'
-import charts from './components/charts.vue'
-/* import myHeader from './components/header.vue' */
-/* import homeOption from './components/home-option.vue' */
-import newTransaction from './components/new.vue'
-import paymentSuccess from './components/payment-success.vue'
-import register from './components/register.vue'
-import supportForm from './components/support-form.vue'
-/* import supportOption from './components/support-option.vue' */
-import support from './components/support.vue'
-/* import tip from './components/tip.vue' */
-import userHome from './components/user-home.vue'
-import home from "./components/home.vue";
+//import adminDashboard from './components/admin-dashboard.vue'
+//import charts from './components/charts.vue'
+
+
+//import newTransaction from './components/new.vue'
+//import paymentSuccess from './components/payment-success.vue'
+//import register from './components/register.vue'
+//import supportForm from './components/support-form.vue'
+
+//import support from './components/support.vue'
+
+//import userHome from './components/user-home.vue'
+//import home from "./components/home.vue";
 import VueRouter from 'vue-router';
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -27,39 +27,39 @@ Vue.config.productionTip = false
 let routes = [
   {
       path:"/",
-      component:home
+      component:()=>import("./components/home.vue")
   },
   {
       path:"/admin-dashboard",
-      component:adminDashboard
+      component:() => import('./components/admin-dashboard.vue')
   },
   {
       path:"/charts",
-      component:charts
+      component:()=>import('./components/charts.vue')
   },
   {
       path:"/support",
-      component:support
+      component:()=>import('./components/support.vue')
   },
   {
       path:"/user-home",
-      component:userHome
+      component:()=>import('./components/user-home.vue')
   },
   {
       path:"/new",
-      component:newTransaction
+      component:()=>import('./components/new.vue')
   },
   {
       path:'/register',
-      component:register
+      component:()=>import('./components/register.vue')
   },
   {
       path:'/payment-success/:transaction_id',
-      component:paymentSuccess
+      component:()=>import('./components/payment-success.vue')
   },
   {
       path:'/support-form',
-      component:supportForm
+      component:()=>import('./components/support-form.vue')
   }
 ]
 let router = new VueRouter({routes})
