@@ -44,57 +44,55 @@
 <script>
 import tip from "./tip.vue";
 
-var created = function(){
-    /* let this_component = this;
-    
-
-    document.getElementById('username_input').addEventListener('input',function(){
-        let url ;
-        fetch(url,{
-            method:"POST",
-            body:JSON.stringify({
-                function_name:'is_username_avaiable',
-                username:document.getElementById('username_input').value
-        }).then(response =>{
-            if(response.ok){
-                this_component.username_is_taken = response.json() == "true" ? false : true
-            }
-        })
-        })
-    }) */
-            
-        
-}
 var methods = {
     submit:function(){
-        /* let user_confirm = confirm('صحت اطلاعات را تایید می کنید ؟');
+        let user_confirm = confirm('صحت اطلاعات را تایید می کنید ؟');
         if(!user_confirm) return false; 
-        console.log('test');
-        //prepare data object for our api =>
-        let username = $("#register input#username_input").val();
+        
         let data_object = {
             function_name:'add_new_user',
-            username
+            username:document.getElementById('username_input').value
         }
-        take_action(data_object).then(function(message){
-            if(message == "true"){
-                alert('اطلاعات شما با موفقیت ثبت شد.')
+        let url = "http://localhost:80/git/vahed-app/src/back-end/actions.php";
+        fetch(url,{
+            method:"POST",
+            body:JSON.stringify(data_object)
+        }).then(res=>res.json()).then(data=>{
+            if(data == true){
+                alert('با موفقیت انجام شد')
+            }else{
+                alert('مشکلی به وجود آمد،دوباره امتحان کنید')
             }
-        }) */
+        })
     }
 };
 
 export default {
     name:'register',
-    created,
     components:{
         tip
     },
     methods,
     data:function(){
         return {
-        username_is_taken:false
-     }
+            username_is_taken:false
+        }
+    },
+    updated:function(){
+        document.getElementById('username_input').addEventListener('input',function(){
+                console.log('test')
+                let url = "http://localhost:80/git/vahed-app/src/back-end/actions.php" ;
+                fetch(url,{
+                    method:"POST",
+                    body:JSON.stringify({
+                        function_name:'is_username_avaiable',
+                        username:document.getElementById('username_input').value
+                    })
+                }).then(res=>{
+                    console.log(res)
+                    this.username_is_taken = JSON.parse(res) ? false : true
+                })
+            })
     }
 }
 </script>

@@ -12,11 +12,6 @@ export default {
   name: 'App',
   components:{
     myHeader
-  },
-  data(){
-    return{
-      publicPath:process.env.BASE_URL
-    }
   }
 }
 </script>

@@ -57,7 +57,7 @@
                 <div class="col p-0"><h1 class='text-light p-2'>ثبت درخواست پشتیبانی جدید</h1></div>
             </div>
            
-            <supportOption icon_src='../assets/bootstrap-icons/lightning-fill-white.svg'><a class='text-info' href="#/support-form"><h5>درخواست پشتیبانی سریع</h5></a></supportOption>
+            <supportOption icon_src='bootstrap-icons/lightning-fill-white.svg'><a class='text-info' href="#/support-form"><h5>درخواست پشتیبانی سریع</h5></a></supportOption>
             
         </div>
         

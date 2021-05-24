@@ -11,14 +11,19 @@
 export default {
     name:'adminDashboard',
     methods:{
-       /*  reset_factory(){
+        reset_factory(){
             if(!confirm('are you sure ?')) return;
-            take_action({
-                function_name:'delete_database'
-            }).then(message =>{
-                alert(message=='true' ? 'done':'error')
+            fetch('url',{
+                method:'POST',
+                body:JSON.stringify({function_name:'delete_database'})
+            }).then(function(response){
+                if(response.json() == 'true'){
+                    alert('با موفقیت انجام شد')
+                }else{
+                    alert('there was an error');
+                }
             })
-        } */
+        }
     }
 }
 </script>
