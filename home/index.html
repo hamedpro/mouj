@@ -2,44 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home page</title>
     
     <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../common/common.css">
     <script src="../common/vue.js"></script>
-    <script src="../common/components/homeOption/home-option.js"></script>
-    <link rel="stylesheet" href="../common/components/homeOption/home-option.css">
     <link rel="stylesheet" href="../common/components/header/header.css">
     <script src="../common/components/header/header.js"></script>
     <script src="codes.js"></script>
+    <link rel="stylesheet" href="../common/bootstrap.min.css">
 </head>
 <body>
     <div id="app">
+        <div class="mainBackground"></div>
         <myheader></myheader>
         <div class='home content-container'>
-            <homeoption
-                title="شرکت سریع در طرح"
-                info="با حداقل هزار تومان به جمع میلیونی ما بپیوندید !"
-                link="#/new"
-                image_src="../common/bootstrap-icons/tornado-white.svg"
-            ></homeoption>
-            <hr>
-            <homeoption
-                title="تا به حال چه کرده ایم ؟"
-                info="شما میتونید آمار های دقیق فعالیت ما تا این لحظه رو در این قسمت مشاهده کنید"
-                link="#/charts"
-                image_src="../common/bootstrap-icons/pie-chart-white.svg"
-            ></homeoption>
-            <hr>
-            <homeoption
-                title="پشتیبانی"
-                info="درخواست پشتیبانی جدیدی ثبت کنید تا پاسخگوی شما باشیم"
-                link="#/support"
-                image_src="../common/bootstrap-icons/envelope-white.svg"
-            ></homeoption>
+            <div class="home-option row">
+                <div class="col-3 d-flex justify-content-center align-items-center" style='margin-right:1%;'>
+                    <img src="../common/bootstrap-icons/tornado-white.svg" class='option-icon'>
+                </div>
+                <div class="col mt-3">
+                    <h2 class="title"><a href="../payment/newTransaction/index.html"  class="text-info">شرکت سریع در طرح</a></h2>
+                    <h4 class='text-secondary info'>با حداقل هزار تومان به جمع میلیونی ما بپیوندید !</h4>
+                </div>
+            </div>
+            
             <hr>
             
+            <div class="home-option row">
+                <div class="col-3 d-flex justify-content-center align-items-center" style='margin-right:1%;'>
+                    <img src="../common/bootstrap-icons/pie-chart-white.svg" class='option-icon'>
+                </div>
+                <div class="col mt-3">
+                    <h2 class="title"><a href="../charts/index.html"  class="text-info">تا به حال چه کرده ایم ؟</a></h2>
+                    <h4 class='text-secondary info'>شما میتونید آمار های دقیق فعالیت ما تا این لحظه رو در این قسمت مشاهده کنید</h4>
+                </div>
+            </div>
+            
+            <hr>
+            <div class="home-option row">
+                <div class="col-3 d-flex justify-content-center align-items-center" style='margin-right:1%;'>
+                    <img src="../common/bootstrap-icons/envelope-white.svg" class='option-icon'>
+                </div>
+                <div class="col mt-3">
+                    <h2 class="title"><a href="../support/index.html"  class="text-info">پشتیبانی</a></h2>
+                    <h4 class='text-secondary info'>درخواست پشتیبانی جدیدی ثبت کنید تا پاسخگوی شما باشیم</h4>
+                </div>
+            </div>
+            
+            <hr>
+
         </div>
     </div>
     

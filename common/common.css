@@ -54,8 +54,38 @@ a{
 	opacity:1;
 }
 
+.mainBackground{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-color: rgb(36,36,38);
+}
 
 
 
-
+/* 
+	components styles
+*/
+.home-option{
+    direction:rtl;
+}
+.home-option .option-icon{
+    width: 72%;
+}
+.home-option .info{
+    max-width: 85%;
+}
+.home-option .title{
+    max-width: 85%;
+}
+.home-option .title a{
+	text-decoration:none
+}
+.home-option .title a:hover{
+	text-decoration:underline;
+	text-underline-position:under;
+	    text-underline-offset: 2px;
+}
 
