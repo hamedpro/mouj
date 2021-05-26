@@ -7,3 +7,21 @@ const tester = {
     },
     
 }
+var hamed = {}
+hamed.compareObjects = function(obj1,obj2){
+    //todo : not tested completely
+    for(i in obj1){
+        if(obj1[i] != obj2[i]){
+            return false
+        }
+    }
+    for(i in obj2){
+        if(obj1[i] != obj2[i]){
+            return false
+        }
+    }
+
+    return true
+    
+}
+
