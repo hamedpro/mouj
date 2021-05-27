@@ -14,8 +14,6 @@ function redirect_to_payment_gateway (){
 }
 
 window.onload = function(){
-    new Vue({
-        el:"#app"
-    })
+    
     document.getElementById("redirect_to_payment_gateway").onclick = redirect_to_payment_gateway
 }
