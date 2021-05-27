@@ -7,12 +7,24 @@
     <title>support page</title>
     <script src="codes.js"></script>
     <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../common/common.css">
+    <link rel="stylesheet" href="../common/components/header/header.css">
     <script src="../common/componise.js"></script>
     <link rel="stylesheet" href="../common/components/supportOption/support-option.css">
     <link rel="stylesheet" href="../common/bootstrap.min.css">
     
+
+    
 </head>
 <body>
+
+    <div class="mainBackground"></div>
+    <script>
+        componise.renderComponent({
+            componentName:"myheader",
+            personIconSrc:"../common/bootstrap-icons/person-check-fill-white.svg"
+        })
+    </script>
     <div id="support" class="content-container">
         <div class="row justify-content-center align-items-center mt-3">
             <div class="col-6">
@@ -33,7 +45,7 @@
 
         <div class="container">
             <div class="row support-option-header mb-2" dir='rtl'>
-                <div class="align-items-center col-2 d-flex justify-content-center"><img src="../assets/bootstrap-icons/link-45deg-white.svg"></div>
+                <div class="align-items-center col-2 d-flex justify-content-center"><img src="../common/bootstrap-icons/link-45deg-white.svg"></div>
                 <div class="col p-0"><h1 class='text-light p-2'>اطلاعات خود موسسه</h1></div>
             </div>
             
@@ -67,7 +79,7 @@
             <hr>
 
             <div class="row support-option-header mb-2" dir='rtl'>
-                <div class="align-items-center col-2 d-flex justify-content-center"><img src="../assets/bootstrap-icons/mailbox2-white.svg"></div>
+                <div class="align-items-center col-2 d-flex justify-content-center"><img src="../common/bootstrap-icons/mailbox2-white.svg"></div>
                 <div class="col p-0"><h1 class='text-light p-2'>ثبت درخواست پشتیبانی جدید</h1></div>
             </div>
            
@@ -75,8 +87,8 @@
             <script>
                 componise.renderComponent({
                     componentName:"support-option",
-                    iconSrc:"bootstrap-icons/lightning-fill-white.svg",
-                    slot:'<a class="text-info" href="#/support-form"><h5>درخواست پشتیبانی سریع</h5></a>'
+                    iconSrc:"../common/bootstrap-icons/lightning-fill-white.svg",
+                    slot:'<a class="text-info" href="./supportForm/index.html"><h5>درخواست پشتیبانی سریع</h5></a>'
                 })
             </script>
 

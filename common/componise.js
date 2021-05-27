@@ -34,7 +34,7 @@ componise.renderComponent = function(object){
             <div class="col d-flex align-items-center title overflow-hidden"> 
                 <h2 class='text-light d-inline url'>vahed</h2>
             </div>
-            <a href='#/user-home' class="col-2 d-flex justify-content-center align-items-center">
+            <a href='' class="col-2 d-flex justify-content-center align-items-center">
                 <img src="${object.personIconSrc}" class="person_icon">
             </a>
         </div>
