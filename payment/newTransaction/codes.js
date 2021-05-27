@@ -7,14 +7,10 @@ function redirect_to_payment_gateway (){
     let category = document.getElementById('category').value;
     //let info = document.getElementById('info').value;
     let info = "empty";
-    console.log("amount"+amount)
-    console.log("username"+username)
-    console.log("category"+category)
-    console.log("info"+info)
     
 
-    let generated_url = `./back-end/payment-gateway-simulator.php`;
-    //window.location.replace(generated_url);
+    let generated_url = `../paymentGateway/index.html`;
+    window.location.replace(generated_url);
 }
 
 window.onload = function(){

@@ -24,4 +24,13 @@ hamed.compareObjects = function(obj1,obj2){
     return true
     
 }
-
+hamed.getArgsFromUrl = function(url){
+    var query = url.split('?')[1];
+    queryPart = query.split('&')
+    args = {}
+    queryPart.forEach(e =>{
+        c = e.split('=')
+        args[c[0]] = c[1]
+    })
+    return args
+}

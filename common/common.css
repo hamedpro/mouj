@@ -25,16 +25,16 @@ html,body{
 	padding: 0px;
 	background-color: rgb(36,36,38);
 }
-#app .content-container{
+.content-container{
 	position: relative;
 	width: auto;
 	overflow-y: hidden;
 	overflow-x: hidden;
 }
-#app .tips_container{
+.tips_container{
 	direction:rtl ;
 }
-#app .dir_rtl{
+.dir_rtl{
 	direction: rtl;
 }
 a{

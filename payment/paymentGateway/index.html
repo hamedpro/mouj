@@ -2,65 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>new Transaction</title>
-    <link rel="stylesheet" href="../../common/common.css">
-    <script src="../../common/vue.js"></script>
-    <script src="../../common/components/tip/tip.js"></script>
-    <link rel="stylesheet" href="../../common/components/tip/tip.css">
-    <link href="styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../common/components/header/header.css">
-    <script src="../../common/components/header/header.js"></script>
-    
+    <title>payment gateway</title>
     <link rel="stylesheet" href="../../common/bootstrap.min.css">
-    <script src="../api.js"></script>
-    <script src="codes.js"></script>
-
+    <script src="./codes.js"></script>
 </head>
 <body>
-    <div id="app">
-        <div class="mainBackground"></div>
-        <myheader personicon="../../common/bootstrap-icons/person-check-fill-white.svg"></myheader>
-        <div id="new" class="content-container">
-            <div class="row justify-content-center align-items-center my-4">
-                <div class="col-8 ">
-                    <h1 class="text-light title" dir='rtl'>شما هم با شرکت در این طرح مسلمانی را خوشحال کنید !</h1>
-                </div>
-                
-            </div>
-            <div class="row justify-content-center align-items-center">
-                <div class="col-9 d-grid gap-2" style='direction:rtl;'>
-                    <label for="username" class="text-light">نام کاربری :</label>
-                    <input type="text" id="username" class="form-control border-0">
-                    <div class="tips_container">
-                        <tip imgsrc="../../common/bootstrap-icons/lightbulb-white.svg">اگر کاربر سایت نیستید یا نام خود را به فارسی بنویسید یا برای ثبت نام فوق سریع <a href="#/register">اینجا</a> کلیک کنید.</tip>
-                    </div>
-        
-                    <label for="amount" class="text-light">مبلغ به ریال :</label>
-                    <input type="number" id="amount" class="form-control border-0" placeholder="مثلا 20000">
-                    <label for="category" class="text-light">نوع کمک :</label>
-                    <select id="category" class="form-select border-0">
-                    
-                    <option value="mouj">شرکت در طرح واحد</option>
-                        <option value="anese">کمک به همین موسسه</option>
-                    </select>
-                    <button class="btn btn-success" id="redirect_to_payment_gateway">ارسال</button>            
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-9">
-                    <hr class="bg-light">
-                </div>
-            </div>
-            <div class="row justify-content-center align-items-center">
-                <div class="col-9 tips_container">
-                    <tip imgsrc="../../common/bootstrap-icons/lightbulb-white.svg">ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید! <a href="#/register">اطلاعات بیشتر</a></tip>
-                </div>
-            </div>
-        
-        </div>
-    </div>
-    
+    <button class="btn btn-success" id="pay_button">pay</button>
 </body>
 </html>
