@@ -7,6 +7,7 @@
     <title>support form</title>
     <script src="codes.js"></script>
     <link href="styles.css" rel="stylesheet">
+    <script src="../../common/componise.js"></script>
 </head>
 <body>
     <div id="support-form" class="content-container">
@@ -47,7 +48,14 @@
                 </div>
                 <hr class="bg-light">
                 <div class="row tips_container">
-                    <tip>درخواست پشتیبانی شما ان شاء الله به زودی بررسی خواهد شد</tip>
+                    <script>
+                        componise.renderComponent({
+                            componentName:"tip",
+                            iconSrc:'../../common/bootstrap-icons/lightbulb-white.svg',
+                            slot:'درخواست پشتیبانی شما ان شاء الله به زودی بررسی خواهد شد'
+                        })
+                    </script>
+                    
                 </div>
             </div>
         </div>

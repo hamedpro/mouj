@@ -7,6 +7,7 @@
     <title>admin dashboard</title>
     <script src="codes.js"></script>
     <link href="styles.css" rel="stylesheet">
+    <script src="../../common/componise.js"></script>
 </head>
 <body>
     <div class="content-container" id="register">
@@ -32,8 +33,14 @@
             <div class="col-9">
                 <div class="tips_container mt-1">
                     
-                    <tip v-if="username_is_taken"><span class="text-danger">کاربر دیگری این نام کاربری را انتخاب کرده است </span></tip>
-                    
+                    <script>
+                        componise.renderComponent({
+                            componentName:"tip",
+                            iconSrc:'../../common/bootstrap-icons/lightbulb-white.svg',
+                            slot:'<span class="text-danger">کاربر دیگری این نام کاربری را انتخاب کرده است </span>'
+                        })
+                    </script>
+                
                 </div>
             </div>
         </div>
@@ -44,7 +51,14 @@
         </div>
         <div class="row justify-content-center mt-1">
             <div class="col-9 tips_container">
-                <tip>هر لحظه که سوالی به ذهنتان خطور کرد با ما در میان بگذارید <a href="#/support">اطلاعات بیشتر</a></tip>
+                
+                <script>
+                    componise.renderComponent({
+                        componentName:"tip",
+                        iconSrc:'../../common/bootstrap-icons/lightbulb-white.svg',
+                        slot:'هر لحظه که سوالی به ذهنتان خطور کرد با ما در میان بگذارید <a href="#/support">اطلاعات بیشتر</a>'
+                    })
+                </script>
             </div>
         </div>
         

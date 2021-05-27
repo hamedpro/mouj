@@ -11,17 +11,23 @@
     <link rel="stylesheet" href="../../common/components/tip/tip.css">
     <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="../../common/components/header/header.css">
-    <script src="../../common/components/header/header.js"></script>
+    
     
     <link rel="stylesheet" href="../../common/bootstrap.min.css">
     <script src="../api.js"></script>
     <script src="codes.js"></script>
+    <script src="../../common/componise.js"></script>
 
 </head>
 <body>
     <div id="app">
         <div class="mainBackground"></div>
-        <myheader personicon="../../common/bootstrap-icons/person-check-fill-white.svg"></myheader>
+        <script>
+            componise.renderComponent({
+                componentName:"myheader",
+                personIconSrc:"../../common/bootstrap-icons/person-check-fill-white.svg"
+            })
+        </script>
         <div id="new" class="content-container">
             <div class="row justify-content-center align-items-center my-4">
                 <div class="col-8 ">
@@ -34,7 +40,14 @@
                     <label for="username" class="text-light">نام کاربری :</label>
                     <input type="text" id="username" class="form-control border-0">
                     <div class="tips_container">
-                        <tip imgsrc="../../common/bootstrap-icons/lightbulb-white.svg">اگر کاربر سایت نیستید یا نام خود را به فارسی بنویسید یا برای ثبت نام فوق سریع <a href="#/register">اینجا</a> کلیک کنید.</tip>
+                        <script>
+                            componise.renderComponent({
+                                componentName:"tip",
+                                iconSrc:'../../common/bootstrap-icons/lightbulb-white.svg',
+                                slot:'اگر کاربر سایت نیستید یا نام خود را به فارسی بنویسید یا برای ثبت نام فوق سریع <a href="#/register">اینجا</a> کلیک کنید.'
+                            })
+                        </script>
+
                     </div>
         
                     <label for="amount" class="text-light">مبلغ به ریال :</label>
@@ -55,7 +68,14 @@
             </div>
             <div class="row justify-content-center align-items-center">
                 <div class="col-9 tips_container">
-                    <tip imgsrc="../../common/bootstrap-icons/lightbulb-white.svg">ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید! <a href="#/register">اطلاعات بیشتر</a></tip>
+                    <script>
+                        componise.renderComponent({
+                            componentName:"tip",
+                            iconSrc:'../../common/bootstrap-icons/lightbulb-white.svg',
+                            slot:'ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید! <a href="#/register">اطلاعات بیشتر</a>'
+                        })
+                    </script>
+                   
                 </div>
             </div>
         

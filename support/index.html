@@ -7,6 +7,10 @@
     <title>support page</title>
     <script src="codes.js"></script>
     <link href="styles.css" rel="stylesheet">
+    <script src="../common/componise.js"></script>
+    <link rel="stylesheet" href="../common/components/supportOption/support-option.css">
+    <link rel="stylesheet" href="../common/bootstrap.min.css">
+    
 </head>
 <body>
     <div id="support" class="content-container">
@@ -67,8 +71,15 @@
                 <div class="col p-0"><h1 class='text-light p-2'>ثبت درخواست پشتیبانی جدید</h1></div>
             </div>
            
-            <supportOption icon_src='bootstrap-icons/lightning-fill-white.svg'><a class='text-info' href="#/support-form"><h5>درخواست پشتیبانی سریع</h5></a></supportOption>
-            
+         
+            <script>
+                componise.renderComponent({
+                    componentName:"support-option",
+                    iconSrc:"bootstrap-icons/lightning-fill-white.svg",
+                    slot:'<a class="text-info" href="#/support-form"><h5>درخواست پشتیبانی سریع</h5></a>'
+                })
+            </script>
+
         </div>
         
     </div>   
