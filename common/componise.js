@@ -41,4 +41,27 @@ componise.renderComponent = function(object){
         `;
         document.write(template)
     }
+    if(object.componentName == "timelineBox"){
+        var t = `
+        <div class="timelineBox">
+        <div class="timelineIcon"></div>
+        <h6 class="timelineTitle">commit #er54</h6>
+        <div class="timelineLine"></div>
+        <div class="timelineItemsContainer">
+        `
+        object.items.forEach(item=>{
+            t+=`
+            <div class="timelineItem">
+                <h5 class="text-light mb-1">${item.title}</h5>
+                <h6 class="text-info">${item.content}</h6>
+            </div>
+            `
+        });
+        
+        t+=`
+            </div>
+        </div>
+        `
+        document.write(t)
+    }
 }
