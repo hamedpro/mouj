@@ -1,0 +1,7 @@
+.title{
+    direction:rtl;
+    text-align:center;
+}
+input,select{
+    direction: rtl;
+}

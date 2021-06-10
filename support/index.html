@@ -1,4 +1,14 @@
-<template>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>support page</title>
+    <script src="codes.js"></script>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
     <div id="support" class="content-container">
         <div class="row justify-content-center align-items-center mt-3">
             <div class="col-6">
@@ -61,29 +71,6 @@
             
         </div>
         
-    </div>
-</template>
-
-<script>
-import supportOption from "./support-option.vue"
-export default {
-    name:'support',
-    components:{
-        supportOption
-    }
-}
-</script>
-
-<style scoped>
-#support{
-    direction: rtl;
-}
-
-#support #new_support_ticket{
-    width:100%
-}
-
-#support .support-option-header img {
-    height: 35px;
-}
-</style>
+    </div>   
+</body>
+</html>

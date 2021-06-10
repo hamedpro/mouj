@@ -1,0 +1,9 @@
+h1,
+input,
+h5{
+    direction:rtl;
+}
+h1,
+h5{
+    text-align:center;
+}
