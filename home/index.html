@@ -5,36 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home page</title>
-    <script src="codes.js"></script>
+    
     <link href="styles.css" rel="stylesheet">
+    <script src="../common/vue.js"></script>
+    <script src="../common/components/homeOption/home-option.js"></script>
+    <link rel="stylesheet" href="../common/components/homeOption/home-option.css">
+    <link rel="stylesheet" href="../common/components/header/header.css">
+    <script src="../common/components/header/header.js"></script>
+    <script src="codes.js"></script>
 </head>
 <body>
-    <div class='home content-container'>
-    
-        <homeOption
-            title="شرکت سریع در طرح"
-            info="با حداقل هزار تومان به جمع میلیونی ما بپیوندید !"
-            link="#/new"
-            image_src="bootstrap-icons/tornado-white.svg"
-        ></homeOption>
-        <hr>
-        <homeOption
-            title="تا به حال چه کرده ایم ؟"
-            info="شما میتونید آمار های دقیق فعالیت ما تا این لحظه رو در این قسمت مشاهده کنید"
-            link="#/charts"
-            image_src="bootstrap-icons/pie-chart-white.svg"
-        ></homeOption>
-        <hr>
-        <homeOption
-            title="پشتیبانی"
-            info="درخواست پشتیبانی جدیدی ثبت کنید تا پاسخگوی شما باشیم"
-            link="#/support"
-            image_src="bootstrap-icons/envelope-white.svg"
-        ></homeOption>
-        <hr>
-        
-    
-        
+    <div id="app">
+        <myheader></myheader>
+        <div class='home content-container'>
+            <homeoption
+                title="شرکت سریع در طرح"
+                info="با حداقل هزار تومان به جمع میلیونی ما بپیوندید !"
+                link="#/new"
+                image_src="../common/bootstrap-icons/tornado-white.svg"
+            ></homeoption>
+            <hr>
+            <homeoption
+                title="تا به حال چه کرده ایم ؟"
+                info="شما میتونید آمار های دقیق فعالیت ما تا این لحظه رو در این قسمت مشاهده کنید"
+                link="#/charts"
+                image_src="../common/bootstrap-icons/pie-chart-white.svg"
+            ></homeoption>
+            <hr>
+            <homeoption
+                title="پشتیبانی"
+                info="درخواست پشتیبانی جدیدی ثبت کنید تا پاسخگوی شما باشیم"
+                link="#/support"
+                image_src="../common/bootstrap-icons/envelope-white.svg"
+            ></homeoption>
+            <hr>
+            
+        </div>
     </div>
+    
 </body>
 </html>
