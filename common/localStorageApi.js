@@ -1,7 +1,23 @@
+var api = {}
 var api = {
     php:{},
     localStorage:{}
 }
+api.localStorage.newSupportMessage = function(username,subject,content,status){
+    newSM = {
+        username,
+        subject,
+        content,
+        status
+    }
+    var currentSMs = []
+    if(localStorage.getItem('mouj-supportMessages') != undefined){
+        currentSMs =JSON.parse(localStorage.getItem('mouj-supportMessages'))
+    }
+    currentSMs.push(newSM)
+    localStorage.setItem('mouj-supportMessages',JSON.stringify(currentSMs))
+}
+
 api.localStorage.newTransaction = function(username,amount,info,category){
     newTr = {
         username,
@@ -21,11 +37,3 @@ api.localStorage.newTransaction = function(username,amount,info,category){
 api.localStorage.getTransactions = function(){
     return JSON.parse(localStorage.getItem('mouj-transactions'))
 }
-api.php.newTransaction = function(username,amount,info,category){
-    
-}
-
-var tests = {}
-/* tests.localStorage.newTransaction = function(){
-    //api.localStorage.newTransaction()
-} */
