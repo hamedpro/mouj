@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>charts page</title>
     <script src="../common/common.js"></script>
     <script src="codes.js"></script>
-    <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="../common/common.css">
+    <link href="styles.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="../common/bootstrap.min.css">
     <link rel="stylesheet" href="../common/components/header/header.css">
     <script src="../common/componise.js"></script>
-    
+    <script src="../common/svgRenderer.js"></script>
 </head>
 <body>
     <div class="mainBackground"></div>
@@ -39,7 +39,20 @@
         <h1 class="text-light">پروژه جاری :</h1>
     </div>
     <div class="lastDoneWork">
+        <div class="icon">
+            <script>
+                svgRenderer.render('tsunami-white');
+            </script>
 
+        </div>
+        <h2 class="text-light title">طرح پاییز</h2>
+        <label for="progress" id="progressLabel">25000 از 30000</label>
+        <div class="progress" id="progress">
+            <div class="progressbar bg-success w-25"></div>
+        </div>
+        <div class="items">
+            <div>متن آن</div>
+        </div>
     </div>
     <div class="row timelineBoxesTitle mb-3 mt-3">
         <h1 class="text-light">لیست تمام فعالیت ها :</h1>

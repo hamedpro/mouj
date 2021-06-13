@@ -38,6 +38,10 @@ html,body{
 .dir_rtl{
 	direction: rtl;
 }
+.rtl-center{
+	text-align:center;
+	direction:rtl;
+}
 a{
 	text-underline-position: under;
 }

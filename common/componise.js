@@ -44,7 +44,11 @@ componise.renderComponent = function(object){
     if(object.componentName == "timelineBox"){
         var t = `
         <div class="timelineBox">
-        <div class="timelineIcon"></div>
+        <div class="timelineIcon">
+            <script>
+                svgRenderer.render('tsunami-white');
+            </script>
+        </div>
         <h6 class="timelineTitle">commit #er54</h6>
         <div class="timelineLine"></div>
         <div class="timelineItemsContainer">
