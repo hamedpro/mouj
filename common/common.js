@@ -1,14 +1,13 @@
-const tester = {
-    failed:function(m){
-        console.log("[failed]: "+m);
-    },
-    passed:function(m){
-        console.log("[passed]: "+m);
-    },
-    
-}
 var hamed = {}
-hamed.compareObjects = function(obj1,obj2){
+hamed.tester = {
+    failed: function (m) {
+        console.log("[failed]: " + m);
+    },
+    passed: function (m) {
+        console.log("[passed]: " + m);
+    }
+}
+hamed.compareSimpleObjects = function(obj1,obj2){
     //todo : not tested completely
     for(i in obj1){
         if(obj1[i] != obj2[i]){
@@ -20,17 +19,5 @@ hamed.compareObjects = function(obj1,obj2){
             return false
         }
     }
-
     return true
-    
-}
-hamed.getArgsFromUrl = function(url){
-    var query = url.split('?')[1];
-    queryPart = query.split('&')
-    args = {}
-    queryPart.forEach(e =>{
-        c = e.split('=')
-        args[c[0]] = c[1]
-    })
-    return args
 }

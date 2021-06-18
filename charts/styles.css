@@ -132,6 +132,7 @@ transform: translateX(-50%);
 .lastDoneWork .progress{
     position: absolute;
     top: 199px;
+    direction: rtl;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 85%;

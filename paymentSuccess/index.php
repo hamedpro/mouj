@@ -30,7 +30,7 @@
                 <h4 class="text-secondary" dir="rtl">نام کاربری:</h4>
             </div>
             <div class="col">
-                <h2 class="text-warning" dir="rtl" id="username">loading...</h2>
+                <h2 class="text-warning" dir="rtl" id="username"><?php echo $_REQUEST['username'] ?></h2>
             </div>
         </div>
         <div class="row mx-2" dir="rtl">
@@ -38,7 +38,7 @@
                 <h4 class="text-secondary" dir="rtl">مبلغ:</h4>
             </div>
             <div class="col">
-                <h2 class="text-warning" dir="rtl" id="amount">loading...</h2>
+                <h2 class="text-warning" dir="rtl" id="amount"><?php echo $_REQUEST['amount'] ?></h2>
             </div>
         </div>
         <div class="row mx-2" dir="rtl">
@@ -46,7 +46,7 @@
                 <h4 class="text-secondary" dir="rtl">کد تراکنش:</h4>
             </div>
             <div class="col">
-                <h2 class="text-warning" dir="rtl" id="info">loading...</h2>
+                <h2 class="text-warning" dir="rtl" id="info"><?php echo $_REQUEST['info'] ?></h2>
             </div>
         </div>
         <div class="row mx-2" dir="rtl">
@@ -54,7 +54,7 @@
                 <h4 class="text-secondary" dir="rtl">برای:</h4>
             </div>
             <div class="col">
-                <h2 class="text-warning" dir="rtl" id="category">loading...</h2>
+                <h2 class="text-warning" dir="rtl" id="category"><?php echo $_REQUEST['category']</h2>
             </div>
         </div>
         <div class="row m-3" dir="rtl">
