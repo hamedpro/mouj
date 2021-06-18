@@ -38,7 +38,9 @@ $db->query($query);
 $query = "create table if not exists plans(
     id int(5) primary key auto_increment,
     title varchar(100),
-    content varchar(500) 
+    content varchar(500),
+    starter_username varchar(100),
+    status varchar(100)
 )";
 $db->query($query);
 
@@ -120,24 +122,16 @@ class api{
     }
     //ok
     
-    public function new_support_message($username,$content,$subject){
-        $query = "insert into support_messages (username,subject,content) values ('$username','$subject','$content')";
+    public function new_support_message($username,$subject,$content){
+        $query = "insert into support_messages (username,subject,content,status) values ('$username','$subject','$content','open')";
         if($this->db->query($query)){
             return true;
         }else{
             return $this->db->error;
         }
     }
-    
-    public function is_support_message_open($support_message_id){
-        $query = "select status from support_messages where id = $support_message_id";
-        if(mysqli_fetch_assoc($this->db->query($query))['status'] == 'open'){
-            return true;
-        };
-    }
-    
     public function toggle_support_message_status($support_message_id){
-        if($this->is_support_message_open()){
+        if($this->is_support_message_open($support_message_id)){
             $query = "update support_messages set status = 'closed' where id = $support_message_id";
             $this->db->query($query);
         }else{
@@ -145,29 +139,45 @@ class api{
             $this->db->query($query);
         }
     }
+    public function is_support_message_open($support_message_id){
+        $query = "select status from support_messages where id = $support_message_id";
+        if(mysqli_fetch_assoc($this->db->query($query))['status'] == 'open'){
+            return true;
+        }else{
+            return false;
+        };
+    }
+    
+    //ok
     public function delete_all_support_messages(){
-
+        drop_table($this->db,'support_messages');
     }
     public function delete_support_message($support_message_id){
-
+        $q = "delete from support_messages where id = $support_message_id";
+        return $this->db->query($q);
     }
     public function get_support_messages(){
-
+        return get_table_as_json($this->db,'support_messages');
     }
-    public function new_plan(){
-
+    //from here ->
+    public function new_plan($title,$content,$starter_username){
+        $q = "insert into plans(title,content,starter_username,status) values ('$title','$content','$starter_username','open')";
+        return $this->db->query($q);
     }
     public function finish_plan($plan_id){
-
+        $q = "update plans set status = 'finished' where id=$plan_id";
+        return $this->db->query($q);
     }
     public function get_plan_data($plan_id){
-
+        $q = "select * from plans where id = $plan_id";
+        $q_results = $this->db->query($q);
+        return json_encode(mysqli_fetch_assoc($q_results));
     }
     public function update_plan(){
 
     }
-    public function reset_all_plans(){
-
+    public function delete_all_plans(){
+        drop_table($this->db,'plans');
     }
     
 }
