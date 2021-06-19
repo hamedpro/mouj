@@ -41,7 +41,7 @@ var updateLastDoneWork = function(){
                         content:'مبلغ: '+i.amount+' ریال'+' / '+'دسته مقصد: '+(i.category == "mouj"? 'طرح موج':'گروه آنسه الشهدا')
                     })
                 })
-                document.getElementById('timelineBoxesContainer').innerHTML = document.getElementById('timelineBoxesContainer').innerHTML+componise.renderComponent({
+                document.getElementById('timelineBoxesContainer').innerHTML+=componise.renderComponent({
                     title,
                     componentName:'timelineBox',
                     items

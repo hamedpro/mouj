@@ -65,10 +65,10 @@ $api->new_transaction([
         </div>
         <div class="row mx-2" dir="rtl">
             <div class="col-4">
-                <h4 class="text-secondary" dir="rtl">کد تراکنش:</h4>
+                <h4 class="text-secondary" dir="rtl">شماره طرح: </h4>
             </div>
             <div class="col">
-                <h2 class="text-warning" dir="rtl" id="info"><?php echo $info ?></h2>
+                <h2 class="text-warning" dir="rtl" id="info"><?php echo $plan_id ?></h2>
             </div>
         </div>
         <div class="row mx-2" dir="rtl">
@@ -76,15 +76,15 @@ $api->new_transaction([
                 <h4 class="text-secondary" dir="rtl">برای:</h4>
             </div>
             <div class="col">
-                <h2 class="text-warning" dir="rtl" id="category"><?php echo $category ?></h2>
+                <h2 class="text-warning" dir="rtl" id="category"><?php echo $category=="mouj"? 'طرح موج':'موسسه آنسه الشهدا' ?></h2>
             </div>
         </div>
         <div class="row m-3" dir="rtl">
             <div class="col-4 d-grid p-1">
-                <a class="btn btn-outline-danger btn-sm" href="../support/index.html">گزارش خطا</a>
+                <a class="btn btn-outline-danger btn-sm" href="../support">گزارش خطا</a>
             </div>
             <div class="col d-grid p-1">
-                <a class="btn btn-success" href="../home/index.html">بازگشت به صفحه اصلی</a>
+                <a class="btn btn-success" href="../home">بازگشت به صفحه اصلی</a>
             </div>
         </div>
 </body>    
