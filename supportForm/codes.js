@@ -3,25 +3,17 @@ submit_data = function(){
     var username=document.getElementById('username').value;
     var subject=document.getElementById('subject').value;
     var content=document.getElementById('content').value;
-    api.localStorage.newSupportMessage(username,subject,content,false)
-    alert('با موفقیت انجام شد.')
-    window.location.replace('../index.html')
-    /* let url="http://localhost:80/git/vahed-app/src/back-end/actions.php";
-    fetch(url,{
-        method:"POST",
-        body:JSON.stringify(data_object)
-    }).then(res=>res.text())
-    .then(function(response){
-        console.log(response)
-        if(response == "true"){
-            alert('با موفقیت انجام شد.')
-            window.location.assign('#/support');
-        }else{
-            alert('مشکلی وجود داشت،دوباره امتحان کنید')
+
+    fetch('../api/requests.php?func_name=new_support_message&subject='+subject+'&content='+content+'&username='+username)
+    .then(res=>res.text())
+    .then(res=>{
+        console.log(res)
+        if(res == "true"){
+            alert('با موفقیت انجام شد');
         }
-    }) */
+    })
 
 }
 window.onload = function(){
-    document.getElementById('submit_data').onclick=submit_data
+    document.getElementById('submit_data').onclick = submit_data
 }

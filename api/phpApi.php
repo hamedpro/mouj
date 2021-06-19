@@ -147,9 +147,9 @@ class api{
         $content = $obj['content'];
         $query = "insert into support_messages (username,subject,content,status) values ('$username','$subject','$content','open')";
         if($this->db->query($query)){
-            return true;
+            return 'true';
         }else{
-            return $this->db->error;
+            return 'false';
         }
     }
     public function toggle_support_message_status($obj){
