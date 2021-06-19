@@ -12,3 +12,14 @@ function drop_table($db_instance,$table_name){
     $q = "drop table if exists $table_name";
     $db_instance->query($q);
 };
+function append_two_arrays($a1,$a2){
+    //todo its name is not good
+    $tmp = [];
+    foreach ($a1 as $key => $value) {
+        $tmp[] = $value;
+    }
+    foreach ($a2 as $key => $value) {
+        $tmp[] = $value;
+    }
+    return $tmp;
+}
