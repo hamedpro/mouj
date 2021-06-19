@@ -17,50 +17,30 @@ body{
 }
 
 .timelineBox .timelineIcon{
-    
-position: absolute;
-    
-top: 9px;
-    
-height: 23px;
-    
-width: 23px;
-    
-background: rgb(36,36,38);
-    
-right: 9px;
-    
-z-index: 1;
-    
-/* border: 1px solid aqua; */
-    
-border-radius: 3px;
+    position: absolute;
+    top: 6px;
+    height: 27px;
+    width: 27px;
+    background: rgb(36,36,38);
+    right: 7px;
+    z-index: 1;
+    /* border: 1px solid aqua; */
+    border-radius: 3px;
+    padding: 10px;
 }
 .timelineBox .timelineIcon svg{
-    
-position: absolute;
-    
-top: 50%;
-    
-height: 100%;
-    
-left: 50%;
-    
-transform: translate(-50%,-50%);
-    
-width: 80%;
+    position: absolute;
+    top: 50%;
+    height: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 70%;
 }
 .timelineBox .timelineTitle{
-
-position: absolute;
-
-top: 10px;
-
-color: white;
-
-right: 37px;
-
-direction: ltr;
+position: absolute;
+top: 10px;
+right: 37px;
+direction: ltr;
 }
 
 .timelineBox .timelineItemsContainer{

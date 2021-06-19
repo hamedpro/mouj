@@ -46,10 +46,10 @@ componise.renderComponent = function(object){
         <div class="timelineBox">
         <div class="timelineIcon">
             <script>
-                svgRenderer.render('tsunami-white');
+                svgRenderer.render('tsunami-gray');
             </script>
         </div>
-        <h6 class="timelineTitle">commit #er54</h6>
+        <h6 class="timelineTitle text-secondary">commit #er54</h6>
         <div class="timelineLine"></div>
         <div class="timelineItemsContainer">
         `

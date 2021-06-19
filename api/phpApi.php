@@ -210,7 +210,9 @@ class api{
         $database_row = mysqli_fetch_assoc($q_results);
         $computed_data = [];
         //add computed props =>
-        $plan_transactions = json_decode($this->get_plan_transactions($plan_id));
+        $plan_transactions = json_decode($this->get_plan_transactions([
+            'plan_id' => $plan_id
+        ]));
         $current_amount = 0;
         foreach ($plan_transactions as $key => $value) {
             $current_amount += $value->amount;
@@ -236,7 +238,7 @@ class api{
         drop_table($this->db,'plans');
     }
     public function get_plan_transactions($obj){
-        $plan_id = $obj['plan_id'];
+        $plan_id = (int)$obj['plan_id'];
         $q = "select * from transactions where plan_id = $plan_id";
         $q_results = $this->db->query($q);
         $results = [];
@@ -253,5 +255,14 @@ class api{
             $results[] = $row['id'];
         }
         return json_encode($results);
+    }
+    public function get_last_plan_id(){
+        return last_item(json_decode($this->get_plan_ids()));
+    }
+    public function get_last_plan_data(){
+        $last_plan_id = $this->get_last_plan_id();
+        return $this->get_plan_data([
+            'plan_id'=>$last_plan_id
+        ]);
     }
 }

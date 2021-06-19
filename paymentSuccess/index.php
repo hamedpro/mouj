@@ -21,7 +21,6 @@ $api->new_transaction([
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>payment Result</title>
     <script src="../common/common.js"></script>
-    <script src="../api/phpApiConnector.js"></script>
     <script src="codes.js"></script>
     <link rel="stylesheet" href="../common/common.css">
     <link rel="stylesheet" href="../common/lib/bootstrap.min.css">
