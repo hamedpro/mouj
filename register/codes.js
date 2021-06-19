@@ -1,37 +1,29 @@
 submit = function(){
     let user_confirm = confirm('صحت اطلاعات را تایید می کنید ؟');
     if(!user_confirm) return false; 
-    
-    let data_object = {
-        function_name:'add_new_user',
-        username:document.getElementById('username_input').value
-    }
-    let url = "http://localhost:80/git/vahed-app/src/back-end/actions.php";
-    fetch(url,{
-        method:"POST",
-        body:JSON.stringify(data_object)
-    }).then(res=>res.json()).then(data=>{
-        if(data == true){
-            alert('با موفقیت انجام شد')
-        }else{
-            alert('مشکلی به وجود آمد،دوباره امتحان کنید')
-        }
+    var username = document.getElementById('username_input').value;
+    fetch('../api/requests.php?func_name=new_user&username='+username)
+    .then(function(){
+        alert('با موفقیت انجام شد');
     })
+    
+}
+window.onload = function(){
+    document.getElementById('username_input').addEventListener('input',function(){
+        var username = document.getElementById('username_input').value;
+        fetch('../api/requests.php?func_name=is_username_available&username='+username,)
+        .then(res=>res.text())
+        .then(res=>{
+            console.log(res)
+            if(res != 'true'){
+                document.getElementById('tips_container_1').style.display = "block";
+                document.getElementById('submit_button').classList.add('disabled');
+            }else{
+                document.getElementById('tips_container_1').style.display = "none";
+                document.getElementById('submit_button').classList.remove('disabled');
+            }
+        })
+    })
+    document.getElementById('submit_button').onclick = submit;
 }
 
-updated = function(){
-    document.getElementById('username_input').addEventListener('input',function(){
-            console.log('test')
-            let url = "http://localhost:80/git/vahed-app/src/back-end/actions.php" ;
-            fetch(url,{
-                method:"POST",
-                body:JSON.stringify({
-                    function_name:'is_username_avaiable',
-                    username:document.getElementById('username_input').value
-                })
-            }).then(res=>{
-                console.log(res)
-                this.username_is_taken = JSON.parse(res) ? false : true
-            })
-        })
-}

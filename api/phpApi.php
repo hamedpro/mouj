@@ -115,9 +115,9 @@ class api{
         $query = "select * from users where username = '$username'";
         $results = $this->db->query($query);
         if(mysqli_num_rows($results) == 0){
-            return true;
+            return 'true';
         }else{
-            return false;
+            return 'false';
         };
     }
     public function make_user_admin($obj){

@@ -6,20 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin dashboard</title>
     <script src="codes.js"></script>
+    <script src="../common/common.js"></script>
     <link href="styles.css" rel="stylesheet">
     <script src="../common/lib/componise.js"></script>
+    <link rel="stylesheet" href="../common/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../common/common.css">
+    <link rel="stylesheet" href="../common/components/header/header.css">
+    <link rel="stylesheet" href="../common/components/tip/tip.css">
 </head>
 <body>
+    <div class="mainBackground"></div>
+    <script>
+        componise.renderComponent({
+            componentName:"myheader",
+            personIconSrc:"../common/bootstrap-icons/person-check-fill-white.svg"
+        })
+    </script>
     <div class="content-container" id="register">
         <div class="row mt-4 justify-content-center align-items-center">
             <div class="col-7 d-flex ">
-                <h2 class="text-light" style="text-align:center;" dir="rtl">عضویت در سایت به سادگی چند کلیک !</h2>
+                <h1 class="text-light" style="text-align:center;" dir="rtl">عضویت در سایت به سادگی چند کلیک !</h1>
             </div>
             
         </div>
         <div class="row justify-content-center d-flex" dir='rtl'>
             <div class="col-9">
-                <h3 class="text-secondary" style="text-align:center;">تنها با انتخاب نام کاربری عضو سایت ما شده و از همه قابلیت های مخصوص کاربران استفاده کنید !</h3>
+                <h5 class="text-secondary" style="text-align:center;">تنها با انتخاب نام کاربری عضو سایت ما شده و از همه قابلیت های مخصوص کاربران استفاده کنید !</h5>
             </div>
             
         </div>
@@ -31,7 +43,7 @@
         </div>
         <div class="row justify-content-center mb-2">
             <div class="col-9">
-                <div class="tips_container mt-1">
+                <div class="tips_container mt-1" id="tips_container_1" style="display:none;">
                     
                     <script>
                         componise.renderComponent({
@@ -46,7 +58,7 @@
         </div>
         <div class="row justify-content-center align-items-center">
             <div class="col-9 d-grid gap-2 mb-2">
-                <button class="btn btn-success submit_button disabled" @click="submit">ثبت همین نام کاربری</button>
+                <button class="btn btn-success" id="submit_button">ثبت همین نام کاربری</button>
             </div>
         </div>
         <div class="row justify-content-center mt-1">
