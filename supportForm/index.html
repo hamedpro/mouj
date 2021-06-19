@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>support form</title>
     <link href="styles.css" rel="stylesheet">
-    <script src="../../common/lib/componise.js"></script>
-    <link rel="stylesheet" href="../../common/lib/bootstrap.min.css">
-    <link rel="stylesheet" href="../../common/common.css">
-    <link rel="stylesheet" href="../../common/components/header/header.css">
-    <link rel="stylesheet" href="../../common/components/tip/tip.css">
-    <script src="../api.js"></script>
+    <script src="../common/lib/componise.js"></script>
+    <link rel="stylesheet" href="../common/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../common/common.css">
+    <link rel="stylesheet" href="../common/components/header/header.css">
+    <link rel="stylesheet" href="../common/components/tip/tip.css">
+    <script src="../api/phpApiConnector.js"></script>
     <script src="codes.js"></script>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <script>
         componise.renderComponent({
             componentName:"myheader",
-            personIconSrc:"../../common/bootstrap-icons/person-check-fill-white.svg"
+            personIconSrc:"../common/bootstrap-icons/person-check-fill-white.svg"
         })
     </script>
     <div id="support-form" class="content-container">
@@ -63,7 +63,7 @@
                     <script>
                         componise.renderComponent({
                             componentName:"tip",
-                            iconSrc:'../../common/bootstrap-icons/lightbulb-white.svg',
+                            iconSrc:'../common/bootstrap-icons/lightbulb-white.svg',
                             slot:'درخواست پشتیبانی شما ان شاء الله به زودی بررسی خواهد شد'
                         })
                     </script>

@@ -5,11 +5,8 @@ function redirect_to_payment_gateway (){
     let amount = Number(document.getElementById('amount').value);
     let username = document.getElementById('username').value;
     let category = document.getElementById('category').value;
-    //let info = document.getElementById('info').value;
     let info = "empty";
-    
-
-    let generated_url = `../paymentGateway/index.html`;
+    let generated_url = `../paymentGateway/index.php?amount=${amount}&username=${username}&category=${category}&info=${info}`;
     window.location.replace(generated_url);
 }
 

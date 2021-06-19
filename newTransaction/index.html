@@ -5,16 +5,16 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>new Transaction</title>
-    <link rel="stylesheet" href="../../common/common.css">
+    <link rel="stylesheet" href="../common/common.css">
    
     
-    <link rel="stylesheet" href="../../common/components/tip/tip.css">
+    <link rel="stylesheet" href="../common/components/tip/tip.css">
     <link href="styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../common/components/header/header.css">
-    <link rel="stylesheet" href="../../common/lib/bootstrap.min.css">
-    <script src="../api.js"></script>
+    <link rel="stylesheet" href="../common/components/header/header.css">
+    <link rel="stylesheet" href="../common/lib/bootstrap.min.css">
+    <script src="../api/phpApiConnector.js"></script>
     <script src="codes.js"></script>
-    <script src="../../common/lib/componise.js"></script>
+    <script src="../common/lib/componise.js"></script>
 
 </head>
 <body>
@@ -23,7 +23,7 @@
         <script>
             componise.renderComponent({
                 componentName:"myheader",
-                personIconSrc:"../../common/bootstrap-icons/person-check-fill-white.svg"
+                personIconSrc:"../common/bootstrap-icons/person-check-fill-white.svg"
             })
         </script>
         <div id="new" class="content-container">
@@ -41,7 +41,7 @@
                         <script>
                             componise.renderComponent({
                                 componentName:"tip",
-                                iconSrc:'../../common/bootstrap-icons/lightbulb-white.svg',
+                                iconSrc:'../common/bootstrap-icons/lightbulb-white.svg',
                                 slot:'اگر کاربر سایت نیستید یا نام خود را به فارسی بنویسید یا برای ثبت نام فوق سریع <a href="#/register">اینجا</a> کلیک کنید.'
                             })
                         </script>
@@ -53,7 +53,7 @@
                     <label for="category" class="text-light">نوع کمک :</label>
                     <select id="category" class="form-select border-0">
                     
-                    <option value="mouj">شرکت در طرح واحد</option>
+                    <option value="mouj">شرکت در طرح موج</option>
                         <option value="anese">کمک به همین موسسه</option>
                     </select>
                     <button class="btn btn-success" id="redirect_to_payment_gateway">ارسال</button>            
@@ -69,7 +69,7 @@
                     <script>
                         componise.renderComponent({
                             componentName:"tip",
-                            iconSrc:'../../common/bootstrap-icons/lightbulb-white.svg',
+                            iconSrc:'../common/bootstrap-icons/lightbulb-white.svg',
                             slot:'ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید! <a href="#/register">اطلاعات بیشتر</a>'
                         })
                     </script>

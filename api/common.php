@@ -23,3 +23,7 @@ function append_two_arrays($a1,$a2){
     }
     return $tmp;
 }
+function last_item($array){
+    $count = count($array);
+    return $array[$count-1];
+}
