@@ -131,24 +131,16 @@ transform: translateX(-50%);
     right: 24px;
 }
 .lastDoneWork .items{
-
-position: absolute;
-
-top: 226px;
-
-height: 90px;
-
-left: 50%;
-
-transform: translateX(-50%);
-
-width: 85%;
-
-border-radius: 0px;
-
-overflow-y: scroll;
-
-direction: rtl;
+position: absolute;
+top: 226px;
+height: 90px;
+left: 50%;
+transform: translateX(-50%);
+width: 85%;
+border-radius: 0px;
+overflow-y: scroll;
+direction: rtl;
+overflow-x: scroll;
 }
 .lastDoneWork .items div{
 
