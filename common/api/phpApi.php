@@ -184,7 +184,7 @@ class api{
         return get_table_as_json($this->db,'support_messages');
     }
     public function new_plan($obj){
-        $starter_username = $obj['stater_username'];
+        $starter_username = $obj['starter_username'];
         $title = $obj['title'];
         $description = $obj['description'];
         $final_amount_as_rial = $obj['final_amount_as_rial'];
@@ -230,7 +230,7 @@ class api{
         return json_encode($final_results);
     }
     public function update_plan(){
-
+        
     }
     public function delete_all_plans(){
         drop_table($this->db,'plans');
@@ -245,7 +245,14 @@ class api{
         }
         return json_encode($results);
     }
+    public function get_plan_ids(){
+        $q = "select * from plans";
+        $q_results = $this->db->query($q);
+        $results = [];
+        while($row = mysqli_fetch_assoc($q_results)){
+            $results[] = $row['id'];
+        }
+        return json_encode($results);
+    }
 }
 
-// requests.php will respond requests =>
-require('requests.php');
