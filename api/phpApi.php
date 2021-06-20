@@ -200,7 +200,9 @@ class api{
 
         $current_date = date('Y:M:D');
         $q = "update plans set end_date = '$current_date' where id=$plan_id";
-        $this->db->query($q);
+        if($this->db->query($q)){
+            return "true";
+        };
 
     }
     public function get_plan_data($obj){
@@ -236,6 +238,13 @@ class api{
     }
     public function delete_all_plans(){
         drop_table($this->db,'plans');
+    }
+    public function delete_plan($obj){
+        $plan_id = (int)$obj['plan_id'];
+        $q = "delete from plans where id=$plan_id";
+        if($this->db->query($q)){
+            return "true";
+        };
     }
     public function get_plan_transactions($obj){
         $plan_id = (int)$obj['plan_id'];

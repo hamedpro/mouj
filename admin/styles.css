@@ -9,3 +9,209 @@
     box-shadow: 5px 5px 5px 5px rgb(150 150 150 / 50%);
     font-size: 60px;
 }
+.profile{
+
+position: relative;
+
+height: 215px;
+
+width: 100%;
+
+/* background: red; */
+}
+.profile .profileImage{
+
+position: absolute;
+
+top: 5%;
+
+right: 5%;
+
+background: blue;
+
+height: 110px;
+
+width: 110px;
+
+border-radius: 140%;
+}
+.profile .username{
+
+position: absolute;
+
+top: 7%;
+
+direction: rtl;
+
+right: 150px;
+
+font-size: 17px;
+
+padding: 3px;
+
+border-radius: 8px;
+}
+.profile .info{
+
+position: absolute;
+
+top: 21%;
+
+direction: rtl;
+
+right: 150px;
+
+font-size: 17px;
+
+padding: 3px;
+
+border-radius: 8px;
+}
+.profile .items{
+
+position: absolute;
+
+top: 46%;
+
+direction: rtl;
+
+right: 150px;
+
+padding: 3px;
+
+height: 80px;
+
+width: 54%;
+
+overflow: scroll;
+}
+.profile .items .item{
+    
+background: lightblue;
+    
+display: inline-block;
+    
+padding: 1px;
+    
+border-radius: 9px;
+    
+padding-right: 3px;
+    
+padding-left: 3px;
+}
+.horizontalItems{
+
+position: relative;
+
+height: 45px;
+
+/* background: purple; */
+
+border-bottom: 1px solid dimgray;
+
+overflow: hidden;
+
+display: flex;
+
+padding: 0px 11px 0px 11px;
+}
+.horizontalItems .item{
+    
+position: relative;
+    
+height: 100%;
+    
+background: transparent;
+    
+display: inline-flex;
+    
+justify-content: center;
+    
+align-items: center;
+    
+padding: 0px 6px 0px 6px;
+    
+color: white;
+    
+margin: 0px;
+}
+.horizontalItems .item.active{
+    border-bottom:2px solid red;
+}
+.title{
+
+position: relative;
+
+text-align: right;
+
+direction: rtl;
+
+color: white;
+
+margin: 9px;
+
+margin-right: 25px;
+}
+#dataContainer{
+    
+/* background: blue; */
+    
+position: relative;
+    
+width: 84%;
+    
+min-height: 100px;
+    
+left: 50%;
+    
+transform: translateX(-50%);
+}
+#dataContainer .plan{
+    height: 50px;
+    width: 100%;
+    background: purple;
+    border-radius: 17px;
+    position: relative;
+    margin-bottom: 8px;
+}
+#dataContainer .plan .title{
+    direction: rtl;
+    color: white;
+    position: absolute;
+    right: 21px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0px;
+
+}
+#dataContainer .plan .iconsContainer{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* background: green; */
+    min-width: 100px;
+    height: 85%;
+    left: 13px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+#dataContainer .plan .iconsContainer .icon{position: relative;height: 31px;width: 31px;/* background: red; */display: inline-flex;justify-content: center;align-items: center;top: 50%;border-radius: 7px;transform: translateY(-50%);transition: 0.4s;}
+#dataContainer .plan .iconsContainer .icon:hover{
+    background: rgba(0,0,255,0.3);
+}
+#dataContainer .plan .iconsContainer .icon svg{
+    height:70%;
+    width:70%;
+}
+#dataContainer .user{
+
+}
+#dataContainer .admin{
+
+}
+#dataContainer .transaction{
+
+}
+#dataContainer .setting-option{
+
+}
