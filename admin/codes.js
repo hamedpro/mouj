@@ -18,6 +18,13 @@ person_plus_white_svg =
   <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
 </svg>
 `
+box_arrow_up_left_white =
+`
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-box-arrow-up-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M7.364 3.5a.5.5 0 0 1 .5-.5H14.5A1.5 1.5 0 0 1 16 4.5v10a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 3 14.5V7.864a.5.5 0 1 1 1 0V14.5a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-10a.5.5 0 0 0-.5-.5H7.864a.5.5 0 0 1-.5-.5z"/>
+  <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h5a.5.5 0 0 1 0 1H1.707l8.147 8.146a.5.5 0 0 1-.708.708L1 1.707V5.5a.5.5 0 0 1-1 0v-5z"/>
+</svg>
+`
 delete_transaction = function(tr_id){
     let user_confirm = confirm('are you sure?');
     if(!user_confirm) return;
@@ -104,7 +111,23 @@ make_user_admin = function(username){
         document.querySelector('#load_users_button').click()
     })
 }
-
+function delete_support_message(sm_id){
+    let user_confirm = confirm('are you sure?');
+    if(!user_confirm) return;
+    url = '../api/requests.php?func_name=delete_support_message&support_message_id='+sm_id;
+    console.log(url)
+    fetch(url)
+    .then(res=>res.text())
+    .then(res=>{
+        console.log(res)
+        if(res == "true"){
+            alert('done')
+        }else{
+            alert('seems there is an error, please try again');
+        }
+        document.querySelector('#load_support_messages_button').click()
+    })
+}
 function update_dataContainer(){
     var dataContainer_els = {
         title:document.getElementById('dataContainer-title'),
@@ -194,6 +217,37 @@ function update_dataContainer(){
                             svg:person_plus_white_svg,
                             handler:function(){
                                 make_user_admin(user.username)
+                            }
+                        }
+                    ],
+                    targetEl:dataContainer_els.container
+                })
+            })
+            
+        })
+    }
+    if(url.includes('#support_messages')){
+        dataContainer_els.title.innerHTML = "تمام درخواست های پشتیبانی";
+        dataContainer_els.info.innerHTML = "با توجه به اولویت ها به درخواست های پشتیبانی رسیدگی کنید";
+        dataContainer_els.container.innerHTML ="";
+        fetch('../api/requests.php?func_name=get_support_messages')
+        .then(res=>res.json())
+        .then(r=>{
+            r.forEach(sm=>{
+                renderPlan({
+                    title:sm.subject,
+                    icons:[
+                        {
+                            svg:delete_svg,
+                            handler:function(){
+                                delete_support_message(sm.id)
+                            }
+                        },
+                        {
+                           
+                            svg:box_arrow_up_left_white,
+                            handler:function(){
+                                window.location.replace('../supportMessageShower/index.php?sm_id='+sm.id)
                             }
                         }
                     ],

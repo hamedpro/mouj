@@ -186,7 +186,7 @@ class api{
     public function delete_support_message($obj){
         $support_message_id = $obj['support_message_id'];
         $q = "delete from support_messages where id = $support_message_id";
-        return $this->db->query($q);
+        return $this->db->query($q)?"true":'false';
     }
     public function get_support_messages(){
         return get_table_as_json($this->db,'support_messages');
