@@ -91,7 +91,7 @@ class api{
     public function delete_transaction($obj){
         $transaction_id = $obj['transaction_id'];
         $query = "delete from transactions where id = $transaction_id";
-        return $this->db->query($query);
+        return $this->db->query($query) ? "true":'false';
     }
 
     public function delete_all_transactions(){
@@ -109,7 +109,15 @@ class api{
     public function delete_all_users(){
         drop_table($this->db,'users');
     }
-
+    public function delete_user($obj){
+        $username = $obj['username'];
+        $q = "delete from users where username='$username'";
+        if($this->db->query($q)){
+            return "true";
+        }else{
+            return "false";
+        };
+    }
     public function is_username_available($obj){
         $username = $obj['username'];
         $query = "select * from users where username = '$username'";
@@ -123,7 +131,7 @@ class api{
     public function make_user_admin($obj){
         $username = $obj['username'];
         $q = "update users set is_admin = 'true' where username='$username'";
-        return $this->db->query($q);
+        return $this->db->query($q)?"true":"false";
     }
     public function change_admin_password($obj){
         $old_password = $obj['old_password'];
@@ -264,6 +272,9 @@ class api{
             $results[] = $row['id'];
         }
         return json_encode($results);
+    }
+    public function get_plans(){
+        return get_table_as_json($this->db,'plans');
     }
     public function get_last_plan_id(){
         return last_item(json_decode($this->get_plan_ids()));
