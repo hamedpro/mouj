@@ -139,8 +139,10 @@ class api{
     public function change_admin_password($obj){
         $old_password = $obj['old_password'];
         $new_password = $obj['new_password'];
+        //todo:check old password 
+        $username = $obj['username'];
         $q = "update users set password = '$new_password' where username = '$username'";
-        return $this->db->query($q);
+        return $this->db->query($q)?"true":"false";
     }
     public function get_admins(){
         $users = json_decode($this->get_all_users());

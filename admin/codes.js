@@ -112,7 +112,32 @@ function update_dataContainer(){
     if(url.includes('#settings')){
         dataContainer_els.title.innerHTML = "تنظیمات";
         dataContainer_els.info.innerHTML = "با استفاده از دسترسی مدیرتان، تنظیمات را تغییر دهید.";
-        dataContainer_els.container.innerHTML = "some html ";
+        dataContainer_els.container.innerHTML = "";
+        function change_password(username){
+            old_password = prompt('enter your old password as a 4 digit number')
+            new_password = prompt('enter your new password')
+            fetch(`../api/requests.php?func_name=change_admin_password&username=${username}&old_password=${old_password}&new_password=${new_password}`)
+            .then(res=>res.text())
+            .then(r=>{
+                if(r == "true"){
+                    alert('done')
+                }else{
+                    alert("there was an error")
+                }
+            })
+        }
+        renderPlan({
+            title:"change my password",
+            icons:[
+                {
+                    svg:arrow_left_white_svg,
+                    handler:function(){
+                        change_password(username)
+                    }
+                }
+            ],
+            targetEl:dataContainer_els.container
+        })
 
     }
     if(url.includes('#plans')){
