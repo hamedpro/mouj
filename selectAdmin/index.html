@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>support form</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="../common/lib/componise.js"></script>
+    <link rel="stylesheet" href="../common/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../common/common.css">
+    <link rel="stylesheet" href="../common/components/header/header.css">
+    <script src="codes.js"></script>
+</head>
+<body>
+    <div class="mainBackground"></div>
+    <script>
+        componise.renderComponent({
+            componentName:"myheader",
+            personIconSrc:"../common/bootstrap-icons/person-check-fill-white.svg"
+        })
+    </script>
+    
+    <div class="row justify-content-center d-flex mt-3">
+        <div class="col-6">
+            <h1 class="text-light rtl-center">ورود به پنل مدیر</h1>
+        </div>
+    </div>  
+    <div class="row justify-content-center d-flex mt-1">
+        <div class="col-10">
+            <h5 class="text-secondary rtl-center">نام کاربری خود را از میان موارد زیر انتخاب کنید</h5>
+        </div>
+    </div>  
+    
+    <div class="row d-flex justify-content-center mt-1">
+        <hr class="bg-light w-75">
+    </div>
+    <div id="dataContainer">
+
+    </div>
+</body>
+</html>

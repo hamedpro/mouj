@@ -4,4 +4,5 @@ $api = new api($db);
 if(!isset($_REQUEST['func_name'])){
     exit();
 };
-echo $api->$_REQUEST['func_name']($_REQUEST);
+$func_name = $_REQUEST['func_name'];
+echo $api->$func_name($_REQUEST);

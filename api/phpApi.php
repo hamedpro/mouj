@@ -139,7 +139,16 @@ class api{
         $q = "update users set password = '$new_password' where username = '$username'";
         return $this->db->query($q);
     }
-    
+    public function get_admins(){
+        $users = json_decode($this->get_all_users());
+        $admins = [];
+        foreach ($users as $key => $value) {
+            if(!is_null($value->is_admin) && $value->is_admin == true){
+                $admins[] = $value;
+            }
+        }
+        return json_encode($admins);
+    }
     public function verify_admin_password($obj){
         $username = $obj['username'];
         $password = $obj['password'];
