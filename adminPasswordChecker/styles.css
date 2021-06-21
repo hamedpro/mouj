@@ -1,0 +1,25 @@
+.buttons_row{position: relative;height: 67px;/* width: 100%; *//* background: blue; */left: 50%;transform: translateX(-50%);width: 80%;display: flex;flex-direction: row;justify-content: space-between;margin-top: 35px;}
+.buttons_row button{
+    
+border-radius: 100%;
+    
+height: 80px;
+    
+width: 80px;
+    
+border: none;
+    
+background: purple;
+    
+color: white;
+    
+display: flex;
+    
+justify-content: center;
+    
+align-items: center;
+    
+transition: 0.3s;
+    
+font-size: 33px;
+}

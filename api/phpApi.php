@@ -130,7 +130,10 @@ class api{
     }
     public function make_user_admin($obj){
         $username = $obj['username'];
+        $password = $obj['password'];
         $q = "update users set is_admin = 'true' where username='$username'";
+        $this->db->query($q);
+        $q = "update users set password = '$password' where username='$username'";
         return $this->db->query($q)?"true":"false";
     }
     public function change_admin_password($obj){
@@ -155,7 +158,7 @@ class api{
         $q = "select password from users where username = '$username'";
         $q_results = $this->db->query($q);
         $row = mysqli_fetch_assoc($q_results);
-        return $row['password'] == $password;
+        return $row['password'] == $password?"true":"false";
     }
 
     public function new_support_message($obj){
