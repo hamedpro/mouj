@@ -74,26 +74,7 @@ a{
 /* 
 	components styles
 */
-.home-option{
-    direction:rtl;
-}
-.home-option .option-icon{
-    width: 72%;
-}
-.home-option .info{
-    max-width: 85%;
-}
-.home-option .title{
-    max-width: 85%;
-}
-.home-option .title a{
-	text-decoration:none
-}
-.home-option .title a:hover{
-	text-decoration:underline;
-	text-underline-position:under;
-	    text-underline-offset: 2px;
-}
+
 
 
 
@@ -112,13 +93,19 @@ a{
 	
 	margin-right: 25px;
 	}
-	#dataContainer{
-		/* background: blue; */
-		position: relative;
-		width: 84%;
-		min-height: 300px;
-		left: 50%;
-		transform: translateX(-50%);
+#dataContainer{
+		
+/* background: blue; */
+		
+position: relative;
+		
+width: 84%;
+		
+min-height: 300px;
+		
+left: 50%;
+		
+transform: translateX(-50%);
 	}
 #dataContainer .plan{
 	height: 50px;
@@ -157,4 +144,27 @@ background: rgba(0,0,255,0.3);
 #dataContainer .plan .iconsContainer .icon svg{
 	height:70%;
 	width:70%;
+}
+
+
+
+.home-option{
+    direction:rtl;
+}
+.home-option .option-icon{
+    width: 72%;
+}
+.home-option .info{
+    max-width: 85%;
+}
+.home-option .home-option-title{
+    max-width: 85%;
+}
+.home-option .home-option-title a{
+	text-decoration:none
+}
+.home-option .home-option-title a:hover{
+	text-decoration:underline;
+	text-underline-position:under;
+	    text-underline-offset: 2px;
 }
