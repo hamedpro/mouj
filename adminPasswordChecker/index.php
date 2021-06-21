@@ -24,8 +24,7 @@ echo "
     <div class="mainBackground"></div>
     <script>
         componise.renderComponent({
-            componentName:"myheader",
-            personIconSrc:"../common/bootstrap-icons/person-check-fill-white.svg"
+            componentName:"myheader"
         })
     </script>
     <div class="row justify-content-center d-flex mt-3">

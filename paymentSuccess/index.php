@@ -32,8 +32,7 @@ $api->new_transaction([
     <div class="mainBackground"></div>
     <script>
         componise.renderComponent({
-            componentName:"myheader",
-            personIconSrc:"../common/bootstrap-icons/person-check-fill-white.svg"
+            componentName:"myheader"
         })
     </script>
     <div id="payment-success" class="content-container">
