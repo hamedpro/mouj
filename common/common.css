@@ -113,18 +113,12 @@ a{
 	margin-right: 25px;
 	}
 	#dataContainer{
-		
-	/* background: blue; */
-		
-	position: relative;
-		
-	width: 84%;
-		
-	min-height: 100px;
-		
-	left: 50%;
-		
-	transform: translateX(-50%);
+		/* background: blue; */
+		position: relative;
+		width: 84%;
+		min-height: 300px;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 #dataContainer .plan{
 	height: 50px;

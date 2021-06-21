@@ -110,8 +110,8 @@ function update_dataContainer(){
     }
     var url = window.location.href;
     if(url.includes('#settings')){
-        dataContainer_els.title.innerHTML = "settings";
-        dataContainer_els.info.innerHTML = "change your settings, you are an admin!";
+        dataContainer_els.title.innerHTML = "تنظیمات";
+        dataContainer_els.info.innerHTML = "با استفاده از دسترسی مدیرتان، تنظیمات را تغییر دهید.";
         dataContainer_els.container.innerHTML = "some html ";
 
     }
@@ -122,6 +122,10 @@ function update_dataContainer(){
         fetch('../api/requests.php?func_name=get_plans')
         .then(res=>res.json())
         .then(r=>{
+            if(r.length == 0){
+                dataContainer_els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
+                return;
+            }
             r.forEach(plan=>{
                 renderPlan({
                     title:plan.title,
@@ -153,6 +157,10 @@ function update_dataContainer(){
         fetch('../api/requests.php?func_name=get_transactions')
         .then(res=>res.json())
         .then(r=>{
+            if(r.length == 0){
+                dataContainer_els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
+                return;
+            }
             r.forEach(tr=>{
                 renderPlan({
                     title:tr.username,
@@ -177,6 +185,10 @@ function update_dataContainer(){
         fetch('../api/requests.php?func_name=get_all_users')
         .then(res=>res.json())
         .then(r=>{
+            if(r.length == 0){
+                dataContainer_els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
+                return;
+            }
             r.forEach(user=>{
                 renderPlan({
                     title:user.username+(user.is_admin?"(ادمین)":""),
@@ -207,6 +219,10 @@ function update_dataContainer(){
         fetch('../api/requests.php?func_name=get_support_messages')
         .then(res=>res.json())
         .then(r=>{
+            if(r.length == 0){
+                dataContainer_els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
+                return;
+            }
             r.forEach(sm=>{
                 renderPlan({
                     title:sm.subject,
@@ -250,6 +266,8 @@ window.onload = function(){
         }
     })
     document.querySelector('#load_plans_button').click()
-    
+    document.getElementById("username").textContent = username;
+    document.getElementById("info").textContent = "اطلاعات بیشتری درباره این کاربر موجود نیست ";
+
     
 }

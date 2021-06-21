@@ -13,7 +13,7 @@
 
 position: relative;
 
-height: 215px;
+height: 157px;
 
 width: 100%;
 
@@ -35,39 +35,23 @@ width: 110px;
 
 border-radius: 140%;
 }
-.profile .username{
+.profile #username{
 
 position: absolute;
 
-top: 7%;
+top: 17%;
 
 direction: rtl;
 
 right: 150px;
 
-font-size: 17px;
+font-size: 21px;
 
 padding: 3px;
 
 border-radius: 8px;
 }
-.profile .info{
-
-position: absolute;
-
-top: 21%;
-
-direction: rtl;
-
-right: 150px;
-
-font-size: 17px;
-
-padding: 3px;
-
-border-radius: 8px;
-}
-.profile .items{
+.profile #info{
 
 position: absolute;
 
@@ -77,28 +61,15 @@ direction: rtl;
 
 right: 150px;
 
+font-size: 17px;
+
 padding: 3px;
 
-height: 80px;
+border-radius: 8px;
 
-width: 54%;
+max-width: 200px;
+}
 
-overflow: scroll;
-}
-.profile .items .item{
-    
-background: lightblue;
-    
-display: inline-block;
-    
-padding: 1px;
-    
-border-radius: 9px;
-    
-padding-right: 3px;
-    
-padding-left: 3px;
-}
 .horizontalItems{
 
 position: relative;
@@ -140,6 +111,15 @@ color: white;
 margin: 0px;
 }
 .horizontalItems .item.active{
-    border-bottom:2px solid red;
+    border-bottom: 3px solid green;
 }
-
+#dataContainer .empty{
+    display: inline;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 19px;
+    padding: 10px;
+    text-align: left;
+}

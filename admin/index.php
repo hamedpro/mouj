@@ -1,3 +1,12 @@
+<?php
+$username = $_REQUEST["username"];
+echo "
+    <script>
+    username = '$username'
+    </script>
+"
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,12 +32,9 @@
     </script>
     <div class="profile">
         <div class="profileImage"></div>
-        <div class="username text-primary bg-light">hamedpro</div>
-        <div class="info text-secondary">something</div>
-        <div class="items">
-           
-
-        </div>
+        <h1 class="text-primary bg-light" id="username">loading username ...</h1>
+        <div class="text-secondary" id="info">loading info...</div>
+        
     </div>
     <div class="horizontalItems">
         <div class="item" id="load_plans_button">plans</div>
