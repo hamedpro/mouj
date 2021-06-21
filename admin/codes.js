@@ -257,9 +257,7 @@ function update_dataContainer(){
             
         })
     }
-    if(url.includes('#admins')){
-        console.log('admins')
-    }
+ 
     
 
 }
