@@ -17,30 +17,50 @@ body{
 }
 
 .timelineBox .timelineIcon{
-    position: absolute;
-    top: 6px;
-    height: 27px;
-    width: 27px;
-    background: rgb(36,36,38);
-    right: 7px;
-    z-index: 1;
-    /* border: 1px solid aqua; */
-    border-radius: 3px;
-    padding: 10px;
+    
+position: absolute;
+    
+top: 6px;
+    
+height: 27px;
+    
+width: 27px;
+    
+background: rgb(36,36,38);
+    
+right: 7px;
+    
+z-index: 1;
+    
+/* border: 1px solid aqua; */
+    
+border-radius: 3px;
+    
+padding: 10px;
 }
 .timelineBox .timelineIcon svg{
-    position: absolute;
-    top: 50%;
-    height: 70%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 70%;
+    
+position: absolute;
+    
+top: 50%;
+    
+height: 70%;
+    
+left: 50%;
+    
+transform: translate(-50%,-50%);
+    
+width: 70%;
 }
 .timelineBox .timelineTitle{
-position: absolute;
-top: 10px;
-right: 37px;
-direction: ltr;
+
+position: absolute;
+
+top: 10px;
+
+right: 37px;
+
+direction: ltr;
 }
 
 .timelineBox .timelineItemsContainer{
@@ -58,14 +78,22 @@ left: 50%;
 transform: translateX(-50%);
 }
 .timelineBox .timelineItemsContainer .timelineItem{
-position: relative;
-height: 57px;
-width: 100%;
-background: rgb(54,54,56);
-border: 1px solid rgb(84,84,86);
-direction: rtl;
-border-bottom:none;
-padding-right: 10px;
+
+position: relative;
+
+height: 57px;
+
+width: 100%;
+
+background: rgb(54,54,56);
+
+border: 1px solid rgb(84,84,86);
+
+direction: rtl;
+
+border-bottom:none;
+
+padding-right: 10px;
 }
 .timelineBox .timelineItemsContainer .timelineItem:first-child{
     border-top-right-radius: 5px;
@@ -130,17 +158,36 @@ transform: translateX(-50%);
     top: 167px;
     right: 24px;
 }
+.lastDoneWork .empty{
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    padding: 10px;
+    border-radius: 21px;
+}
 .lastDoneWork .items{
-position: absolute;
-top: 226px;
-height: 90px;
-left: 50%;
-transform: translateX(-50%);
-width: 85%;
-border-radius: 0px;
-overflow-y: scroll;
-direction: rtl;
-overflow-x: scroll;
+
+position: absolute;
+
+top: 226px;
+
+height: 90px;
+
+left: 50%;
+
+transform: translateX(-50%);
+
+width: 85%;
+
+border-radius: 0px;
+
+overflow-y: scroll;
+
+direction: rtl;
+
+overflow-x: scroll;
 }
 .lastDoneWork .items div{
 
