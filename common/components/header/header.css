@@ -9,27 +9,25 @@
     /* left: 0px; */
     direction:ltr;
 }
-.header .url{
-    color: white;
-}
 
-.header a.link_container{
-    height:100%;
-    width:100%;
-}
-.header .person_icon{
+.header svg{
     height: 75%;
     transition:0.2s;
     padding: 8px;
     border-radius: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    right: 10px;
 }
-.header .person_icon:hover{
+.header svg:hover{
     background-color: purple;
 }
-.header .url{
-    margin: 0;
-    padding: 0;
-}
-.header .title ,.header .title h2{
-    direction:ltr;
+
+.header h2{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+    color: white;
 }
