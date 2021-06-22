@@ -7,6 +7,7 @@
     <title>payment gateway</title>
     <link rel="stylesheet" href="../common/lib/bootstrap.min.css">
     <script src="./codes.js"></script>
+<script src="../common/svgs.js"></script>
 </head>
 <body>
     <button class="btn btn-success" id="pay_button">pay</button>

@@ -19,6 +19,7 @@ echo "
     <link rel="stylesheet" href="../common/common.css">
     <link rel="stylesheet" href="../common/components/header/header.css">
     <script src="codes.js"></script>
+<script src="../common/svgs.js"></script>
 </head>
 <body>
     <div class="mainBackground"></div>

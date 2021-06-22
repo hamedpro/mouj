@@ -27,6 +27,7 @@ $api->new_transaction([
     <script src="../common/lib/componise.js"></script>
     <link rel="stylesheet" href="../common/components/header/header.css">
     <link href="styles.css" rel="stylesheet">
+<script src="../common/svgs.js"></script>
 </head>
 <body>
     <div class="mainBackground"></div>

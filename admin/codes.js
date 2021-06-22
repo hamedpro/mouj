@@ -107,6 +107,16 @@ api_operations.new_plan = function(){
     title= prompt('enter plan title')
     description = prompt('enter plan description')
     final_amount = prompt('enter final amount of plan as rial')
+    if(title == null || description == null || final_amount == null){
+        alert('try again')
+        return
+    }
+    
+    if(title == "" || description == "" || final_amount == ""){
+        alert('dont let any field empty')
+        return
+    }
+
     obj = {
         starter_username,
         description,

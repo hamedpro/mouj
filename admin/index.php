@@ -21,6 +21,8 @@ echo "
     <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="../common/components/header/header.css">
     <script src="../common/lib/componise.js"></script>
+    <script src="../common/svgs.js"></script>
+<script src="../common/svgs.js"></script>
 </head>
 <body>
     <div class="mainBackground"></div>
