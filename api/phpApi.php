@@ -213,7 +213,7 @@ class api{
 
         $start_date = date("Y:M:D");
         $q = "insert into plans(title,description,starter_username,status,start_date,final_amount_as_rial) values ('$title','$description','$starter_username','open','$start_date',$final_amount_as_rial)";
-        return $this->db->query($q);
+        return $this->db->query($q)?"true":'false';
     }
     public function finish_plan($obj){
         $plan_id = $obj['plan_id'];

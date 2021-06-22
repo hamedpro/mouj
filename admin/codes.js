@@ -102,7 +102,29 @@ api_operations.delete_support_message =function (sm_id){
         document.querySelector('#load_support_messages_button').click()
     })
 }
-
+api_operations.new_plan = function(){
+    starter_username = username;
+    title= prompt('enter plan title')
+    description = prompt('enter plan description')
+    final_amount = prompt('enter final amount of plan as rial')
+    obj = {
+        starter_username,
+        description,
+        final_amount,
+        title,
+        func_name:'new_plan'
+    }
+    fetch(`../api/requests.php?func_name=new_plan&starter_username=${starter_username}&description=${description}&final_amount_as_rial=${final_amount}&title=${title}`)
+    .then(res=>res.text())
+    .then(r=>{
+        console.log(r)
+        if(r == "true"){
+            alert('done')
+        }else{
+            alert('there was an error, please try again')
+        }
+    })
+}
 function render_settings(){
     dataContainer_els.title.innerHTML = "تنظیمات";
     dataContainer_els.info.innerHTML = "با استفاده از دسترسی مدیرتان، تنظیمات را تغییر دهید.";
@@ -132,6 +154,20 @@ function render_settings(){
         ],
         targetEl:dataContainer_els.container
     })
+    
+    renderPlan({
+        title:"start new plan",
+        icons:[
+            {
+                svg:arrow_left_white_svg,
+                handler:function(){
+                    api_operations.new_plan(username)
+                }
+            }
+        ],
+        targetEl:dataContainer_els.container
+    })
+
 }
 function render_plans(){
     dataContainer_els.title.innerHTML = "تمام طرح ها";

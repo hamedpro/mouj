@@ -20,20 +20,14 @@ width: 100%;
 /* background: red; */
 }
 .profile .profileImage{
-
-position: absolute;
-
-top: 5%;
-
-right: 5%;
-
-background: blue;
-
-height: 110px;
-
-width: 110px;
-
-border-radius: 140%;
+position: absolute;
+top: 5%;
+right: 5%;
+background: purple;
+height: 110px;
+width: 110px;
+border-radius: 140%;
+border: 1px solid aqua;
 }
 .profile #username{
 
