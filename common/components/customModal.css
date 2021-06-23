@@ -1,0 +1,75 @@
+.customModal{
+
+position: fixed;
+
+left: 50%;
+
+top: 50%;
+
+transform: translate(-50%,-50%);
+
+height: 55%;
+
+width: 63%;
+
+background: lightblue;
+
+border-radius: 24px;
+}
+.customModal h1{
+
+position: absolute;
+
+top: 103px;
+
+left: 50%;
+
+transform: translateX(-50%);
+}
+.customModal .icon{
+
+top: 20px;
+
+left: 50%;
+
+transform: translateX(-50%);
+
+height: 80px;
+
+width: 80px;
+
+background: blue;
+
+position: absolute;
+}
+.customModal .icon svg{
+
+}
+.customModal .acceptBtn{
+
+}
+.customModal .rejectBtn{
+
+}
+.customModal .content{
+position: absolute;
+top: 141px;
+left: 50%;
+transform: translateX(-50%);
+max-width: 90%;
+}
+
+.customModalBackground{
+
+position: fixed;
+
+width: 100%;
+
+height: 100%;
+
+background: rgba(128,0,128,0.4);
+
+top: 0px;
+
+overflow: hidden;
+}
