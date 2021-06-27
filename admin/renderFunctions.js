@@ -10,9 +10,10 @@ renderSettingOption = function(title,targetEl,handler){
         targetEl:targetEl
     })
 }
-renderPlanOption = function (title,plan_id){
+renderPlanOption = function (title,content,plan_id){
     renderPlan({
         title:title,
+        content:content,
         icons:[
             {
                 svg:delete_svg,

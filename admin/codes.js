@@ -23,7 +23,8 @@ function render_plans(){
             return;
         }
         r.forEach(plan=>{
-            renderPlanOption(plan.title,plan.id)
+            console.log(plan)
+            renderPlanOption(plan.title,"",plan.id)
         })
         
     })

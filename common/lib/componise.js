@@ -75,11 +75,6 @@ renderPlan = function(object){
     container = document.createElement('div');
     container.classList.add('plan');
 
-    title = document.createElement('h2')
-    title.classList.add('title')
-    title.innerHTML = object.title
-    container.appendChild(title)
-
     iconsContainer = document.createElement('div')
     iconsContainer.classList.add('iconsContainer')
     object.icons.forEach(icon=>{
@@ -90,6 +85,24 @@ renderPlan = function(object){
         iconsContainer.appendChild(icon_el)
     })
     container.appendChild(iconsContainer)
+
+    title = document.createElement('h2')
+    title.classList.add('title')
+    title.innerHTML = object.title
+    content = document.createElement('div')
+    content.classList.add('content')
+    if(typeof object.content == 'undefined'){
+        content.innerHTML = ""
+    }else{
+        content.innerHTML = object.content
+    }
+    right_container = document.createElement('div')
+    right_container.classList.add('right_container')
+    right_container.appendChild(title)
+    right_container.appendChild(content)
+    container.appendChild(right_container)
+
+    
     object.targetEl.appendChild(container)
     
 }
