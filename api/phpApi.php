@@ -293,7 +293,11 @@ class api{
         return json_encode($results);
     }
     public function get_plans(){
-        return get_table_as_json($this->db,'plans');
+        $results = [];
+        foreach (json_decode($this->get_plan_ids()) as $key => $value) {
+            $results[] = json_decode($this->get_plan_data(["plan_id"=>$value]));
+        };
+        return json_encode($results);
     }
     public function get_last_plan_id(){
         return last_item(json_decode($this->get_plan_ids()));

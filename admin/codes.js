@@ -24,7 +24,13 @@ function render_plans(){
         }
         r.forEach(plan=>{
             console.log(plan)
-            renderPlanOption(plan.title,"",plan.id)
+            generatedContentText = ""
+            generatedContentText += "کل مبلغ مورد نیاز: " +plan.final_amount_as_rial +" ریال" +"<br>"
+            generatedContentText += "وضعیت: "+(plan.status == "finished"?"خاتمه یافته":"خاتمه نیافته") +"<br>"
+            generatedContentText += "تاریخ شروع: "+plan.start_date +"<br>"
+            generatedContentText += "مبلغ جمع شده فعلی :"+plan.current_amount+" ریال" +"<br>"
+            generatedContentText += "شروع کننده طرح: "+plan.starter_username+"<br>"
+            renderPlanOption("نام طرح: "+(plan.title),generatedContentText,plan.id)
         })
         
     })
