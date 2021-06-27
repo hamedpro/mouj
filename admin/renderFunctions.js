@@ -68,10 +68,11 @@ renderUser = function(username,content,is_admin){
         targetEl:els.container
     })
 }
-renderSM = function(subject,id){
+renderSM = function(subject,content,id){
     //renders support message option
     renderPlan({
         title:subject,
+        content,
         icons:[
             {
                 svg:delete_svg,

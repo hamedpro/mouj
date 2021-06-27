@@ -91,7 +91,10 @@ function render_support_messages(){
             return;
         }
         r.forEach(sm=>{
-            renderSM(sm.subject,sm.id)
+            console.log(sm)
+            content = "ثبت شده توسط: "+sm.username+"<br>";
+
+            renderSM("موضوع: "+sm.subject,content,sm.id)
         })
         
     })
