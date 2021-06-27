@@ -99,7 +99,7 @@ api_operations.delete_support_message =function (sm_id){
         }else{
             alert('seems there is an error, please try again');
         }
-        document.querySelector('#load_support_messages_button').click()
+        document.q('load_support_messages_button').click()
     })
 }
 api_operations.new_plan = function(){

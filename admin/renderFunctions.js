@@ -1,13 +1,14 @@
-renderSettingOption = function(title,targetEl,handler){
+renderSettingOption = function(title,targetEl,container_click_handler){
     renderPlan({
         title:title,
         icons:[
             {
                 svg:arrow_left_white_svg,
-                handler:handler
+                handler:function(){}
             }
         ],
-        targetEl:targetEl
+        targetEl:targetEl,
+        container_click_handler
     })
 }
 renderPlanOption = function (title,content,plan_id){

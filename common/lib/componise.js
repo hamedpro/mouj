@@ -74,7 +74,11 @@ componise.renderComponent = function(object){
 renderPlan = function(object){
     container = document.createElement('div');
     container.classList.add('plan');
-
+    if(typeof object.container_click_handler != 'undefined'){
+        console.log(1)
+        container.onclick = object.container_click_handler
+    }
+    
     iconsContainer = document.createElement('div')
     iconsContainer.classList.add('iconsContainer')
     object.icons.forEach(icon=>{

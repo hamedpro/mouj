@@ -6,9 +6,10 @@ function render_settings(){
     renderSettingOption("change my password",els.container,function(){
         api_operations.change_password(username)
     })
-    renderSettingOption("start new plan",els.container,function(){
+    handler_func = function(){
         api_operations.new_plan(username)
-    })
+    }
+    renderSettingOption("start new plan",els.container,handler_func)
     
 }
 function render_plans(){
