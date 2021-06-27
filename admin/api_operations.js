@@ -147,3 +147,35 @@ api_operations.change_password= function (username){
         }
     })
 }
+api_operations.delete_all_transactions = function(){
+    fetch('../api/requests.php'+object_to_query({
+        func_name:'delete_all_transactions'
+    }))
+    .then(res=>res.text())
+    .then(r=>{
+        if(r == "true"){
+            alert('done')
+        }else{
+            alert('failed')
+        }
+    })
+}
+api_operations.new_admin = function (){
+    username=prompt('enter his/her username')
+    password = Number(prompt('enter his password as a 4 digit number'))
+    fetch('../api/requests.php'+object_to_query({
+        //check if user does not exists , add him
+        //todo test this func
+        func_name:'make_user_admin',
+        username,
+        password
+    }))
+    .then(res=>res.text())
+    .then(r=>{
+        if(r=="true"){
+            alert('done')
+        }else{
+            alert('failed')
+        }
+    })
+}

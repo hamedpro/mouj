@@ -3,13 +3,14 @@ function render_settings(){
     els.info.innerHTML = "با استفاده از دسترسی مدیرتان، تنظیمات را تغییر دهید.";
     els.container.innerHTML = "";
     
-    renderSettingOption("change my password",els.container,function(){
+    renderSettingOption("تعویض رمز عبور",els.container,function(){
         api_operations.change_password(username)
     })
     handler_func = function(){
         api_operations.new_plan(username)
     }
-    renderSettingOption("start new plan",els.container,handler_func)
+    renderSettingOption("شروع یک طرح جدید",els.container,handler_func)
+    renderSettingOption("حذف تمام تراکنش ها",els.container,api_operations.delete_all_transactions)
     
 }
 function render_plans(){

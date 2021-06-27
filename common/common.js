@@ -1,4 +1,10 @@
-
+function object_to_query(object){
+    query = "?"
+    for(i in object){
+        query+=i +"=" +object[i]+"&"
+    }
+    return query
+}
 var hamed = {}
 hamed.tester = {
     failed: function (m) {

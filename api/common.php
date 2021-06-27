@@ -10,7 +10,7 @@ function get_table_as_json($db_instance,$table_name){
 };
 function drop_table($db_instance,$table_name){
     $q = "drop table if exists $table_name";
-    $db_instance->query($q);
+    return $db_instance->query($q);
 };
 function append_two_arrays($a1,$a2){
     //todo its name is not good

@@ -95,7 +95,7 @@ class api{
     }
 
     public function delete_all_transactions(){
-        drop_table($this->db,'transactions');
+        return drop_table($this->db,'transactions')?"true":"false";
     }
     public function new_user($obj){
         $username = $obj['username']; 
