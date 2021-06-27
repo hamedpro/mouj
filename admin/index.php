@@ -17,6 +17,8 @@ echo "
     <link rel="stylesheet" href="../common/common.css">
     <link rel="stylesheet" href="../common/lib/bootstrap.min.css">
     <script src="../common/common.js"></script>
+    <script src="./api_operations.js"></script>
+    <script src="./renderFunctions.js"></script>
     <script src="codes.js"></script>
     <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="../common/components/header/header.css">
