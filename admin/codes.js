@@ -47,7 +47,12 @@ function render_transactions(){
             return;
         }
         r.forEach(tr=>{
-            renderTr(tr.username,tr.id)
+            generatedContentText = ""
+            generatedContentText += "مبلغ تراکنش: " +tr.amount +" ریال" +"<br>"
+            generatedContentText += "مقصد تراکنش: " +(tr.category == "mouj"?"طرح موج":"موسسه آنسه الشهدا")+"<br>"
+            generatedContentText += "شماره طرح مقصد این تراکنش: " +tr.plan_id +"<br>"
+            
+            renderTr("تراکنش توسط: "+tr.username,generatedContentText,tr.id)
         })
         
     })

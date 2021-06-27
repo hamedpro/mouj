@@ -31,10 +31,11 @@ renderPlanOption = function (title,content,plan_id){
         targetEl:els.container
     })
 }
-renderTr = function(username,tr_id){
+renderTr = function(username,content,tr_id){
     //renders transaction option
     renderPlan({
         title:username,
+        content,
         icons:[
             {
                 svg:delete_svg,
