@@ -47,9 +47,10 @@ renderTr = function(username,content,tr_id){
         targetEl:els.container
     })
 }
-renderUser = function(username,is_admin){
+renderUser = function(username,content,is_admin){
     renderPlan({
-        title:username+(is_admin?"(ادمین)":""),
+        title:username,
+        content,
         icons:[
             {
                 svg:delete_svg,

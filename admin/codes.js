@@ -69,7 +69,12 @@ function render_users(){
             return;
         }
         r.forEach(user=>{
-            renderUser(user.username,user.is_admin)
+            generatedContentText = ""
+            if(user.is_admin){
+                generatedContentText += "این فرد دارای اختیارات مدیر است"+"<br>"
+            }
+            
+            renderUser("نام کاربری: "+user.username,generatedContentText,user.is_admin)
         })
         
     })
