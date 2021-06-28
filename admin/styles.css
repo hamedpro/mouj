@@ -20,14 +20,22 @@ width: 100%;
 /* background: red; */
 }
 .profile .profileImage{
-position: absolute;
-top: 5%;
-right: 5%;
-background: purple;
-height: 110px;
-width: 110px;
-border-radius: 140%;
-border: 1px solid aqua;
+
+position: absolute;
+
+top: 5%;
+
+right: 5%;
+
+background: purple;
+
+height: 110px;
+
+width: 110px;
+
+border-radius: 140%;
+
+border: 1px solid aqua;
 }
 .profile #username{
 
@@ -108,12 +116,33 @@ margin: 0px;
     border-bottom: 3px solid green;
 }
 #dataContainer .empty{
-    display: inline;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 19px;
-    padding: 10px;
-    text-align: left;
+    
+display: inline;
+    
+position: absolute;
+    
+top: 50%;
+    
+left: 50%;
+    
+transform: translate(-50%,-50%);
+    
+border-radius: 19px;
+    
+padding: 10px;
+    
+text-align: left;
+}
+#filter{
+    left: 10%;
+    position: relative;
+    width: 55%;
+    margin-top: 12px;
+    display: inline-block;
+    margin-bottom: 13px;
+}
+.select_box_container .title{
+    display: inline-block;
+    position: relative;
+    margin-left: 24%;
 }

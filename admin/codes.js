@@ -81,7 +81,10 @@ function render_users(){
         
     })
 }
-function render_support_messages(){
+function render_support_messages(mode){
+    /* correct values for mode arg :
+    just_open_support_messages
+    just_closed_support_messages */
     els.title.innerHTML = "تمام درخواست های پشتیبانی";
     els.info.innerHTML = "با توجه به اولویت ها به درخواست های پشتیبانی رسیدگی کنید";
     els.container.innerHTML ="";
@@ -93,6 +96,13 @@ function render_support_messages(){
             return;
         }
         r.forEach(sm=>{
+            if(mode == "just_open_support_messages"){
+                if(sm.status == "closed") return 
+            }
+            if(mode == "just_closed_support_messages"){
+                if(sm.status == "open") return 
+            }
+            
             console.log(sm)
             content = "ثبت شده توسط: "+sm.username+"<br>";
 
@@ -101,6 +111,7 @@ function render_support_messages(){
         
     })
 }
+
 var els ={}
 window.onload = function(){
     els = {
@@ -122,6 +133,7 @@ window.onload = function(){
     q("load_transactions_button").onclick = function(){
         just_active_this(this)
         render_transactions()
+        
     }
     q("load_users_button").onclick = function(){
         just_active_this(this)
@@ -129,16 +141,45 @@ window.onload = function(){
     }
     q("load_support_messages_button").onclick = function(){
         just_active_this(this)
-        render_support_messages()
+        render_support_messages(true)
+
+        q('filter').innerHTML = ""
+        option_el = document.createElement('option')
+        option_el.setAttribute('value','any')
+        option_el.innerHTML = 'any'
+        q('filter').appendChild(option_el)
+
+        option_el = document.createElement('option')
+        option_el.setAttribute('value','just_open_support_messages')
+        option_el.innerHTML = 'just open support messages'
+        q('filter').appendChild(option_el)
+
+        option_el = document.createElement('option')
+        option_el.setAttribute('value','just_closed_support_messages')
+        option_el.innerHTML = 'just closed support messages'
+        q('filter').appendChild(option_el)
+        
+        q('filter').onchange = function(){
+            if(q('filter').value == "any"){
+                render_support_messages(true)
+            }
+            if(q('filter').value == "just_open_support_messages"){
+                render_support_messages('just_open_support_messages')
+            }
+            if(q('filter').value == "just_closed_support_messages"){
+                render_support_messages('just_closed_support_messages')
+            }
+            
+        }
     }
     q("load_settings_button").onclick = function(){
         just_active_this(this)
         render_settings()
     }
-
+    
     q('load_plans_button').click()
     q("username").textContent = username;
     q("info").textContent = "اطلاعات بیشتری درباره این کاربر موجود نیست ";
-
+    
     
 }
