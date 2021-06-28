@@ -1,4 +1,9 @@
-
+function injectNewItem(content){
+    item = document.createElement('div')
+    item.classList.add('item')
+    item.innerHTML = content
+    q('data_container').appendChild(item)
+}
 window.onload = function(){
     support_message_id = Number(localStorage.getItem('support_message_id'))
     fetch('../api/requests.php'+object_to_query({
@@ -11,10 +16,18 @@ window.onload = function(){
         status = r.status
         content = r.content
         subject = r.subject
-        q('data_container').innerHTML = ""
+      
+       injectNewItem(person_check_fill_white+"نام کاربری: "+username)
+       injectNewItem(envelope_white+"کد این گزارش: "+r.id)
+       injectNewItem(clipboard_check_white +"وضعیت رسیدگی: "+ (status == "open"?"به گزارش رسیدگی نشده است":"گزارش رسیدگی شده است"))
+       injectNewItem(lightbulb_white +"موضوع گزارش: "+ subject)
         q('content_container').innerHTML = content
+        q('submit_button').innerHTML = status == "open"?"تغییر وضعیت به رسیدگی شده":"تغییر وضعیت گزارش به رسیدگی نشده"
     })
+    
     q('submit_button').onclick = function(){
+        user_confirm = confirm('آیا اطمینان دارید؟ ')
+        if(!user_confirm) return 
         fetch('../api/requests.php'+object_to_query({
             func_name:"toggle_support_message_status",
             support_message_id
@@ -26,6 +39,7 @@ window.onload = function(){
             }else{
                 alert('failed')
             }
+            window.location.reload()
         })
     }
     q('back_button').onclick = function(){
