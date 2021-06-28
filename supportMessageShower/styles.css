@@ -1,0 +1,9 @@
+.box{position: relative;width: 81%;min-height: 60px;background: #d3d3d338;left: 50%;transform: translateX(-50%);border-radius: 15px;margin-top: 2px;margin-bottom: 10px;}
+#submit_button,#back_button{
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    height: 39px;
+    width: 80%;
+    margin-top: 13px;
+}

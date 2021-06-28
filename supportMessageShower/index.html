@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>support form</title>
     <link href="styles.css" rel="stylesheet">
+    <script src="../common/common.js"></script>
     <script src="../common/lib/componise.js"></script>
     <link rel="stylesheet" href="../common/lib/bootstrap.min.css">
     <link rel="stylesheet" href="../common/common.css">
@@ -21,60 +22,39 @@
             componentName:"myheader"
         })
     </script>
-    <div id="support-form" class="content-container">
-        <div class="row justify-content-center d-flex">
-            <div class="col-9">
-                <div class="row mt-4">
-                    <div class="col">
-                        <h1 class="text-light">بخش ثبت مسئله جدید</h1>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col">
-                        <h5 class="text-secondary">پیام شما را در اسرع وقت پاسخگو خواهیم بود .</h5>
-                    </div>
-                </div>
-                <div class="row mb-1">
-                    <div class="col" dir="rtl">
-                        <label for="username" class="text-light mb-1">نام کاربری :</label>
-                        <input type="text" class="form-control" id="username">
-                    </div>
-                </div>
-                <div class="row mb-1">
-                    <div class="col" dir="rtl">
-                        <label for="subject" class="text-light mb-1">موضوع :</label>
-                        <input type="text" class="form-control" id="subject">
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col" dir="rtl">
-                        <label for="content" class="text-light mb-1">متن درخواست</label>
-                        <input type="text" class="form-control" id="content" style="height:100px;">
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col d-grid gap-2">
-                        <button class="btn btn-success" id="submit_data">ثبت اطلاعات</button>
-                    </div>
-                </div>
-                <hr class="bg-light">
-                <div class="row tips_container">
-                    <script>
-                        componise.renderComponent({
-                            componentName:"tip",
-                            iconSrc:'../common/bootstrap-icons/lightbulb-white.svg',
-                            slot:'درخواست پشتیبانی شما ان شاء الله به زودی بررسی خواهد شد'
-                        })
-                    </script>
-                    
-                </div>
-            </div>
+   <div class="row mt-4 d-flex justify-content-center">
+    <div class="col-7">
+        <h2 class="text-light rtl-center">بخش رسیدگی به درخواست های پشتیبانی</h2>
+    </div>
+    </div>
+    <div class="row mb-2 d-flex justify-content-center mt-1">
+        <div class="col-9">
+            <h5 class="text-secondary rtl-center">پس از رسیدگی به این گزارش وضعیت آن را با استفاده از دکمه پایین صفحه به رسیدگی شده تغییر دهید</h5>
         </div>
-        
+    </div>
+    <div class="row d-flex justify-content-center">
+        <hr class="bg-light w-75">
+    </div>
+    <div class="row" style="direction:rtl;text-align:right">
+        <div class="col px-5">
+            <h4 class="text-light">
+                اطلاعات این درخواست:
+            </h4>
+        </div>
+    </div>
+    <div class="box" id="data_container"></div>
     
-       
-       
+    <div class="row" style="direction:rtl;text-align:right">
+        <div class="col px-5">
+            <h4 class="text-light">
+                متن درخواست:
+            </h4>
+        </div>
+    </div>
+    <div class="box" id="content_container"></div>
     
-    </div>  
+    <button class="btn btn-success" id="submit_button">به این گزارش رسیدگی شد</button>
+    <button class="btn btn-secondary" id="back_button">بازگشت</button>
+       
 </body>
 </html>

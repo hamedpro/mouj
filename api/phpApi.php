@@ -181,12 +181,12 @@ class api{
     }
     public function toggle_support_message_status($obj){
         $support_message_id = $obj['support_message_id'];
-        if($this->is_support_message_open($support_message_id)){
+        if($this->is_support_message_open(['support_message_id'=>$support_message_id])){
             $query = "update support_messages set status = 'closed' where id = $support_message_id";
-            $this->db->query($query);
+            return $this->db->query($query)?'true':'false';
         }else{
             $query = "update support_messages set status = 'open' where id = $support_message_id";
-            $this->db->query($query);
+            return $this->db->query($query)?'true':'false';
         }
     }
     public function is_support_message_open($obj){
@@ -209,6 +209,14 @@ class api{
     }
     public function get_support_messages(){
         return get_table_as_json($this->db,'support_messages');
+    }
+    public function get_support_message($obj){
+        $support_messages = json_decode($this->get_support_messages());
+        foreach ($support_messages as $key => $value) {
+            if($value->id == $obj['id']){
+                return json_encode($value);
+            };
+        };
     }
     public function new_plan($obj){
         $starter_username = $obj['starter_username'];

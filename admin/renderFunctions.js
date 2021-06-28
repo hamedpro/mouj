@@ -85,7 +85,8 @@ renderSM = function(subject,content,id){
                
                 svg:box_arrow_up_left_white,
                 handler:function(){
-                    window.location.replace('../supportMessageShower/index.php?sm_id='+id)
+                    localStorage.setItem('support_message_id',id)
+                    window.location.replace('../supportMessageShower/index.html')
                 }
             }
         ],
