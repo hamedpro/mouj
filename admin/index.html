@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <script>
+        if(localStorage.getItem('username') == null ||typeof localStorage.getItem('username') == "undefined"){
+            window.location.replace('../selectAdmin/index.html')
+        }
         username = localStorage.getItem('username')
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
