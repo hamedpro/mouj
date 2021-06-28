@@ -1,17 +1,10 @@
-<?php
-$username = $_REQUEST["username"];
-echo "
-    <script>
-    username = '$username'
-    </script>
-"
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
+    <script>
+        username = localStorage.getItem('username')
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin dashboard</title>
     <link rel="stylesheet" href="../common/common.css">

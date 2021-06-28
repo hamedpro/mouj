@@ -22,7 +22,8 @@ window.onload = function(){
                 .then(s=>s.text())
                 .then(s=>{
                     if(s == "true"){
-                        window.location.replace('../admin/index.php?username='+username);
+                        localStorage.setItem('username',username)
+                        window.location.replace('../admin/index.html');
                     }else{
                         alert('هویت شما تایید نشد، دوباره تلاش کنید.')
                     }

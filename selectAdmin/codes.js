@@ -1,6 +1,7 @@
 
 function go_to_admin_password_checker(username){
-    window.location.replace('../adminPasswordChecker/index.php?username='+username)
+    localStorage.setItem('username',username)
+    window.location.replace('../adminPasswordChecker/index.php')
 }
 window.onload = function(){
     fetch('../api/requests.php?func_name=get_admins')
