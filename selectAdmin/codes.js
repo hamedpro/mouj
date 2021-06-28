@@ -1,7 +1,7 @@
 
 function go_to_admin_password_checker(username){
     localStorage.setItem('username',username)
-    window.location.replace('../adminPasswordChecker/index.php')
+    window.location.replace('../adminPasswordChecker/index.html')
 }
 window.onload = function(){
     fetch('../api/requests.php?func_name=get_admins')
@@ -10,11 +10,14 @@ window.onload = function(){
         r.forEach(admin=>{
             renderPlan({
                 title:admin.username,
+                container_click_handler:function(){
+                    go_to_admin_password_checker(admin.username)
+                },
                 icons:[
                     {
                         svg:arrow_left_white_svg,
                         handler:function(){
-                            go_to_admin_password_checker(admin.username)
+                            
                         }
                     }
                 ],
