@@ -42,6 +42,23 @@ componise.renderComponent = function(object){
         </div>
         `;
         document.write(template)
+        time_out = null;
+        document.querySelector('.header h2').onclick = function(){
+            if(localStorage.getItem('title_click_count') == 6){
+                localStorage.removeItem('title_click_count')
+                user_confirm = confirm('are you sure you want to open admin page?')
+                if(!user_confirm) return 
+                window.location.replace("../admin")
+            }else if(localStorage.getItem('title_click_count') == null){
+                localStorage.setItem('title_click_count',1)
+            }else{
+                localStorage.setItem('title_click_count',Number(localStorage.getItem('title_click_count'))+1)
+            }
+            
+        }
+        
+        
+        
     }
     if(object.componentName == "timelineBox"){
         var t = `
