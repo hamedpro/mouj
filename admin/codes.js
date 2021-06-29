@@ -1,4 +1,4 @@
-function render_settings(){
+function render_settings(mode){
     els.title.innerHTML = "تنظیمات";
     els.info.innerHTML = "با استفاده از دسترسی مدیرتان، تنظیمات را تغییر دهید.";
     els.container.innerHTML = "";
@@ -13,7 +13,7 @@ function render_settings(){
     renderSettingOption("حذف تمام تراکنش ها",els.container,api_operations.delete_all_transactions)
     
 }
-function render_plans(){
+function render_plans(mode){
     els.title.innerHTML = "تمام طرح ها";
     els.info.innerHTML = "تمام طرح هایی که تا به حال شروع شده را در پایین مشاهده می کنید.";
     els.container.innerHTML ="";
@@ -25,6 +25,13 @@ function render_plans(){
             return;
         }
         r.forEach(plan=>{
+            if(mode == "open_plans"){
+                if(plan.status == "finished") return
+            }
+            if(mode == "closed_plans"){
+                if(plan.status == "open") return
+            }
+            
             console.log(plan)
             generatedContentText = ""
             generatedContentText += "کل مبلغ مورد نیاز: " +plan.final_amount_as_rial +" ریال" +"<br>"
@@ -59,7 +66,7 @@ function render_transactions(){
         
     })
 }
-function render_users(){
+function render_users(mode){
     els.title.innerHTML = "تمام کاربران";
     els.info.innerHTML = "در قسمت پایین تمام کاربران را مشاهده می کنید - مدیران از کاربران عادی متمایز شده اند";
     els.container.innerHTML ="";
@@ -71,6 +78,12 @@ function render_users(){
             return;
         }
         r.forEach(user=>{
+            if(mode == "admins"){
+                if(!user.is_admin) return 
+            }
+            if(mode == "normal_users"){
+                if(user.is_admin) return 
+            }
             generatedContentText = ""
             if(user.is_admin){
                 generatedContentText += "این فرد دارای اختیارات مدیر است"+"<br>"
@@ -128,53 +141,73 @@ window.onload = function(){
     q("load_plans_button").onclick = function(){
         just_active_this(this)
         render_plans()
+        q('filter').innerHTML = ""
+        q('filter').innerHTML = 
+        `
+        <option value="any">any</option>
+        <option value="finished_plans">finished plans</option>
+        <option value="open_plans">open plans</option>
+        `
+                
+        q('filter').onchange = function(){  
+            render_plans(q('filter').value) 
+        }
     }
     
     q("load_transactions_button").onclick = function(){
         just_active_this(this)
         render_transactions()
+        q('filter').innerHTML = 
+        `
+        <option value="any">any</option>
+        
+        `
+                
+        q('filter').onchange = function(){  
+            render_transactions(q('filter').value) 
+        }
         
     }
     q("load_users_button").onclick = function(){
         just_active_this(this)
         render_users()
+        q('filter').innerHTML = 
+        `
+        <option value="any">any</option>
+        <option value="normal_users">normal users</option>
+        <option value="admins">admins</option>
+        `
+                
+        q('filter').onchange = function(){  
+            render_users(q('filter').value) 
+        }
     }
     q("load_support_messages_button").onclick = function(){
         just_active_this(this)
         render_support_messages(true)
 
-        q('filter').innerHTML = ""
-        option_el = document.createElement('option')
-        option_el.setAttribute('value','any')
-        option_el.innerHTML = 'any'
-        q('filter').appendChild(option_el)
-
-        option_el = document.createElement('option')
-        option_el.setAttribute('value','just_open_support_messages')
-        option_el.innerHTML = 'just open support messages'
-        q('filter').appendChild(option_el)
-
-        option_el = document.createElement('option')
-        option_el.setAttribute('value','just_closed_support_messages')
-        option_el.innerHTML = 'just closed support messages'
-        q('filter').appendChild(option_el)
-        
-        q('filter').onchange = function(){
-            if(q('filter').value == "any"){
-                render_support_messages(true)
-            }
-            if(q('filter').value == "just_open_support_messages"){
-                render_support_messages('just_open_support_messages')
-            }
-            if(q('filter').value == "just_closed_support_messages"){
-                render_support_messages('just_closed_support_messages')
-            }
-            
+        q('filter').innerHTML = 
+        `
+        <option value="any">any</option>
+        <option value="just_open_support_messages">just open support messages</option>
+        <option value="just_closed_support_messages">just closed support messages</option>
+        `
+                
+        q('filter').onchange = function(){  
+            render_support_messages(q('filter').value) 
         }
     }
     q("load_settings_button").onclick = function(){
         just_active_this(this)
         render_settings()
+        q('filter').innerHTML = 
+        `
+        <option value="any">any</option>
+        `
+                
+        q('filter').onchange = function(){  
+            render_settings(q('filter').value) 
+        }
     }
     
     q('load_plans_button').click()
