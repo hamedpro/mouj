@@ -71,7 +71,11 @@ api_operations.finish_handler = function(plan_id){
 api_operations.make_user_admin = function(username){
     let user_confirm = confirm('are you sure?');
     if(!user_confirm) return;
-    url = '../api/requests.php?func_name=make_user_admin&username='+username;
+    url = '../api/requests.php'+object_to_query({
+        func_name:'make_user_admin',
+        username:username,
+        password:prompt('enter his password as a 4 digit number')
+    });
     console.log(url)
     fetch(url)
     .then(res=>res.text())
@@ -164,7 +168,7 @@ api_operations.new_admin = function (){
     username=prompt('enter his/her username')
     password = Number(prompt('enter his password as a 4 digit number'))
     fetch('../api/requests.php'+object_to_query({
-        //check if user does not exists , add him
+       
         //todo test this func
         func_name:'make_user_admin',
         username,

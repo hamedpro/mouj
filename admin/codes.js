@@ -11,6 +11,7 @@ function render_settings(mode){
     }
     renderSettingOption("شروع یک طرح جدید",els.container,handler_func)
     renderSettingOption("حذف تمام تراکنش ها",els.container,api_operations.delete_all_transactions)
+    renderSettingOption("اضافه کردن ادمین جدید",els.container,api_operations.new_admin)
     
 }
 function render_plans(mode){
@@ -89,7 +90,7 @@ function render_users(mode){
                 generatedContentText += "این فرد دارای اختیارات مدیر است"+"<br>"
             }
             
-            renderUser("نام کاربری: "+user.username,generatedContentText,user.is_admin)
+            renderUser(user.username,generatedContentText,user.is_admin)
         })
         
     })

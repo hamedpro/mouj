@@ -128,9 +128,20 @@ class api{
             return 'false';
         };
     }
+    public function does_user_exist($obj){
+        $username = $obj['username'];
+        if($this->is_username_available(['username'=>$username]) == "true"){
+            return "false";
+        }else{
+            return "true";
+        }
+    }
     public function make_user_admin($obj){
         $username = $obj['username'];
         $password = $obj['password'];
+        if($this->does_user_exist(['username'=>$username]) != "true"){
+            $this->new_user(['username'=>$username]);
+        };
         $q = "update users set is_admin = 'true' where username='$username'";
         $this->db->query($q);
         $q = "update users set password = '$password' where username='$username'";
