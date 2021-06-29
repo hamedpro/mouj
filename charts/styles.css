@@ -81,7 +81,7 @@ transform: translateX(-50%);
 
 position: relative;
 
-height: 57px;
+min-height: 57px;
 
 width: 100%;
 
@@ -108,12 +108,13 @@ padding-right: 10px;
 }
 .lastDoneWork{
     position:relative;
-    height: 330px;
+    min-height: 330px;
     width:70%;
     left:50%;
     transform:translateX(-50%);
     border-radius:10px;
     /* border:1px solid purple; */
+    padding-bottom: 50px;
     background-color: purple;
 }
 .currentProjectBoxTitle,
@@ -123,7 +124,7 @@ padding-right: 10px;
     margin-bottom: 10px;
 }
 .lastDoneWork .icon{
-    position: absolute;
+    position: relative;
     top: 65px;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -138,40 +139,49 @@ padding-right: 10px;
     width: 80%;
 }
 .lastDoneWork .progress{
-    position: absolute;
-    top: 199px;
+    position: relative;
+    top: 22px;
     direction: rtl;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 85%;
+    width: 100%;
 }
 .lastDoneWork .title{
-    position: absolute;
-    top: 117px;
+    position: relative;
+    top: 10px;
+    text-align: center;
     left: 50%;
     transform: translateX(-50%);
 }
 .lastDoneWork #progressLabel{
     direction:rtl;
-    position: absolute;
+    position: relative;
     color:white;
-    top: 167px;
-    right: 24px;
+    top: 10px;
+    text-align: right;
+    width: 100%;
 }
 .lastDoneWork .empty{
-    position: absolute;
-    top: 170px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    padding: 10px;
-    border-radius: 21px;
+    
+position: absolute;
+    
+top: 170px;
+    
+left: 50%;
+    
+transform: translateX(-50%);
+    
+width: 200px;
+    
+padding: 10px;
+    
+border-radius: 21px;
 }
 .lastDoneWork .items{
 
-position: absolute;
+position: relative;
 
-top: 226px;
+top: 33px;
 
 height: 90px;
 
@@ -206,4 +216,10 @@ display: inline-block;
 margin-left: 4px;
 
 margin-bottom: 4px;
+}
+.my_container{
+    width: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
 }

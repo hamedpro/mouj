@@ -25,5 +25,9 @@ function append_two_arrays($a1,$a2){
 }
 function last_item($array){
     $count = count($array);
-    return $array[$count-1];
+    if($count != 0){
+        return $array[$count-1];
+    }else{
+        return false;
+    };
 }

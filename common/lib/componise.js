@@ -75,7 +75,7 @@ componise.renderComponent = function(object){
         object.items.forEach(item=>{
             t+=`
             <div class="timelineItem">
-                <h5 class="text-light mb-1">${item.title}</h5>
+                <h5 class="text-light mb-2 mt-2">${item.title}</h5>
                 <h6 class="text-info">${item.content}</h6>
             </div>
             `
