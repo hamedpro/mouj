@@ -33,4 +33,11 @@ window.onload = function(){
         }
 
     })
+    document.onkeypress = function(e){
+        for(i = 0;i<10;i++){
+            if(e.key == i.toString()){
+                document.getElementById("button_"+(i)).click()
+            }
+        }
+    }
 }
