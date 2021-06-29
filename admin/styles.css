@@ -73,15 +73,24 @@ max-width: 200px;
 }
 
 .horizontalItems{
-position: relative;
-height: 45px;
-/* background: purple; */
-border-bottom: 1px solid dimgray;
-overflow: hidden;
-display: flex;
-overflow-x: auto;
-padding: 0px 11px 0px 11px;
-width: 100%;
+
+position: relative;
+
+height: 45px;
+
+/* background: purple; */
+
+border-bottom: 1px solid dimgray;
+
+overflow: hidden;
+
+display: flex;
+
+overflow-x: auto;
+
+padding: 0px 11px 0px 11px;
+
+width: 100%;
 }
 .horizontalItems .item{
     
@@ -129,11 +138,15 @@ text-align: left;
     position: relative;
     width: 55%;
     margin-top: 12px;
+    background: #d3d3d338;
     display: inline-block;
     margin-bottom: 13px;
 }
 .select_box_container .title{
-    display: inline-block;
-    position: relative;
-    margin-left: 24%;
+    
+display: inline-block;
+    
+position: relative;
+    
+margin-left: 24%;
 }

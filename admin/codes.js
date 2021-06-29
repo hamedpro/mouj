@@ -4,7 +4,7 @@ function render_settings(mode){
     els.container.innerHTML = "";
     
     renderSettingOption("تعویض رمز عبور",els.container,function(){
-        api_operations.change_password(username)
+        api_operations.change_password(localStorage.getItem('username'))
     })
     handler_func = function(){
         api_operations.new_plan(username)
@@ -12,6 +12,13 @@ function render_settings(mode){
     renderSettingOption("شروع یک طرح جدید",els.container,handler_func)
     renderSettingOption("حذف تمام تراکنش ها",els.container,api_operations.delete_all_transactions)
     renderSettingOption("اضافه کردن ادمین جدید",els.container,api_operations.new_admin)
+    renderSettingOption("حذف تمام درخواست های پشتیبانی",els.container,api_operations.delete_support_messages)
+    renderSettingOption("خروج از حساب کاربری",els.container,function(){
+        user_confirm = confirm('are you sure?')
+        if (!user_confirm) return
+        localStorage.removeItem('username')
+        window.location.replace('../home')
+    })
     
 }
 function render_plans(mode){

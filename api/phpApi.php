@@ -211,7 +211,8 @@ class api{
     }
     
     public function delete_all_support_messages(){
-        drop_table($this->db,'support_messages');
+        return drop_table($this->db,'support_messages')?"true":'false';
+        
     }
     public function delete_support_message($obj){
         $support_message_id = $obj['support_message_id'];

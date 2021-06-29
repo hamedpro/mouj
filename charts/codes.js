@@ -31,6 +31,9 @@ var updateLastDoneWork = function(){
                 items.push('شروع: '+res.start_date)
                 if(res.end_date==null){
                     items.push('وضعیت: خاتمه نیافته')
+                }else{
+                    items.push('وضعیت: خاتمه یافته')
+                    items.push('خاتمه یافته در: '+res.end_date)
                 }
                 items.push('مبلغ کلی: '+res.final_amount_as_rial);
                 items.push('مبلغ جمع شده فعلی: '+res.current_amount);
@@ -41,7 +44,7 @@ var updateLastDoneWork = function(){
                     els.items.appendChild(tmp)
                 })
                 els.title.innerHTML = res.title;
-                els.progressLabel.innerHTML = res.current_amount +' از '+res.final_amount_as_rial +':';
+                els.progressLabel.innerHTML = res.current_amount +' از '+res.final_amount_as_rial +" (ریال)"+':';
                 els.progressbar.style.width = ((res.current_amount/res.final_amount_as_rial)*100)+"%";
                 
             });

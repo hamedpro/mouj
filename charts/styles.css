@@ -200,22 +200,15 @@ direction: rtl;
 overflow-x: scroll;
 }
 .lastDoneWork .items div{
-
-position: relative;
-
-background-color: blue;
-
-color: white;
-
-padding: 1px 10px 1px 10px;
-
-border-radius: 8px;
-
-display: inline-block;
-
-margin-left: 4px;
-
-margin-bottom: 4px;
+position: relative;
+background-color: blue;
+color: white;
+padding: 1px 10px 1px 10px;
+border-radius: 8px;
+display: inline-block;
+margin-left: 4px;
+font-size: 14px;
+margin-bottom: 4px;
 }
 .my_container{
     width: 85%;

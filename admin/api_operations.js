@@ -151,7 +151,24 @@ api_operations.change_password= function (username){
         }
     })
 }
+api_operations.delete_support_messages = function(){
+    user_confirm = confirm('are you sure ?')
+    if (!user_confirm) return
+    fetch('../api/requests.php'+object_to_query({
+        func_name:'delete_all_support_messages'
+    }))
+    .then(res=>res.text())
+    .then(r=>{
+        if(r== "true"){
+            alert('done')
+        }else{
+            alert('failed')
+        }
+    })
+}
 api_operations.delete_all_transactions = function(){
+    user_confirm = confirm('are you sure?')
+    if (!user_confirm) return 
     fetch('../api/requests.php'+object_to_query({
         func_name:'delete_all_transactions'
     }))
