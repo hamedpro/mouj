@@ -14,7 +14,7 @@ window.onload = function(){
         fetch('../api/requests.php?func_name=is_username_available&username='+username,)
         .then(res=>res.text())
         .then(res=>{
-            console.log(res)
+            
             if(res != 'true'){
                 document.getElementById('tips_container_1').style.display = "block";
                 document.getElementById('submit_button').classList.add('disabled');

@@ -41,7 +41,7 @@ function render_plans(mode){
                 if(plan.status == "open") return
             }
             
-            console.log(plan)
+            
             generatedContentText = ""
             generatedContentText += "کل مبلغ مورد نیاز: " +plan.final_amount_as_rial +" ریال" +"<br>"
             generatedContentText += "وضعیت: "+(plan.status == "finished"?"خاتمه یافته":"خاتمه نیافته") +"<br>"
@@ -128,7 +128,7 @@ function render_support_messages(mode){
                 if(sm.status == "open") return 
             }
             
-            console.log(sm)
+        
             content = "ثبت شده توسط: "+sm.username+"<br>";
 
             renderSM("موضوع: "+sm.subject,content,sm.id)

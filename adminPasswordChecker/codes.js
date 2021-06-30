@@ -17,7 +17,7 @@ window.onload = function(){
             bel_bel(button,"blue");
             if(password.length == 4){
                 url = '../api/requests.php?func_name=verify_admin_password&username='+username+"&password="+password.join("");
-                console.log(url)
+                
                 fetch(url)
                 .then(s=>s.text())
                 .then(s=>{

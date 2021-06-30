@@ -3,11 +3,11 @@ api_operations.delete_transaction = function(tr_id){
     let user_confirm = confirm('are you sure?');
     if(!user_confirm) return;
     url = '../api/requests.php?func_name=delete_transaction&transaction_id='+tr_id;
-        console.log(url)
+        
         fetch(url)
         .then(res=>res.text())
         .then(res=>{
-            console.log(res)
+            
             if(res == "true"){
                 alert('done')
             }else{
@@ -20,11 +20,11 @@ api_operations.delete_user = function(username){
     let user_confirm = confirm('are you sure?');
     if(!user_confirm) return;
     url = '../api/requests.php?func_name=delete_user&username='+username;
-        console.log(url)
+        
         fetch(url)
         .then(res=>res.text())
         .then(res=>{
-            console.log(res)
+            
             if(res == "true"){
                 alert('done')
             }else{
@@ -38,11 +38,11 @@ api_operations.delete_handler = function(plan_id){
     let user_confirm = confirm('are you sure?');
         if(!user_confirm) return;
         url = '../api/requests.php?func_name=delete_plan&plan_id='+plan_id;
-        console.log(url)
+        
         fetch(url)
         .then(res=>res.text())
         .then(res=>{
-            console.log(res)
+            
             if(res == "true"){
                 alert('done')
             }else{
@@ -55,11 +55,11 @@ api_operations.finish_handler = function(plan_id){
     let user_confirm = confirm('are you sure?');
     if(!user_confirm) return;
     url = '../api/requests.php?func_name=finish_plan&plan_id='+plan_id;
-    console.log(url)
+    
     fetch(url)
     .then(res=>res.text())
     .then(res=>{
-        console.log(res)
+        
         if(res == "true"){
             alert('done')
         }else{
@@ -76,11 +76,11 @@ api_operations.make_user_admin = function(username){
         username:username,
         password:prompt('enter his password as a 4 digit number')
     });
-    console.log(url)
+    
     fetch(url)
     .then(res=>res.text())
     .then(res=>{
-        console.log(res)
+        
         if(res == "true"){
             alert('done')
         }else{
@@ -93,11 +93,11 @@ api_operations.delete_support_message =function (sm_id){
     let user_confirm = confirm('are you sure?');
     if(!user_confirm) return;
     url = '../api/requests.php?func_name=delete_support_message&support_message_id='+sm_id;
-    console.log(url)
+    
     fetch(url)
     .then(res=>res.text())
     .then(res=>{
-        console.log(res)
+        
         if(res == "true"){
             alert('done')
         }else{
@@ -130,7 +130,7 @@ api_operations.new_plan = function(){
     fetch(`../api/requests.php?func_name=new_plan&starter_username=${starter_username}&description=${description}&final_amount_as_rial=${final_amount}&title=${title}`)
     .then(res=>res.text())
     .then(r=>{
-        console.log(r)
+      
         if(r == "true"){
             alert('done')
         }else{
