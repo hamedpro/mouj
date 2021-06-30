@@ -11,7 +11,8 @@ $query = "create table if not exists users(
     id int(10) primary key auto_increment,
     username varchar(100),
     is_admin varchar(100),
-    password varchar(100)
+    password varchar(100),
+    phone_number int(15)
 )";
 if(!$db->query($query)){
     echo $db->error;
