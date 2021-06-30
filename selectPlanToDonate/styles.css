@@ -48,13 +48,13 @@ transform: translateX(-50%);
     position: absolute;
     bottom: 0px;
     width: 100%;
-    background: green;
+    background: cornflowerblue;
     display: flex;
     border-radius: 0px 0px 10px 10px;
     justify-content: center;
     align-items: center;
     direction: rtl;
-    color: white;
+    color: darkblue;
     padding: 10px 0px 10px 0px;
     transition: 0.3s;
     text-align: center;

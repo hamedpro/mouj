@@ -2,6 +2,7 @@ window.onload = function(){
     fetch('../api/requests.php?func_name=get_plans')
     .then(res=>res.json())
     .then(r=>{
+        r = r.reverse()
         r.forEach(plan=>{
             
             content = ""
@@ -12,8 +13,12 @@ window.onload = function(){
             content += lightbulb_white +"مبلغ جمع شده فعلی: " +plan.current_amount+"<br>"
             content += lightbulb_white +"توضیحات ثبت شده: " +plan.description+"<br>"
             renderPlan({
-                bottom_button_text:"text",
+                bottom_button_text:"انتخاب طرح",
                 bottom_button_handler:function(){
+                    if(plan.status == "finished"){
+                        alert('این طرح به پایان رسیده است و امکان شرکت در آن وجود ندارد')
+                        return
+                    }
                     localStorage.setItem('plan_id_to_donate',plan.id)
                     window.location.replace('../newTransaction')
                 },
