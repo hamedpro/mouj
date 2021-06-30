@@ -32,6 +32,7 @@ function render_plans(mode){
             els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
             return;
         }
+        r = r.reverse()
         r.forEach(plan=>{
             if(mode == "open_plans"){
                 if(plan.status == "finished") return
@@ -63,6 +64,7 @@ function render_transactions(){
             els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
             return;
         }
+        r=r.reverse()
         r.forEach(tr=>{
             generatedContentText = ""
             generatedContentText += "مبلغ تراکنش: " +tr.amount +" ریال" +"<br>"
@@ -85,6 +87,7 @@ function render_users(mode){
             els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
             return;
         }
+        r=r.reverse()
         r.forEach(user=>{
             if(mode == "admins"){
                 if(!user.is_admin) return 
@@ -116,6 +119,7 @@ function render_support_messages(mode){
             els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
             return;
         }
+        r=r.reverse()
         r.forEach(sm=>{
             if(mode == "just_open_support_messages"){
                 if(sm.status == "closed") return 
