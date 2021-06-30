@@ -18,7 +18,8 @@
                 $username = $_REQUEST["username"];
                 $category = $_REQUEST['category'];
                 $info = $_REQUEST['info'];
-                $url_to_redirect = "../paymentSuccess/index.php?amount=$amount&username=$username&category=$category&info=$info";
+                $plan_id = (int)$_REQUEST['plan_id'];
+                $url_to_redirect = "../paymentSuccess/index.php?amount=$amount&username=$username&category=$category&info=$info&plan_id=$plan_id";
             ?>
             window.location.replace(<?php echo "'$url_to_redirect'" ?>);
         }

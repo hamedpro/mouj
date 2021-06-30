@@ -5,7 +5,7 @@ $username = $_REQUEST['username'];
 $amount = (int)$_REQUEST['amount'];
 include('../api/phpApi.php');
 $api = new api($db);
-$plan_id = last_item(json_decode($api->get_plan_ids()));
+$plan_id = (int)$_REQUEST['plan_id'];
 $api->new_transaction([
     'username'=>$username,
     'category'=>$category,

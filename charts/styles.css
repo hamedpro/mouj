@@ -78,22 +78,15 @@ left: 50%;
 transform: translateX(-50%);
 }
 .timelineBox .timelineItemsContainer .timelineItem{
-
-position: relative;
-
-min-height: 57px;
-
-width: 100%;
-
-background: rgb(54,54,56);
-
-border: 1px solid rgb(84,84,86);
-
-direction: rtl;
-
-border-bottom:none;
-
-padding-right: 10px;
+position: relative;
+min-height: 57px;
+width: 100%;
+background: rgb(54,54,56);
+border: 1px solid rgb(84,84,86);
+direction: rtl;
+border-bottom:none;
+padding-right: 10px;
+padding-bottom: 4px;
 }
 .timelineBox .timelineItemsContainer .timelineItem:first-child{
     border-top-right-radius: 5px;

@@ -48,7 +48,7 @@ transform: translateX(-50%);
     position: absolute;
     bottom: 0px;
     width: 100%;
-    background: blueviolet;
+    background: green;
     display: flex;
     border-radius: 0px 0px 10px 10px;
     justify-content: center;
@@ -60,5 +60,5 @@ transform: translateX(-50%);
     text-align: center;
 }
 .bottom_button:hover{
-    background: darkviolet;
+    background: darkgreen;
 }

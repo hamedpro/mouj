@@ -133,6 +133,7 @@ renderPlan = function(object){
         bottom_button.innerHTML = object.bottom_button_text
         container.appendChild(bottom_button)
         container.classList.add('with_bottom_button')
+        container.classList.add('dont_effect')
     }
     
     object.targetEl.appendChild(container)

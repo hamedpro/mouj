@@ -120,7 +120,8 @@ transform: translateX(-50%);
 	align-items: center;
 }
 .plan.with_bottom_button{
-padding-bottom: 50px;
+
+padding-bottom: 50px;
 }
 .plan .title{
 	direction: rtl;
@@ -155,8 +156,10 @@ background: rgba(0,0,255,0.3);
 	display: inline-block;
 	width: 75%;
 	direction: rtl;
-	left: 18%;
 	margin-left: 25px;
+}
+.plan.dont_effect .right_container{
+	left: 18%;
 }
 .plan .right_container .content{
 
