@@ -3,9 +3,13 @@ $info = $_REQUEST['info'];
 $category = $_REQUEST['category'];
 $username = $_REQUEST['username'];
 $amount = (int)$_REQUEST['amount'];
-include('../api/phpApi.php');
-$api = new api($db);
 $plan_id = (int)$_REQUEST['plan_id'];
+include_once('../api/common.php');
+include_once('../api/db_class.php');
+include_once('../api/db_methods.php');
+$db = new db();
+$api = new api($db->conn);
+
 $api->new_transaction([
     'username'=>$username,
     'category'=>$category,

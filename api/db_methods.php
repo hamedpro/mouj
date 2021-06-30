@@ -26,7 +26,21 @@ class api{
         $plan_id = $obj['plan_id'];
 
         $query = "insert into transactions (category,amount,info,username,plan_id) values ('$category','$amount','$info','$username',$plan_id)";
-        return $this->db->query($query);
+        if($this->db->query($query)){
+            //finish every plan if its amount condition is met
+            $plans = json_decode($this->get_plans());
+            foreach ($plans as $key => $value) {
+                if($value->final_amount_as_rial<= $value->current_amount){
+                    $plan_id = $value->id;
+                    $this->finish_plan(['plan_id'=>$plan_id]);
+                };
+            };
+                
+            
+            return "true";
+        }else{
+            return "false";
+        }
     }
     public function get_transactions(){
         return get_table_as_json($this->db,'transactions');
@@ -181,7 +195,8 @@ class api{
 
         $start_date = date("Y:M:D");
         $q = "insert into plans(title,description,starter_username,status,start_date,final_amount_as_rial) values ('$title','$description','$starter_username','open','$start_date',$final_amount_as_rial)";
-        return $this->db->query($q)?"true":'false';
+        return $this->db->query($q) ? "true":"false";
+        
     }
     public function finish_plan($obj){
         $plan_id = $obj['plan_id'];
