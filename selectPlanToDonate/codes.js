@@ -2,9 +2,7 @@ window.onload = function(){
     fetch('../api/requests.php?func_name=get_plans')
     .then(res=>res.json())
     .then(r=>{
-        r = r.reverse()
-        r.forEach(plan=>{
-            
+        r.reverse().forEach(plan=>{
             content = ""
             content +=  lightbulb_white +"آیدی طرح: "+plan.id +"<br>"
             content += lightbulb_white +"تاریخ شروع طرح: " +plan.start_date+"<br>"
@@ -24,13 +22,9 @@ window.onload = function(){
                 },
                 title:"نام طرح: "+plan.title,
                 content:content,
-                container_click_handler:function(){
-                    
-                },
-                icons:[
-                    
-                ],
-                targetEl:document.getElementById('data_container')
+                container_click_handler:function(){},
+                icons:[],
+                targetEl:document.select('data_container')
             })
         })
     })

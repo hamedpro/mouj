@@ -3,23 +3,50 @@ function render_settings(mode){
     els.info.innerHTML = "با استفاده از دسترسی مدیرتان، تنظیمات را تغییر دهید.";
     els.container.innerHTML = "";
     
-    renderSettingOption("تعویض رمز عبور",els.container,function(){
+    renderSettingOption("تعویض رمز عبور",function(){
         api_operations.change_password(localStorage.getItem('username'))
     })
-    handler_func = function(){
+    renderSettingOption("شروع یک طرح جدید",function(){
         api_operations.new_plan(username)
-    }
-    renderSettingOption("شروع یک طرح جدید",els.container,handler_func)
-    renderSettingOption("حذف تمام تراکنش ها",els.container,api_operations.delete_all_transactions)
-    renderSettingOption("اضافه کردن ادمین جدید",els.container,api_operations.new_admin)
-    renderSettingOption("حذف تمام درخواست های پشتیبانی",els.container,api_operations.delete_support_messages)
-    renderSettingOption("خروج از حساب کاربری",els.container,function(){
-        user_confirm = confirm('are you sure?')
-        if (!user_confirm) return
+    })
+    renderSettingOption("حذف تمام تراکنش ها",api_operations.delete_all_transactions)
+    renderSettingOption("اضافه کردن ادمین جدید",api_operations.new_admin)
+    renderSettingOption("حذف تمام درخواست های پشتیبانی",api_operations.delete_support_messages)
+    renderSettingOption("خروج از حساب کاربری",function(){
+        if (!confirm('are you sure?')) return
         localStorage.removeItem('username')
         window.location.replace('../home')
     })
-    
+    renderSettingOption("حذف تمام طرح ها",function(){
+        if (!confirm('are you sure?')) return
+        fetch('../api/requests.php'+object_to_query({
+            func_name:'delete_all_plans'
+        }))
+        .then(r=>r.text())
+        .then(r=>{
+            if(r=="true"){
+                alert('done successfuly')
+            }else{
+                alert('failed')
+            }
+        })
+    })
+    delete_all_users_handler = function(){
+        if (!confirm('are you sure?')) return
+        fetch('../api/requests.php'+object_to_query({
+            func_name:'delete_all_users'
+        }))
+        .then(r=>r.text())
+        .then(r=>{
+            if(r == "true"){
+                alert('done')
+            }else{
+                alert('failed')
+            }
+        })
+    }
+    renderSettingOption("حذف تمام کاربران",delete_all_users_handler)
+
 }
 function render_plans(mode){
     els.title.innerHTML = "تمام طرح ها";
@@ -32,23 +59,18 @@ function render_plans(mode){
             els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
             return;
         }
-        r = r.reverse()
-        r.forEach(plan=>{
-            if(mode == "open_plans"){
-                if(plan.status == "finished") return
-            }
-            if(mode == "closed_plans"){
-                if(plan.status == "open") return
-            }
+        r.reverse().forEach(plan=>{
+            if(mode == "open_plans" && plan.status == "finished") return 
+            if(mode == "closed_plans" && plan.status == "open") return
             
-            
-            generatedContentText = ""
-            generatedContentText += "کل مبلغ مورد نیاز: " +plan.final_amount_as_rial +" ریال" +"<br>"
-            generatedContentText += "وضعیت: "+(plan.status == "finished"?"خاتمه یافته":"خاتمه نیافته") +"<br>"
-            generatedContentText += "تاریخ شروع: "+plan.start_date +"<br>"
-            generatedContentText += "مبلغ جمع شده فعلی :"+plan.current_amount+" ریال" +"<br>"
-            generatedContentText += "شروع کننده طرح: "+plan.starter_username+"<br>"
-            renderPlanOption("نام طرح: "+(plan.title),generatedContentText,plan.id)
+            content = ""
+            content += "کل مبلغ مورد نیاز: " +plan.final_amount_as_rial +" ریال" +"<br>"
+            content += "وضعیت: "+(plan.status == "finished"?"خاتمه یافته":"خاتمه نیافته") +"<br>"
+            content += "تاریخ شروع: "+plan.start_date +"<br>"
+            content += "مبلغ جمع شده فعلی :"+plan.current_amount+" ریال" +"<br>"
+            content += "شروع کننده طرح: "+plan.starter_username+"<br>"
+            subject = "نام طرح: "+(plan.title)
+            renderPlanOption(subject,content,plan.id)
         })
         
     })
@@ -64,14 +86,13 @@ function render_transactions(){
             els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
             return;
         }
-        r=r.reverse()
-        r.forEach(tr=>{
-            generatedContentText = ""
-            generatedContentText += "مبلغ تراکنش: " +tr.amount +" ریال" +"<br>"
-            generatedContentText += "مقصد تراکنش: " +(tr.category == "mouj"?"طرح موج":"موسسه آنسه الشهدا")+"<br>"
-            generatedContentText += "شماره طرح مقصد این تراکنش: " +tr.plan_id +"<br>"
+        r.reverse().forEach(tr=>{
+            content = ""
+            content += "مبلغ تراکنش: " +tr.amount +" ریال" +"<br>"
+            content += "مقصد تراکنش: " +(tr.category == "mouj"?"طرح موج":"موسسه آنسه الشهدا")+"<br>"
+            content += "شماره طرح مقصد این تراکنش: " +tr.plan_id +"<br>"
             
-            renderTr("تراکنش توسط: "+tr.username,generatedContentText,tr.id)
+            renderTr("تراکنش توسط: "+tr.username,content,tr.id)
         })
         
     })
@@ -87,20 +108,19 @@ function render_users(mode){
             els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
             return;
         }
-        r=r.reverse()
-        r.forEach(user=>{
+        r.reverse().forEach(user=>{
             if(mode == "admins"){
                 if(!user.is_admin) return 
             }
             if(mode == "normal_users"){
                 if(user.is_admin) return 
             }
-            generatedContentText = ""
+            content = ""
             if(user.is_admin){
-                generatedContentText += "این فرد دارای اختیارات مدیر است"+"<br>"
+                content += "این فرد دارای اختیارات مدیر است"+"<br>"
             }
             
-            renderUser(user.username,generatedContentText,user.is_admin)
+            renderUser(user.username,content,user.is_admin)
         })
         
     })
@@ -109,6 +129,7 @@ function render_support_messages(mode){
     /* correct values for mode arg :
     just_open_support_messages
     just_closed_support_messages */
+
     els.title.innerHTML = "تمام درخواست های پشتیبانی";
     els.info.innerHTML = "با توجه به اولویت ها به درخواست های پشتیبانی رسیدگی کنید";
     els.container.innerHTML ="";
@@ -119,19 +140,14 @@ function render_support_messages(mode){
             els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
             return;
         }
-        r=r.reverse()
-        r.forEach(sm=>{
-            if(mode == "just_open_support_messages"){
-                if(sm.status == "closed") return 
-            }
-            if(mode == "just_closed_support_messages"){
-                if(sm.status == "open") return 
-            }
-            
         
+        r.reverse().forEach(sm=>{
+            if(mode == "just_open_support_messages" && sm.status == "closed") return
+            if(mode == "just_closed_support_messages" && sm.status == "open") return 
+            subject = "موضوع: "+sm.subject
             content = "ثبت شده توسط: "+sm.username+"<br>";
 
-            renderSM("موضوع: "+sm.subject,content,sm.id)
+            renderSM(subject,content,sm.id)
         })
         
     })
@@ -139,10 +155,13 @@ function render_support_messages(mode){
 
 var els ={}
 window.onload = function(){
+    select("username").textContent = username;
+    select("info").textContent = "اطلاعات بیشتری درباره این کاربر موجود نیست ";
+
     els = {
-        title:q('dataContainer-title'),
-        info:q('dataContainer-info'),
-        container:q('dataContainer')
+        title:select('dataContainer-title'),
+        info:select('dataContainer-info'),
+        container:select('dataContainer')
     }
     function just_active_this(el){
         document.querySelectorAll('.horizontalItems .item').forEach(item=>{
@@ -150,81 +169,78 @@ window.onload = function(){
         })
         el.classList.add('active');
     }
-    q("load_plans_button").onclick = function(){
+    select("load_plans_button").onclick = function(){
         just_active_this(this)
         render_plans()
-        q('filter').innerHTML = ""
-        q('filter').innerHTML = 
+        select('filter').innerHTML = ""
+        select('filter').innerHTML = 
         `
         <option value="any">any</option>
         <option value="finished_plans">finished plans</option>
         <option value="open_plans">open plans</option>
         `
                 
-        q('filter').onchange = function(){  
-            render_plans(q('filter').value) 
+        select('filter').onchange = function(){  
+            render_plans(select('filter').value) 
         }
     }
     
-    q("load_transactions_button").onclick = function(){
+    select("load_transactions_button").onclick = function(){
         just_active_this(this)
         render_transactions()
-        q('filter').innerHTML = 
+        select('filter').innerHTML = 
         `
         <option value="any">any</option>
         
         `
                 
-        q('filter').onchange = function(){  
-            render_transactions(q('filter').value) 
+        select('filter').onchange = function(){  
+            render_transactions(select('filter').value) 
         }
         
     }
-    q("load_users_button").onclick = function(){
+    select("load_users_button").onclick = function(){
         just_active_this(this)
         render_users()
-        q('filter').innerHTML = 
+        select('filter').innerHTML = 
         `
         <option value="any">any</option>
         <option value="normal_users">normal users</option>
         <option value="admins">admins</option>
         `
                 
-        q('filter').onchange = function(){  
-            render_users(q('filter').value) 
+        select('filter').onchange = function(){  
+            render_users(select('filter').value) 
         }
     }
-    q("load_support_messages_button").onclick = function(){
+    select("load_support_messages_button").onclick = function(){
         just_active_this(this)
         render_support_messages(true)
 
-        q('filter').innerHTML = 
+        select('filter').innerHTML = 
         `
         <option value="any">any</option>
         <option value="just_open_support_messages">just open support messages</option>
         <option value="just_closed_support_messages">just closed support messages</option>
         `
                 
-        q('filter').onchange = function(){  
-            render_support_messages(q('filter').value) 
+        select('filter').onchange = function(){  
+            render_support_messages(select('filter').value) 
         }
     }
-    q("load_settings_button").onclick = function(){
+    select("load_settings_button").onclick = function(){
         just_active_this(this)
         render_settings()
-        q('filter').innerHTML = 
+        select('filter').innerHTML = 
         `
         <option value="any">any</option>
         `
                 
-        q('filter').onchange = function(){  
-            render_settings(q('filter').value) 
+        select('filter').onchange = function(){  
+            render_settings(select('filter').value) 
         }
     }
-    
-    q('load_plans_button').click()
-    q("username").textContent = username;
-    q("info").textContent = "اطلاعات بیشتری درباره این کاربر موجود نیست ";
-    
+
+    select('load_plans_button').click()
     
 }

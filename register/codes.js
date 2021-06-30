@@ -1,6 +1,5 @@
 submit = function(){
-    let user_confirm = confirm('صحت اطلاعات را تایید می کنید ؟');
-    if(!user_confirm) return false; 
+    if(!confirm('صحت اطلاعات را تایید می کنید ؟')) return false; 
     var username = document.getElementById('username_input').value;
     fetch('../api/requests.php?func_name=new_user&username='+username)
     .then(function(){

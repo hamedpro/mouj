@@ -1,4 +1,4 @@
-renderSettingOption = function(title,targetEl,container_click_handler){
+renderSettingOption = function(title,container_click_handler){
     renderPlan({
         title:title,
         icons:[
@@ -7,7 +7,7 @@ renderSettingOption = function(title,targetEl,container_click_handler){
                 handler:function(){}
             }
         ],
-        targetEl:targetEl,
+        targetEl:select('dataContainer'),
         container_click_handler
     })
 }
@@ -33,7 +33,7 @@ renderPlanOption = function (title,content,plan_id){
     })
 }
 renderTr = function(username,content,tr_id){
-    //renders transaction option
+    // tr = transaction
     renderPlan({
         title:username,
         content,
@@ -48,7 +48,7 @@ renderTr = function(username,content,tr_id){
         targetEl:els.container
     })
 }
-renderUser = function(username,content,is_admin){
+renderUser = function(username,content){
     renderPlan({
         title:username,
         content,
@@ -70,7 +70,7 @@ renderUser = function(username,content,is_admin){
     })
 }
 renderSM = function(subject,content,id){
-    //renders support message option
+    //sm = support message
     renderPlan({
         title:subject,
         content,

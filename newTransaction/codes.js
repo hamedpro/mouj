@@ -1,6 +1,5 @@
 function redirect_to_payment_gateway (){
-    user_confirm = confirm('آیا صحت اطلاعات را تایید می کنید؟')
-    if(!user_confirm) return;
+    if(!confirm('آیا صحت اطلاعات را تایید می کنید؟')) return;
     //redirect to payment gateway =>
     let amount = Number(document.getElementById('amount').value);
     let username = document.getElementById('username').value;

@@ -107,7 +107,7 @@ min-height: 300px;
 left: 50%;
 		
 transform: translateX(-50%);
-	}
+}
 .plan{
 	min-height: 50px;
 	width: 100%;
@@ -118,6 +118,10 @@ transform: translateX(-50%);
 	display: flex;
 	padding: 5px 0px 7px 0px;
 	align-items: center;
+	transition: 0.3s;
+}
+.plan:hover{
+	background: blue;
 }
 .plan.with_bottom_button{
 

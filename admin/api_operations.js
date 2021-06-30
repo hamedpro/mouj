@@ -1,13 +1,11 @@
 let api_operations = {}
 api_operations.delete_transaction = function(tr_id){
-    let user_confirm = confirm('are you sure?');
-    if(!user_confirm) return;
+    if(!confirm('are you sure?')) return;
     url = '../api/requests.php?func_name=delete_transaction&transaction_id='+tr_id;
         
         fetch(url)
         .then(res=>res.text())
         .then(res=>{
-            
             if(res == "true"){
                 alert('done')
             }else{
@@ -17,93 +15,91 @@ api_operations.delete_transaction = function(tr_id){
     })
 }
 api_operations.delete_user = function(username){
-    let user_confirm = confirm('are you sure?');
-    if(!user_confirm) return;
-    url = '../api/requests.php?func_name=delete_user&username='+username;
+    if(!confirm('are you sure?')) return;
+
+    fetch('../api/requests.php?'+object_to_query({
+        func_name:'delete_user',
+        username
+    }))
+    .then(res=>res.text())
+    .then(res=>{
         
-        fetch(url)
-        .then(res=>res.text())
-        .then(res=>{
-            
-            if(res == "true"){
-                alert('done')
-            }else{
-                alert('seems there is an error, please try again');
-            }
-            document.querySelector('#load_users_button').click()
+        if(res == "true"){
+            alert('done')
+        }else{
+            alert('seems there is an error, please try again');
+        }
+        select('load_users_button').click()
     })
 }
 
 api_operations.delete_handler = function(plan_id){
-    let user_confirm = confirm('are you sure?');
-        if(!user_confirm) return;
-        url = '../api/requests.php?func_name=delete_plan&plan_id='+plan_id;
+    if(!confirm('are you sure?')) return;
+    fetch('../api/requests.php'+object_to_query({
+        func_name:'delete_plan',
+        plan_id
+    }))
+    .then(res=>res.text())
+    .then(res=>{
         
-        fetch(url)
-        .then(res=>res.text())
-        .then(res=>{
-            
-            if(res == "true"){
-                alert('done')
-            }else{
-                alert('seems there is an error, please try again');
-            }
-            document.querySelector('#load_plans_button').click()
+        if(res == "true"){
+            alert('done')
+        }else{
+            alert('seems there is an error, please try again');
+        }
+        select('load_plans_button').click()
     })
 }
 api_operations.finish_handler = function(plan_id){
-    let user_confirm = confirm('are you sure?');
-    if(!user_confirm) return;
-    url = '../api/requests.php?func_name=finish_plan&plan_id='+plan_id;
+    if(!confirm('are you sure?')) return;
     
-    fetch(url)
+    fetch('../api/requests.php'+object_to_query({
+        func_name:'finish_plan',
+        plan_id
+    }))
     .then(res=>res.text())
     .then(res=>{
-        
         if(res == "true"){
             alert('done')
         }else{
             alert('seems there is an error, please try again');
         }
-        document.querySelector('#load_plans_button').click()
+        select('load_plans_button').click()
     })
 }
 api_operations.make_user_admin = function(username){
-    let user_confirm = confirm('are you sure?');
-    if(!user_confirm) return;
-    url = '../api/requests.php'+object_to_query({
+    if(!confirm('are you sure?')) return;
+    
+    fetch('../api/requests.php'+object_to_query({
         func_name:'make_user_admin',
         username:username,
         password:prompt('enter his password as a 4 digit number')
-    });
-    
-    fetch(url)
+    }))
     .then(res=>res.text())
     .then(res=>{
-        
         if(res == "true"){
             alert('done')
         }else{
             alert('seems there is an error, please try again');
         }
-        document.querySelector('#load_users_button').click()
+        select('load_users_button').click()
     })
 }
 api_operations.delete_support_message =function (sm_id){
-    let user_confirm = confirm('are you sure?');
-    if(!user_confirm) return;
-    url = '../api/requests.php?func_name=delete_support_message&support_message_id='+sm_id;
-    
-    fetch(url)
+    if(!confirm('are you sure?')) return;
+
+    fetch('../api/requests.php'+object_to_query({
+        func_name:'delete_support_message',
+        support_message_id:sm_id
+    }))
     .then(res=>res.text())
     .then(res=>{
-        
         if(res == "true"){
             alert('done')
         }else{
             alert('seems there is an error, please try again');
         }
-        document.q('load_support_messages_button').click()
+        select('load_support_messages_button').click()
     })
 }
 api_operations.new_plan = function(){
@@ -111,26 +107,22 @@ api_operations.new_plan = function(){
     title= prompt('enter plan title')
     description = prompt('enter plan description')
     final_amount = prompt('enter final amount of plan as rial')
-    if(title == null || description == null || final_amount == null){
-        alert('try again')
+
+    if(title == null || description == null || final_amount == null ||
+        title == "" || description == "" || final_amount == ""){
+        alert('inputs were not valid')
         return
     }
-    
-    if(title == "" || description == "" || final_amount == ""){
-        alert('dont let any field empty')
-        return
-    }
-    obj = {
+
+    fetch(`../api/requests.php`+object_to_query({
         starter_username,
         description,
         final_amount,
         title,
         func_name:'new_plan'
-    }
-    fetch(`../api/requests.php?func_name=new_plan&starter_username=${starter_username}&description=${description}&final_amount_as_rial=${final_amount}&title=${title}`)
+    }))
     .then(res=>res.text())
     .then(r=>{
-      
         if(r == "true"){
             alert('done')
         }else{
@@ -141,7 +133,12 @@ api_operations.new_plan = function(){
 api_operations.change_password= function (username){
     old_password = prompt('enter your old password as a 4 digit number')
     new_password = prompt('enter your new password')
-    fetch(`../api/requests.php?func_name=change_admin_password&username=${username}&old_password=${old_password}&new_password=${new_password}`)
+    fetch(`../api/requests.php`+object_to_query({
+        func_name:'change_admin_password',
+        username,
+        old_password,
+        new_password
+    }))
     .then(res=>res.text())
     .then(r=>{
         if(r == "true"){
@@ -152,8 +149,7 @@ api_operations.change_password= function (username){
     })
 }
 api_operations.delete_support_messages = function(){
-    user_confirm = confirm('are you sure ?')
-    if (!user_confirm) return
+    if (!confirm('are you sure ?')) return
     fetch('../api/requests.php'+object_to_query({
         func_name:'delete_all_support_messages'
     }))
@@ -167,8 +163,7 @@ api_operations.delete_support_messages = function(){
     })
 }
 api_operations.delete_all_transactions = function(){
-    user_confirm = confirm('are you sure?')
-    if (!user_confirm) return 
+    if (!confirm('are you sure?')) return 
     fetch('../api/requests.php'+object_to_query({
         func_name:'delete_all_transactions'
     }))
@@ -185,8 +180,6 @@ api_operations.new_admin = function (){
     username=prompt('enter his/her username')
     password = Number(prompt('enter his password as a 4 digit number'))
     fetch('../api/requests.php'+object_to_query({
-       
-        //todo test this func
         func_name:'make_user_admin',
         username,
         password

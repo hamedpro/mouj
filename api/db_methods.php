@@ -64,7 +64,7 @@ class api{
         return get_table_as_json($this->db,'users');
     }
     public function delete_all_users(){
-        drop_table($this->db,'users');
+        return drop_table($this->db,'users')?"true":"false";
     }
     public function delete_user($obj){
         $username = $obj['username'];
@@ -242,7 +242,7 @@ class api{
         
     }
     public function delete_all_plans(){
-        drop_table($this->db,'plans');
+        return drop_table($this->db,'plans')?"true":"false";
     }
     public function delete_plan($obj){
         $plan_id = (int)$obj['plan_id'];

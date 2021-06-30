@@ -20,22 +20,14 @@ width: 100%;
 /* background: red; */
 }
 .profile .profileImage{
-
-position: absolute;
-
-top: 5%;
-
-right: 5%;
-
-background: purple;
-
-height: 110px;
-
-width: 110px;
-
-border-radius: 140%;
-
-border: 1px solid aqua;
+position: absolute;
+top: 10%;
+right: 5%;
+background: purple;
+height: 110px;
+width: 110px;
+border-radius: 29%;
+border: 1px solid aqua;
 }
 .profile #username{
 
@@ -54,22 +46,15 @@ padding: 3px;
 border-radius: 8px;
 }
 .profile #info{
-
-position: absolute;
-
-top: 46%;
-
-direction: rtl;
-
-right: 150px;
-
-font-size: 17px;
-
-padding: 3px;
-
-border-radius: 8px;
-
-max-width: 200px;
+position: absolute;
+top: 46%;
+direction: rtl;
+right: 147px;
+font-size: 17px;
+padding: 3px;
+border-radius: 8px;
+max-width: 170px;
+line-height: 25px;
 }
 
 .horizontalItems{

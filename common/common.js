@@ -28,6 +28,6 @@ hamed.compareSimpleObjects = function(obj1,obj2){
     }
     return true
 }
-function q(id){
+function select(id){
     return document.getElementById(id)
 }
