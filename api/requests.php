@@ -1,6 +1,9 @@
 <?php
-include_once('phpApi.php');
-$api = new api($db);
+include_once('common.php');
+include_once('db_class.php');
+include_once('db_methods.php');
+$db = new db();
+$api = new api($db->conn);
 if(!isset($_REQUEST['func_name'])){
     exit();
 };
