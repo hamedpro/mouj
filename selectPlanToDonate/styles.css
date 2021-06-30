@@ -1,0 +1,64 @@
+:root{
+    --color :#d3d3d338;
+}
+.box{
+    position: relative;
+    width: 81%;
+    min-height: 60px;
+    background: #d3d3d338;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    margin-top: 9px;
+    margin-bottom: 10px;
+}
+#data_container{
+
+width: 85%;
+
+position: relative;
+
+left: 50%;
+
+transform: translateX(-50%);
+}
+#data_container .item{
+    position: relative;
+    direction: rtl;
+    color: white;
+    margin: -3px 10px 5px 10px;
+}
+#data_container .item:first-child{
+    padding-top: 8px;
+}
+#data_container .item:last-child{
+    padding-bottom: 8px;
+}
+.plan .right_container.dont_effect{
+    
+width: 86%;
+    
+position: relative;
+    
+left: 50%;
+    
+transform: translateX(-50%);
+}
+.bottom_button{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background: blueviolet;
+    display: flex;
+    border-radius: 0px 0px 10px 10px;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+    color: white;
+    padding: 10px 0px 10px 0px;
+    transition: 0.3s;
+    text-align: center;
+}
+.bottom_button:hover{
+    background: darkviolet;
+}

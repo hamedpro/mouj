@@ -104,7 +104,10 @@ renderPlan = function(object){
         icon_el.onclick = icon.handler
         iconsContainer.appendChild(icon_el)
     })
-    container.appendChild(iconsContainer)
+    if(object.icons.length != 0){
+        container.appendChild(iconsContainer)
+    }
+    
 
     title = document.createElement('h2')
     title.classList.add('title')
@@ -120,8 +123,17 @@ renderPlan = function(object){
     right_container.classList.add('right_container')
     right_container.appendChild(title)
     right_container.appendChild(content)
+    
+    
     container.appendChild(right_container)
-
+    if(typeof object.bottom_button_text != "undefined"){
+        bottom_button = document.createElement('div')
+        bottom_button.classList.add('bottom_button')
+        bottom_button.onclick = object.bottom_button_handler
+        bottom_button.innerHTML = object.bottom_button_text
+        container.appendChild(bottom_button)
+        container.classList.add('with_bottom_button')
+    }
     
     object.targetEl.appendChild(container)
     

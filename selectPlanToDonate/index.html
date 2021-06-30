@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>support form</title>
+    <script src="../common/common.js"></script>
+    <link href="styles.css" rel="stylesheet">
+    <script src="../common/lib/componise.js"></script>
+    <link rel="stylesheet" href="../common/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../common/common.css">
+    <link rel="stylesheet" href="../common/components/header/header.css">
+    <script src="codes.js"></script>
+<script src="../common/svgs.js"></script>
+</head>
+<body>
+    <div class="mainBackground"></div>
+    <script>
+        componise.renderComponent({
+            componentName:"myheader"
+        })
+    </script>
+    
+    <div class="row justify-content-center d-flex mt-3">
+        <div class="col-6">
+            <h1 class="text-light rtl-center">انتخاب طرح مورد نظر برای پرداخت</h1>
+        </div>
+    </div>  
+    <div class="row justify-content-center d-flex mt-1">
+        <div class="col-10">
+            <h5 class="text-secondary rtl-center">در بین طرح های فعال فعلی که در بخش پایین متمایز شده اند بر روی طرح مورد نظر خود کلیک بفرمایید</h5>
+        </div>
+    </div>  
+    
+    <div class="row d-flex justify-content-center mt-1">
+        <hr class="bg-light w-75">
+    </div>
+    <div id="data_container">
+
+    </div>
+</body>
+</html>
