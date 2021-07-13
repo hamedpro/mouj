@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>payment gateway</title>
     <link rel="stylesheet" href="../common/lib/bootstrap.min.css">
     <script src="./codes.js"></script>
 <script src="../common/svgs.js"></script>
-</head>
-<body>
+
+
     <button class="btn btn-success" id="pay_button">pay</button>
     <script>
     window.onload = function(){
@@ -25,5 +25,4 @@
         }
     }
     </script>
-</body>
-</html>
+

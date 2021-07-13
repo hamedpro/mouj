@@ -19,8 +19,8 @@ $api->new_transaction([
 ])
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>payment Result</title>
@@ -32,8 +32,8 @@ $api->new_transaction([
     <link rel="stylesheet" href="../common/components/header/header.css">
     <link href="styles.css" rel="stylesheet">
 <script src="../common/svgs.js"></script>
-</head>
-<body>
+
+
     <div class="mainBackground"></div>
     <script>
         componise.renderComponent({
@@ -91,5 +91,4 @@ $api->new_transaction([
                 <a class="btn btn-success" href="../home">بازگشت به صفحه اصلی</a>
             </div>
         </div>
-</body>    
-</html>
+    

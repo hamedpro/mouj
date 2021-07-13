@@ -1,71 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <script>
-        if(localStorage.getItem('username') == null ||typeof localStorage.getItem('username') == "undefined"){
-            window.location.replace('../selectAdmin/index.html')
-        }
-        username = localStorage.getItem('username')
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin dashboard</title>
-    <link rel="stylesheet" href="../common/common.css">
-    <link rel="stylesheet" href="../common/lib/bootstrap.min.css">
-    <script src="../common/common.js"></script>
-    <script src="./api_operations.js"></script>
-    <script src="./renderFunctions.js"></script>
-    <script src="codes.js"></script>
-    <link href="styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="../common/components/header/header.css">
-    <script src="../common/lib/componise.js"></script>
-    <script src="../common/svgs.js"></script>
+<meta charset="UTF-8">
+<script>
+    if(localStorage.getItem('username') == null ||typeof localStorage.getItem('username') == "undefined"){
+        window.location.replace('../selectAdmin/index.html')
+    }
+    username = localStorage.getItem('username')
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>admin dashboard</title>
+<link rel="stylesheet" href="../common/common.css">
+<link rel="stylesheet" href="../common/lib/bootstrap.min.css">
+<script src="../common/common.js"></script>
+<script src="./api_operations.js"></script>
+<script src="./renderFunctions.js"></script>
+<script src="codes.js"></script>
+<link href="styles.css" rel="stylesheet">
+<link rel="stylesheet" href="../common/components/header/header.css">
+<script src="../common/lib/componise.js"></script>
 <script src="../common/svgs.js"></script>
-</head>
-<body>
-    <div class="mainBackground"></div>
-    <script>
-        componise.renderComponent({
-            componentName:"myheader"
-        })
-    </script>
-    <div class="profile">
-        <div class="profileImage"></div>
-        <h1 class="bg-primary text-light" id="username">loading username ...</h1>
-        <div class="text-secondary" id="info">loading info...</div>
-        
-    </div>
-    <div class="horizontalItems">
-        <div class="item" id="load_plans_button">plans</div>
-        <div class="item" id="load_transactions_button">transactions</div>
-        <div class="item" id="load_users_button">users</div>
-        <div class="item" id="load_support_messages_button">support_messages</div>
-        <div class="item" id="load_settings_button">settings</div>
-    </div>
-    <div class="row d-flex justify-content-center mt-4">
-        <div class="col-6">
-            <h1 class="text-light rtl-center" id="dataContainer-title">در حال بارگزاری ...</h1>
-        </div>
-    </div>
+
+
+<div class="mainBackground"></div>
+<script>
+    componise.renderComponent({
+        componentName:"myheader"
+    })
+</script>
+<div class="profile">
+    <div class="profileImage"></div>
+    <h1 class="bg-primary text-light" id="username">loading username ...</h1>
+    <div class="text-secondary" id="info">loading info...</div>
     
-    <div class="row d-flex justify-content-center">
-        <div class="col-10">
-            <h5 class="text-secondary rtl-center" id="dataContainer-info">در حال بارگزاری ...</h5>
-        </div>
+</div>
+<div class="horizontalItems">
+    <div class="item" id="load_plans_button">plans</div>
+    <div class="item" id="load_transactions_button">transactions</div>
+    <div class="item" id="load_users_button">users</div>
+    <div class="item" id="load_support_messages_button">support_messages</div>
+    <div class="item" id="load_settings_button">settings</div>
+</div>
+<div class="row d-flex justify-content-center mt-4">
+    <div class="col-6">
+        <h1 class="text-light rtl-center" id="dataContainer-title">در حال بارگزاری ...</h1>
     </div>
-    <div class="select_box_container">
-        <select id="filter" class="border-2 form-select-sm rounded text-light">
-            <option value="x">there is not any option</option>
-        </select>
-        <div class="title">فیلتر:</div>
+</div>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-10">
+        <h5 class="text-secondary rtl-center" id="dataContainer-info">در حال بارگزاری ...</h5>
     </div>
+</div>
+<div class="select_box_container">
+    <select id="filter" class="border-2 form-select-sm rounded text-light">
+        <option value="x">there is not any option</option>
+    </select>
+    <div class="title">فیلتر:</div>
+</div>
+
+<div class="row justify-content-center d-flex">
+    <hr class="bg-light w-75">
+</div>
+<div id="dataContainer">
     
-    <div class="row justify-content-center d-flex">
-        <hr class="bg-light w-75">
-    </div>
-    <div id="dataContainer">
-        
-    </div>
+</div>
        
-</body>
-</html>
