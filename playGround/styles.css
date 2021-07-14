@@ -1,11 +1,14 @@
-.logo{
-display: inline-block;
-margin: 200px;
-border-radius: 3px;
-}
-.logo h1{
-display: inline-block;
-}
-.logo span{
-    color: violet;
+#preload_el{
+  position: fixed;
+  background: darkblue;
+  z-index: 1000;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  transition: 0.5s;
+  display: grid;
+  place-items: center;
+  color: white;
+
 }
