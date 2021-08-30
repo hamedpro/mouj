@@ -32,7 +32,7 @@ class Charts extends Component{
         </div>
         <h2 className="text-light title" id="title">در حال بارگزاری ...</h2>
         <div className="my_container">
-            <label for="progress" id="progressLabel">در حال بارگزاری ...</label>
+            <label id="progressLabel">در حال بارگزاری ...</label>
             <div className="progress" id="progress">
                 <div className="progressbar bg-success" id="progressbar"></div>
             </div>

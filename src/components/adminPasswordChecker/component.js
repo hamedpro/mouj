@@ -1,7 +1,61 @@
 import { Component } from "react";
+
 //get username from localstorage 
 import "./styles.css"
+function bel_bel(el,tempColor){
+    var oldColor = el.style.background;
+    el.style.background = tempColor;
+    setTimeout(function(){
+        el.style.background = oldColor
+    },300)
+}
 class AdminPasswordCheckPage extends Component{
+    constructor(props){
+        super(props)
+        /* document.onkeypress = function(e){
+            for(var i = 0;i<10;i++){
+                if(e.key == i.toString()){
+                    document.getElementById("button_"+(i)).click()
+                }
+            }
+        } */
+      
+        this.state = {
+            password:[],
+            username:this.props.match.params.username
+        }
+        
+    }
+    componentDidMount = ()=>{
+        var self = this
+        let buttons =[];
+        for (let i = 0; i <= 9; i++) {
+            var el = document.getElementById("button_"+(i))
+            buttons.push(el)
+        }
+        buttons.forEach(function(button){
+            button.onclick = function(){
+                self.setState({password:[...self.state.password,Number(button.innerHTML)]})
+                bel_bel(button,"blue");
+                if(self.state.password.length === 4){
+                    var joined_password = Number(self.state.password.join(""))
+                    var url = '../api/requests.php?func_name=verify_admin_password&username='+self.state.username+"&password="+joined_password;
+                    fetch(url)
+                    .then(s=>s.text())
+                    .then(s=>{
+                        if(s === "true"){
+                        //if(true){
+                            //redirect to admin panel
+                        }else{
+                            alert('هویت شما تایید نشد، دوباره تلاش کنید.')
+                        }
+                    })
+                    self.setState({password:[]})
+                }
+            }
+
+        })
+    }
     render(){
         return (
             <div>
