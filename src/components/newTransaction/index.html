@@ -18,25 +18,25 @@
 
 
     <div id="app">
-        <div class="mainBackground"></div>
+        <div className="mainBackground"></div>
         <script>
             componise.renderComponent({
                 componentName:"myheader",
                 personIconSrc:"../common/bootstrap-icons/person-check-fill-white.svg"
             })
         </script>
-        <div id="new" class="content-container">
-            <div class="row justify-content-center align-items-center my-4">
-                <div class="col-8 ">
-                    <h1 class="text-light title" dir='rtl'>شما هم با شرکت در این طرح مسلمانی را خوشحال کنید !</h1>
+        <div id="new" className="content-container">
+            <div className="row justify-content-center align-items-center my-4">
+                <div className="col-8 ">
+                    <h1 className="text-light title" dir='rtl'>شما هم با شرکت در این طرح مسلمانی را خوشحال کنید !</h1>
                 </div>
                 
             </div>
-            <div class="row justify-content-center align-items-center">
-                <div class="col-9 d-grid gap-2" style='direction:rtl;'>
-                    <label for="username" class="text-light">نام کاربری :</label>
-                    <input type="text" id="username" class="form-control border-0">
-                    <div class="tips_container">
+            <div className="row justify-content-center align-items-center">
+                <div className="col-9 d-grid gap-2" style='direction:rtl;'>
+                    <label for="username" className="text-light">نام کاربری :</label>
+                    <input type="text" id="username" className="form-control border-0">
+                    <div className="tips_container">
                         <script>
                             componise.renderComponent({
                                 componentName:"tip",
@@ -47,24 +47,24 @@
 
                     </div>
         
-                    <label for="amount" class="text-light">مبلغ به ریال :</label>
-                    <input type="number" id="amount" class="form-control border-0" placeholder="مثلا 20000">
-                    <label for="category" class="text-light">نوع کمک :</label>
-                    <select id="category" class="form-select border-0">
+                    <label for="amount" className="text-light">مبلغ به ریال :</label>
+                    <input type="number" id="amount" className="form-control border-0" placeholder="مثلا 20000">
+                    <label for="category" className="text-light">نوع کمک :</label>
+                    <select id="category" className="form-select border-0">
                     
                     <option value="mouj">شرکت در طرح موج</option>
                         <option value="anese">کمک به همین موسسه</option>
                     </select>
-                    <button class="btn btn-success" id="redirect_to_payment_gateway">ارسال</button>            
+                    <button className="btn btn-success" id="redirect_to_payment_gateway">ارسال</button>            
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-9">
-                    <hr class="bg-light">
+            <div className="row justify-content-center">
+                <div className="col-9">
+                    <hr className="bg-light">
                 </div>
             </div>
-            <div class="row justify-content-center align-items-center">
-                <div class="col-9 tips_container">
+            <div className="row justify-content-center align-items-center">
+                <div className="col-9 tips_container">
                     <script>
                         componise.renderComponent({
                             componentName:"tip",

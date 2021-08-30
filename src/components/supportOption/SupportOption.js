@@ -1,15 +1,22 @@
 import { Component } from "react";
 import "./support-option.css"
+
 class SupportOption extends Component{
+    constructor(props){
+        super(props)   
+    }
     render = ()=>{
-        <div class="row mb-1 mx-2" dir='rtl'>
-            <div class="col-1">
-                <img src="${object.iconSrc}" />
+        return (
+        <div className="row mb-1 mx-2" dir='rtl'>
+            <div className="col-1">
+                <img src={this.props.icon_src} />
             </div>
-            <div class="col">
+            <div className="col">
                 {this.props.children}
             </div>
         </div>
+        )
+       
     }
 }
 export default SupportOption;

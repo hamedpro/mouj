@@ -56,7 +56,7 @@ function render_plans(mode){
     .then(res=>res.json())
     .then(r=>{
         if(r.length == 0){
-            els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
+            els.container.innerHTML = "<h1 className='empty bg-info'>nothing to show !</h1>";
             return;
         }
         r.reverse().forEach(plan=>{
@@ -83,7 +83,7 @@ function render_transactions(){
     .then(res=>res.json())
     .then(r=>{
         if(r.length == 0){
-            els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
+            els.container.innerHTML = "<h1 className='empty bg-info'>nothing to show !</h1>";
             return;
         }
         r.reverse().forEach(tr=>{
@@ -105,7 +105,7 @@ function render_users(mode){
     .then(res=>res.json())
     .then(r=>{
         if(r.length == 0){
-            els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
+            els.container.innerHTML = "<h1 className='empty bg-info'>nothing to show !</h1>";
             return;
         }
         r.reverse().forEach(user=>{
@@ -137,7 +137,7 @@ function render_support_messages(mode){
     .then(res=>res.json())
     .then(r=>{
         if(r.length == 0){
-            els.container.innerHTML = "<h1 class='empty bg-info'>nothing to show !</h1>";
+            els.container.innerHTML = "<h1 className='empty bg-info'>nothing to show !</h1>";
             return;
         }
         

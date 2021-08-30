@@ -16,53 +16,53 @@
 <script src="../common/svgs.js"></script>
 
 
-    <div class="mainBackground"></div>
+    <div className="mainBackground"></div>
     <script>
         componise.renderComponent({
             componentName:"myheader"
         })
     </script>
-    <div class="content-container" id="register">
-        <div class="row mt-4 justify-content-center align-items-center">
-            <div class="col-7 d-flex ">
-                <h1 class="text-light" style="text-align:center;" dir="rtl">عضویت در سایت به سادگی چند کلیک !</h1>
+    <div className="content-container" id="register">
+        <div className="row mt-4 justify-content-center align-items-center">
+            <div className="col-7 d-flex ">
+                <h1 className="text-light" style="text-align:center;" dir="rtl">عضویت در سایت به سادگی چند کلیک !</h1>
             </div>
             
         </div>
-        <div class="row justify-content-center d-flex" dir='rtl'>
-            <div class="col-9">
-                <h5 class="text-secondary" style="text-align:center;">تنها با انتخاب نام کاربری عضو سایت ما شده و از همه قابلیت های مخصوص کاربران استفاده کنید !</h5>
+        <div className="row justify-content-center d-flex" dir='rtl'>
+            <div className="col-9">
+                <h5 className="text-secondary" style="text-align:center;">تنها با انتخاب نام کاربری عضو سایت ما شده و از همه قابلیت های مخصوص کاربران استفاده کنید !</h5>
             </div>
             
         </div>
-        <div class="row justify-content-center mt-3">
-            <div class="col-9" style="direction:rtl;">
-                <label for="username_input" class="text-light mb-2">نام کاربری دلخواه شما :</label>
-                <input type="text" id="username_input" class="form-control" style="direction:ltr">
+        <div className="row justify-content-center mt-3">
+            <div className="col-9" style="direction:rtl;">
+                <label for="username_input" className="text-light mb-2">نام کاربری دلخواه شما :</label>
+                <input type="text" id="username_input" className="form-control" style="direction:ltr">
             </div>
         </div>
-        <div class="row justify-content-center mb-2">
-            <div class="col-9">
-                <div class="tips_container mt-1" id="tips_container_1" style="display:none;">
+        <div className="row justify-content-center mb-2">
+            <div className="col-9">
+                <div className="tips_container mt-1" id="tips_container_1" style="display:none;">
                     
                     <script>
                         componise.renderComponent({
                             componentName:"tip",
                             iconSrc:'../common/bootstrap-icons/lightbulb-white.svg',
-                            slot:'<span class="text-danger">کاربر دیگری این نام کاربری را انتخاب کرده است </span>'
+                            slot:'<span className="text-danger">کاربر دیگری این نام کاربری را انتخاب کرده است </span>'
                         })
                     </script>
                 
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center align-items-center">
-            <div class="col-9 d-grid gap-2 mb-2">
-                <button class="btn btn-success" id="submit_button">ثبت همین نام کاربری</button>
+        <div className="row justify-content-center align-items-center">
+            <div className="col-9 d-grid gap-2 mb-2">
+                <button className="btn btn-success" id="submit_button">ثبت همین نام کاربری</button>
             </div>
         </div>
-        <div class="row justify-content-center mt-1">
-            <div class="col-9 tips_container">
+        <div className="row justify-content-center mt-1">
+            <div className="col-9 tips_container">
                 
                 <script>
                     componise.renderComponent({

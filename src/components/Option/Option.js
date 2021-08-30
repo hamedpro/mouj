@@ -15,15 +15,15 @@ class Option extends Component{
         return (
             <div>
                 <div className="plan" onClick={typeof this.props.container_click_handler == 'undefined'? function(){}:this.props.container_click_handler}>
-                    <div class="right_container">
-                        <h2 class="title">{this.props.title}</h2>
+                    <div className="right_container">
+                        <h2 className="title">{this.props.title}</h2>
                         <div className="content">{this.props.content}</div>
                     </div>
                 </div>
                 <div className="iconsContainer">
                     {this.props.icons.forEach(icon=>{
                         return (
-                            <div class="icon" onClick={icon.handler}>{icon.svg}</div>
+                            <div className="icon" onClick={icon.handler}>{icon.svg}</div>
                         )
                     })}
                 </div>
