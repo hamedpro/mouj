@@ -6,147 +6,100 @@ class api{
     }
     public function delete_database(){
         $query = "drop database if exists mouj";
-        if($this->db->query($query)) return true;
+        return $this->db->query($query);
     }
-
-    public function new_log($obj){
-        $content = $obj['content'];
+    public function new_log($content){
         $query = "insert into logs (content) values ('$content')";
         return $this->db->query($query);
     }
     public function get_logs(){
-        return get_table_as_json($this->db,'logs');
+        return get_mysql_table($this->db,'logs');
     }
     
-    public function new_transaction($obj){
-        $username = $obj['username'];
-        $amount = $obj['amount'];
-        $info = $obj['info'];
-        $category = $obj['category'];
-        $plan_id = $obj['plan_id'];
-
+    public function new_transaction($username,$amount,$info,$category,$plan_id){
         $query = "insert into transactions (category,amount,info,username,plan_id) values ('$category','$amount','$info','$username',$plan_id)";
-        if($this->db->query($query)){
-            //finish every plan if its amount condition is met
-            $plans = json_decode($this->get_plans());
+        return $this->db->query($query);
+        
+        // finish all other plans =>
+        /*  $plans = $this->get_plans();
             foreach ($plans as $key => $value) {
-                if($value->final_amount_as_rial<= $value->current_amount){
-                    $plan_id = $value->id;
-                    $this->finish_plan(['plan_id'=>$plan_id]);
-                };
+            if($value->final_amount_as_rial<= $value->current_amount){
+                $this->finish_plan(['plan_id'=>$value->id]);
             };
-                
-            
-            return "true";
-        }else{
-            return "false";
-        }
+        }; */
     }
     public function get_transactions(){
-        return get_table_as_json($this->db,'transactions');
+        return get_mysql_table($this->db,'transactions');
     }
-    public function delete_transaction($obj){
-        $transaction_id = $obj['transaction_id'];
+    public function delete_transaction($transaction_id){
         $query = "delete from transactions where id = $transaction_id";
-        return $this->db->query($query) ? "true":'false';
+        return $this->db->query($query);
     }
 
-    public function delete_all_transactions(){
-        return drop_table($this->db,'transactions')?"true":"false";
+    public function delete_transactions(){
+        return drop_table($this->db,'transactions');
     }
-    public function new_user($obj){
-        $username = $obj['username']; 
+    public function new_user($username){
         $query = "insert into users (username) values ('$username')";
         return $this->db->query($query);
     }
 
-    public function get_all_users(){
-        return get_table_as_json($this->db,'users');
+    public function get_users(){
+        return get_mysql_table($this->db,'users');
     }
-    public function delete_all_users(){
+    public function delete_users(){
         return drop_table($this->db,'users')?"true":"false";
     }
-    public function delete_user($obj){
-        $username = $obj['username'];
+    public function delete_user($username){
         $q = "delete from users where username='$username'";
-        if($this->db->query($q)){
-            return "true";
-        }else{
-            return "false";
-        };
+        return $this->db->query($q);
     }
-    public function is_username_available($obj){
-        $username = $obj['username'];
+    public function is_username_available($username){
         $query = "select * from users where username = '$username'";
         $results = $this->db->query($query);
-        if(mysqli_num_rows($results) == 0){
-            return 'true';
-        }else{
-            return 'false';
-        };
+        return mysqli_num_rows($results) == 0;
     }
-    public function does_user_exist($obj){
-        $username = $obj['username'];
-        if($this->is_username_available(['username'=>$username]) == "true"){
-            return "false";
-        }else{
-            return "true";
-        }
+    public function does_user_exist($username){
+        return $this->is_username_available($username) == false;
     }
-    public function make_user_admin($obj){
-        $username = $obj['username'];
-        $password = $obj['password'];
-        if($this->does_user_exist(['username'=>$username]) != "true"){
+    public function make_user_admin($username,$password){
+        /* if($this->does_user_exist($username) != true){
             $this->new_user(['username'=>$username]);
-        };
+        }; */
         $q = "update users set is_admin = 'true' where username='$username'";
         $this->db->query($q);
         $q = "update users set password = '$password' where username='$username'";
-        return $this->db->query($q)?"true":"false";
+        return $this->db->query($q);
     }
-    public function change_admin_password($obj){
-        $old_password = $obj['old_password'];
-        $new_password = $obj['new_password'];
-        $username = $obj['username'];
-        if($this->verify_admin_password([
-            'username'=>$username,
-            'password'=>$old_password
-        ]) != "true"){
-            return "false";
+    public function change_admin_password($username,$old_password,$new_password){
+        if($this->verify_admin_password($username,$old_password) != true){
+            return "wrong_password";
         }
         $q = "update users set password = '$new_password' where username = '$username'";
-        return $this->db->query($q)?"true":"false";
+        return $this->db->query($q);
     }
     public function get_admins(){
-        $users = json_decode($this->get_all_users());
+        $users = $this->get_users();
         $admins = [];
         foreach ($users as $key => $value) {
-            if(!is_null($value->is_admin) && $value->is_admin == true){
+            if($value['is_admin'] == true){
                 $admins[] = $value;
             }
         }
-        return json_encode($admins);
+        return $admins;
     }
-    public function verify_admin_password($obj){
-        $username = $obj['username'];
-        $password = $obj['password'];
+    public function verify_admin_password($username,$password){
         $q = "select password from users where username = '$username'";
         $q_results = $this->db->query($q);
         $row = mysqli_fetch_assoc($q_results);
-        return $row['password'] == $password?"true":"false";
+        return $row['password'] == $password;
     }
 
-    public function new_support_message($obj){
-        $username = $obj['username'];
-        $subject = $obj['subject'];
-        $content = $obj['content'];
+    public function new_support_message($username,$subject,$content){
         $query = "insert into support_messages (username,subject,content,status) values ('$username','$subject','$content','open')";
-        if($this->db->query($query)){
-            return 'true';
-        }else{
-            return 'false';
-        }
+        return $this->db->query($query);
     }
+    // funcs and request gateway in done until here 
     public function toggle_support_message_status($obj){
         $support_message_id = $obj['support_message_id'];
         if($this->is_support_message_open(['support_message_id'=>$support_message_id])){

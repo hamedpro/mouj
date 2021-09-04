@@ -1,3 +1,5 @@
+const api_gateway_origin = "https://localhost/mouj/api/test.php"
+
 function fetch_pro({url,data}){
     //args: @data:object @url:string @returnValue:promise(fetch promise)
     let query = "";
@@ -15,7 +17,11 @@ function fetch_pro({url,data}){
     return fetch(`${url}?`+query)
     //return `${url}?`+query
 }
-
-module.exports = {
-    fetch_pro
-}
+fetch_pro({
+    url:api_gateway_origin,
+    data:{}
+})
+.then(result=>result.text())
+.then(result => {
+    alert(result)
+})

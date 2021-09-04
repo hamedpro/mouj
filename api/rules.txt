@@ -1,0 +1,7 @@
+in requests.php we shoud echo jsons in this format => 
+    if error =>
+        [ok=>false,error_code=>x]
+    if success (without value) =>
+        [ok=>true]
+    if success (with value)=>
+        [ok=>true,value={}]
