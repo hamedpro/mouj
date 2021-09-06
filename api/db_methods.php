@@ -100,86 +100,68 @@ class api{
         return $this->db->query($query);
     }
     // funcs and request gateway in done until here 
-    public function toggle_support_message_status($obj){
-        $support_message_id = $obj['support_message_id'];
-        if($this->is_support_message_open(['support_message_id'=>$support_message_id])){
+    public function toggle_support_message_status($support_message_id){
+        if($this->is_support_message_open($support_message_id)){
             $query = "update support_messages set status = 'closed' where id = $support_message_id";
-            return $this->db->query($query)?'true':'false';
+            return $this->db->query($query);
         }else{
             $query = "update support_messages set status = 'open' where id = $support_message_id";
-            return $this->db->query($query)?'true':'false';
-        }
-    }
-    public function is_support_message_open($obj){
-        $support_message_id = $obj['support_message_id'];
-        $query = "select status from support_messages where id = $support_message_id";
-        if(mysqli_fetch_assoc($this->db->query($query))['status'] == 'open'){
-            return true;
-        }else{
-            return false;
+            return $this->db->query($query);
         };
     }
+    public function is_support_message_open($support_message_id){
+        $query = "select status from support_messages where id = $support_message_id";
+        return mysqli_fetch_assoc($this->db->query($query))['status'] == 'open';
+    }
     
-    public function delete_all_support_messages(){
-        return drop_table($this->db,'support_messages')?"true":'false';
+    public function delete_support_messages(){
+        return drop_table($this->db,'support_messages');
         
     }
-    public function delete_support_message($obj){
-        $support_message_id = $obj['support_message_id'];
+    public function delete_support_message($support_message_id){
         $q = "delete from support_messages where id = $support_message_id";
-        return $this->db->query($q)?"true":'false';
+        return $this->db->query($q);
     }
     public function get_support_messages(){
-        return get_table_as_json($this->db,'support_messages');
+        return get_mysql_table($this->db,'support_messages');
     }
-    public function get_support_message($obj){
-        $support_messages = json_decode($this->get_support_messages());
+    //done 
+    public function get_support_message($support_message_id){
+        $support_messages = $this->get_support_messages();
         foreach ($support_messages as $key => $value) {
-            if($value->id == $obj['id']){
-                return json_encode($value);
+            if($value['id'] == $support_message_id){
+                return $value;
             };
         };
     }
-    public function new_plan($obj){
-        $starter_username = $obj['starter_username'];
-        $title = $obj['title'];
-        $description = $obj['description'];
-        $final_amount_as_rial = $obj['final_amount_as_rial'];
-
+    public function new_plan($starter_username,$title,$description,$final_amount_as_rial){
         $start_date = date("Y:M:D");
         $q = "insert into plans(title,description,starter_username,status,start_date,final_amount_as_rial) values ('$title','$description','$starter_username','open','$start_date',$final_amount_as_rial)";
-        return $this->db->query($q) ? "true":"false";
-        
+        return $this->db->query($q);
     }
-    public function finish_plan($obj){
-        $plan_id = $obj['plan_id'];
+    //done
+    public function finish_plan($plan_id){
         $q = "update plans set status = 'finished' where id=$plan_id";
         $this->db->query($q);
 
         $current_date = date('Y:M:D');
         $q = "update plans set end_date = '$current_date' where id=$plan_id";
-        if($this->db->query($q)){
-            return "true";
-        };
-
+        return $this->db->query($q);
     }
-    public function get_plan_data($obj){
-        $plan_id = $obj['plan_id'];
+    public function get_plan_data($plan_id){
         $q = "select * from plans where id = $plan_id";
         $q_results = $this->db->query($q);
         $database_row = mysqli_fetch_assoc($q_results);
         $computed_data = [];
         //add computed props =>
-        $plan_transactions = json_decode($this->get_plan_transactions([
-            'plan_id' => $plan_id
-        ]));
+        $plan_transactions = $this->get_plan_transactions($plan_id);
         $current_amount = 0;
         foreach ($plan_transactions as $key => $value) {
-            $current_amount += $value->amount;
+            $current_amount += (int)$value['amount'];
             
         }
         $computed_data["current_amount"] = $current_amount;
-        $computed_data['amount_is_collected'] = $current_amount >= $database_row['final_amount_as_rial'];
+        $computed_data['amount_is_collected'] = $current_amount >= (int)$database_row['final_amount_as_rial'];
         //end of adding computed props
         
         $final_results = [];
@@ -189,30 +171,26 @@ class api{
         foreach ($computed_data as $key => $value) {
             $final_results[$key] = $value;
         }
-        return json_encode($final_results);
+        return $final_results;
     }
     public function update_plan(){
         
     }
-    public function delete_all_plans(){
-        return drop_table($this->db,'plans')?"true":"false";
+    public function delete_plans(){
+        return drop_table($this->db,'plans');
     }
-    public function delete_plan($obj){
-        $plan_id = (int)$obj['plan_id'];
+    public function delete_plan($plan_id){
         $q = "delete from plans where id=$plan_id";
-        if($this->db->query($q)){
-            return "true";
-        };
+        return $this->db->query($q);
     }
-    public function get_plan_transactions($obj){
-        $plan_id = (int)$obj['plan_id'];
+    public function get_plan_transactions($plan_id){
         $q = "select * from transactions where plan_id = $plan_id";
         $q_results = $this->db->query($q);
         $results = [];
         while($row = mysqli_fetch_assoc($q_results)){
             $results[] = $row;
         }
-        return json_encode($results);
+        return $results;
     }
     public function get_plan_ids(){
         $q = "select * from plans";
@@ -221,22 +199,16 @@ class api{
         while($row = mysqli_fetch_assoc($q_results)){
             $results[] = $row['id'];
         }
-        return json_encode($results);
+        return $results;
     }
-    public function get_plans(){
-        $results = [];
-        foreach (json_decode($this->get_plan_ids()) as $key => $value) {
-            $results[] = json_decode($this->get_plan_data(["plan_id"=>$value]));
-        };
-        return json_encode($results);
+    public function get_plans(){        
+        return get_mysql_table($this->db,'plans');
     }
     public function get_last_plan_id(){
-        return last_item(json_decode($this->get_plan_ids()));
+        return (int)last_item($this->get_plan_ids());
     }
     public function get_last_plan_data(){
         $last_plan_id = $this->get_last_plan_id();
-        return $this->get_plan_data([
-            'plan_id'=>$last_plan_id
-        ]);
+        return $this->get_plan_data($last_plan_id);
     }
 }
