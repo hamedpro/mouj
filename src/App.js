@@ -10,10 +10,10 @@ import AdminPasswordCheckPage from './components/adminPasswordChecker/component'
 import Charts from './components/charts/component';
 import SelectPlanPage from './components/selectPlanToDonate/component';
 import SupportMessageShowPage from './components/supportMessageShower/component';
+import LoadingPage from './components/LoadingPage/LoadingPage'
 function App() {
   return (
     <div>
-      
       <div className="mainBackground"></div>
       <CustomHeader />
       <Router>
