@@ -4,6 +4,7 @@ body,html{
   width: 100%;
   height: 100%;
 }
+
 .loading_page{
   position: fixed;
   height: 100%;
@@ -16,54 +17,74 @@ body,html{
   animation-fill-mode: forwards;
 
 }
-.loading_page .icon{
+.loading_page .center{
   position: absolute;
   left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 60%;
+  
+}
+.loading_page .icon{
+  position: relative;
+  left: 50%;
   transform: translateX(-50%);
-  top:150px;
-  height: 100px;
-  width: 100px;
-  background: red;
-  border: 1px solid salmon;
+  height: 105px;
+  width: 105px;
+  background:linear-gradient(to left top,rgb(16, 16, 247),rgba(46, 46, 255, 0.859));
+  border-radius: 15px;
 }
 .loading_page .progress{
-  position: absolute;
+  position: relative;
   left: 50%;
   transform: translateX(-50%);
-  width: 40%;
+  width: 100%;
   height: 10px;
   background: snow;
   border-radius: 3px;
-  top: 300px;
+  top:30px;
 
-}
-@keyframes testi {
-  0%{
-    width: 100px;
-  }
-  100%{
-    width: 200px;
-  }
 }
 .loading_page .progress-bar{
   position: relative;
   background: blue;
-  transition: 0.2s;
-  animation:testi;
-  animation-delay: 2s;
-  animation-duration: 2s;
+  transition: 0.4s;
+}
+.loading_page .center .text{
+  display: block;
+  top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 41px;
+}
+.loading_page .center .text h3{
+  display: inline-block;
+}
+.loading_page .center .text .current_progress_name{
+  
 }
 @keyframes loading_page_animation {
   0%{
-    background:lightskyblue;
+    background:blueviolet;
   }
-  40%{
+  30%{
     background: blue;
   }
-  80%{
+  70%{
     background: darkblue;
   }
   100%{
-    background:lightskyblue;
+    background:blueviolet;
   }
 }
+@keyframes fade-left {
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+

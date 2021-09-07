@@ -11,9 +11,30 @@ import Charts from './components/charts/component';
 import SelectPlanPage from './components/selectPlanToDonate/component';
 import SupportMessageShowPage from './components/supportMessageShower/component';
 import LoadingPage from './components/LoadingPage/LoadingPage'
-function App() {
-  return (
+import {GlobalContext} from "./globalContext";
+class App extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      is_loading_page_visible:true,
+      toggle_loading_page_visibility:()=>{
+        this.setState({
+          is_loading_page_visible:!this.state.is_loading_page_visible
+        })
+      },
+      loading_page_progresses:["hamed","negin"],
+      set_loading_page_progresses : (value)=>{
+        this.setState({
+          loading_page_progresses:value
+        })
+      }
+    }
+  }
+  render(){
+    return (
     <div>
+      <GlobalContext.Provider value={this.state}>
+        <LoadingPage progresses={this.state.loading_page_progresses}/>
       <div className="mainBackground"></div>
       <CustomHeader />
       <Router>
@@ -28,11 +49,11 @@ function App() {
 
         </Switch>
       </Router>
-      
-      
-      
+      </GlobalContext.Provider>
     </div>
   );
+  }
+  
 }
 
 export default App;
