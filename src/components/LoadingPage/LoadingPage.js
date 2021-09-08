@@ -7,7 +7,13 @@ class LoadingPage extends Component{
         this.state = {
             progresses : props.progresses,
             current_progress_index : 0,
-            progressbar_percent:0
+            progressbar_percent:0,
+            fade_out_animation:false
+        }
+        if(typeof props.timer != 'undefined'){
+            setTimeout(()=>{
+                this.next_progress()
+            },this.props.timer*1000)
         }
     }
     static contextType = GlobalContext;
@@ -21,7 +27,7 @@ class LoadingPage extends Component{
         },()=>{
             if(this.state.progressbar_percent === 100){
                 setTimeout(()=>{
-                    this.context.toggle_loading_page_visibility()
+                    this.hide_with_animation()
                 },1000)
             
         }    
@@ -29,6 +35,17 @@ class LoadingPage extends Component{
         
 
         
+    }
+    hide_with_animation = ()=>{
+        this.setState(state =>{
+            return {
+                fade_out_animation:true
+            }
+        },()=>{
+            setTimeout(()=>{
+                this.context.toggle_loading_page_visibility()
+            },2000)
+        })
     }
     make_text_1 = ()=>{
         let text ;
@@ -58,7 +75,7 @@ class LoadingPage extends Component{
                         return null
                     }
                     return (
-                        <div className="loading_page">
+                        <div className={`loading_page ${this.state.fade_out_animation?"animate_out":""}`}>
                 
                             <div className="center">
                                 <div className="icon" onClick={this.next_progress}></div>

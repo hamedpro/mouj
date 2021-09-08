@@ -22,7 +22,7 @@ class App extends React.Component {
           is_loading_page_visible:!this.state.is_loading_page_visible
         })
       },
-      loading_page_progresses:["hamed","negin"],
+      loading_page_progresses:["loading home component ..."],
       set_loading_page_progresses : (value)=>{
         this.setState({
           loading_page_progresses:value
@@ -30,11 +30,13 @@ class App extends React.Component {
       }
     }
   }
+  componentDidMount(){
+  }
   render(){
     return (
     <div>
       <GlobalContext.Provider value={this.state}>
-        <LoadingPage progresses={this.state.loading_page_progresses}/>
+        <LoadingPage progresses={this.state.loading_page_progresses} timer={2}/>
       <div className="mainBackground"></div>
       <CustomHeader />
       <Router>
