@@ -11,7 +11,7 @@ class Home extends Component{
                     </svg>
                     </div>
                     <div className="col mt-3">
-                        <h2 className="home-option-title"><a href="../selectPlanToDonate"  className="text-info">شرکت سریع در طرح</a></h2>
+                        <h2 className="home-option-title"><a href="../new-transaction"  className="text-info">شرکت سریع در طرح</a></h2>
                         <h4 className='text-secondary info'>با حداقل هزار تومان به جمع میلیونی ما بپیوندید !</h4>
                     </div>
                 </div>

@@ -68,9 +68,6 @@ body,html{
 .loading_page .center .text h3{
   display: inline-block;
 }
-.loading_page .center .text .current_progress_name{
-  
-}
 @keyframes loading_page_animation {
   0%{
     background:blueviolet;

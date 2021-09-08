@@ -8,10 +8,11 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Support from './components/support/codes';
 import AdminPasswordCheckPage from './components/adminPasswordChecker/component';
 import Charts from './components/charts/component';
-import SelectPlanPage from './components/selectPlanToDonate/component';
 import SupportMessageShowPage from './components/supportMessageShower/component';
 import LoadingPage from './components/LoadingPage/LoadingPage'
 import {GlobalContext} from "./globalContext";
+import NewTransaction from './components/newTransaction/component';
+import SupportForm from './components/supportForm/component';
 class App extends React.Component {
   constructor(){
     super()
@@ -36,7 +37,7 @@ class App extends React.Component {
     return (
     <div>
       <GlobalContext.Provider value={this.state}>
-        <LoadingPage progresses={this.state.loading_page_progresses} timer={2}/>
+        <LoadingPage progresses={this.state.loading_page_progresses} timer={1}/>
       <div className="mainBackground"></div>
       <CustomHeader />
       <Router>
@@ -46,9 +47,10 @@ class App extends React.Component {
           <Route exact path="/support"><Support /></Route>
           <Route path="/admin-password-check/:username"  render={(props)=><AdminPasswordCheckPage {...props} />}></Route>
           <Route exact path="/charts"><Charts></Charts></Route>
-          <Route exact path="/select-plan"><SelectPlanPage></SelectPlanPage></Route>
+          <Route exact path="/new-transaction"><NewTransaction></NewTransaction></Route>
           <Route exact path="/support-message-show-page/:support_message_code" render={props=><SupportMessageShowPage support_message_code={props.match.params.support_message_code} />}></Route>
-
+          <Route exact path="/support/supportForm" render={props=><SupportForm></SupportForm>}></Route>
+  
         </Switch>
       </Router>
       </GlobalContext.Provider>

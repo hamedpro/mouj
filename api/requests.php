@@ -1,17 +1,23 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 include_once('common.php');
 include_once('config_db.php');
 include_once('db_methods.php');
+include_once('json_response_manager.php');
 $db = config_db();
 $api = new api($db);
 if(!isset($_REQUEST['func'])){
     exit();
 };
 $func = $_REQUEST['func'];
+$response_manager = new json_response_manager;
 switch($func){
     case 'delete_database':
         $status = $api->delete_database();
-        echo json_encode(['ok'=>$status]);
+        if(!$status){
+            $response_manager->new_error(Null,"delete database was not successful");
+        };
+        $response_manager->response_and_exit();
         break;
     case 'new_log':
         $status = $api->new_log($_REQUEST['content']);
