@@ -1,6 +1,13 @@
 import "./styles.css"
+import {ajaxpro} from '../../api_client/ajaxpro'
 import { Component } from "react"
 class Home extends Component{
+    componentDidMount = ()=>{
+        ajaxpro({
+            url:'http://localhost/test.php',
+            parse_json:true
+        }).then(res=>window.console.log(res))
+    }
     render = ()=>{
         return (
             <div className='home content-container'>
