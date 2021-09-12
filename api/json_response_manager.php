@@ -1,31 +1,32 @@
 <?php
 class json_response_manager {
-    public $output = ["errors"=>[],"data"=>NULL];
-    public function new_error($error_code,$error_message){
-        if(!isset($this->output["errors"])){
-            $this->output['errors'] = [];
+    public $errors = [];
+    public $data = [];
+    public function test($error_message,$test_bool){
+        if(!$test_bool){
+            $this->errors[] = $error_message;
         };
-        $this->output['errors'][] = [
-            "code"=>$error_code,
-            "message"=>$error_message
-        ];
     }
     public function set_data($data){
-        $this->output['data'] = $data;
+        $this->data = $data;
     }
-    public function response_and_exit(){
-        $this->output['ok'] = count($this->output['errors']) == 0;
-        echo json_encode($this->output);
+    public function done(){
+        echo json_encode([
+            'data'=>$this->data,
+            'errors'=>$this->errors
+        ]);
         exit();
     }
 }
 
 
-// usage is like this =>
+/* 
+usage is like =>
 
-/* $rm = new json_response_manager;
-$rm->new_error(2,"hamed is not here");
-$rm->set_data([1,2,23]);
-$rm->new_error(3,"hamed is not here");
+$rm = new json_response_manager;
+$rm->test("test done",function(){return true;});
+$rm->test("test which fails",function(){return false;});
+$rm->set_data([1,2,2,3]);
+$rm->done();
 
-$rm->response_and_exit(); */
+ */

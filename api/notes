@@ -1,1 +1,3 @@
 remember we dont finish all plans on new transaction
+
+convert switch case which is in  requests.php to simple ifs and write tests for response manager and ship data with set value where is nessesary;

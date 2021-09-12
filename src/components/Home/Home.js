@@ -1,11 +1,10 @@
 import "./styles.css"
-import {ajaxpro} from '../../api_client/ajaxpro'
+import {custom_ajax} from '../../api_client/custom_ajax'
 import { Component } from "react"
 class Home extends Component{
     componentDidMount = ()=>{
-        ajaxpro({
-            url:'http://localhost/test.php',
-            parse_json:true
+        custom_ajax({
+            url:'http://localhost/mouj/api/test.php'
         }).then(res=>window.console.log(res))
     }
     render = ()=>{
