@@ -1,6 +1,5 @@
 import {Component} from 'react'
 import "./header.css";
-import { Link } from 'react-router-dom';
 class CustomHeader extends Component{
     handle_secret_door = ()=>{
         if(Number(localStorage.getItem('title_click_count')) === 6){

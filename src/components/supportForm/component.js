@@ -4,9 +4,9 @@ class SupportForm extends Component{
     submit_data_without_check = async function () {
         var user_confirm = window.confirm('آیا صحت اطلاعات را تایید می کنید؟'); 
         if (!user_confirm) return
-        var username = document.getElementById('username').value;
+        /* var username = document.getElementById('username').value;
         var subject = document.getElementById('subject').value;
-        var content = document.getElementById('content').value;
+        var content = document.getElementById('content').value; */
     
         /* var user_does_exist = await fetch('../api/requests.php' + object_to_query({
             func_name: 'does_user_exist',

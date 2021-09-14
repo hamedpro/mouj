@@ -1,6 +1,7 @@
 export var custom_ajax_default_path = "http://localhost/mouj/api/requests.php";
 export async function custom_ajax({url =custom_ajax_default_path,params={}}){ 
-    if(Object.keys(params).length != 0){
+    // note : in reject func of first then block you should use e.message for error handling
+    if(Object.keys(params).length !== 0){
         url+= "?";
         for(var prop in params){
             url+= prop+"="+params[prop]+"&"
@@ -16,12 +17,12 @@ export async function custom_ajax({url =custom_ajax_default_path,params={}}){
     try{
         parsed_json = await fetch_response.then(res=>res.json())
     }catch(e){
-        throw 'invalid_json'
+        throw new Error('invalid_json')
     }
     
     //check if error field in json is not empty
-    if(parsed_json.errors.length != 0){
-        throw "errors_field_is_not_empty"
+    if(parsed_json.errors.length !== 0){
+        throw new Error("errors_field_is_not_empty")
     }
     return parsed_json['data']
 };
