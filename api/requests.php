@@ -15,17 +15,15 @@ $db = config_db();
 $api = new api($db);
 $response_manager = new json_response_manager;
 
-if($func == "delete_database"){
-    $status = $api->delete_database();
-    $response_manager->test("deleting database was not successful",$status);
-    
-}
-if($func == "new_log"){
-    $status =$api->new_log($_REQUEST['content']);
-    $response_manager->test('inserting new log was not successful',$status);
-    
-}
 switch($func){
+    case "new_log": 
+        $status =$api->new_log($_REQUEST['content']);
+        $response_manager->test('inserting new log was not successful',$status);
+        break;
+    case "delete_database":
+        $status = $api->delete_database();
+        $response_manager->test("deleting database was not successful",$status);
+        break;
     case 'get_logs':
         $logs = $api->get_logs();
         $response_manager->set_data($logs);
@@ -42,7 +40,6 @@ switch($func){
     case 'get_transactions':
         $transactions = $api->get_transactions();
         $response_manager->set_data($transactions);
-        
         break;
     case 'delete_transaction':
         $status = $api->delete_transaction((int)$_REQUEST['transaction_id']);
@@ -55,6 +52,7 @@ switch($func){
         break;
     case 'get_users':
         $status = $api->get_users();
+        $response_manager->set_data($status);
         break;
     case 'delete_users':
         $status = $api->delete_users();
@@ -64,15 +62,24 @@ switch($func){
         break;
     case 'is_username_available':
         $res = $api->is_username_available($_REQUEST['username']);
+        $response_manager->set_data([
+            "is_username_available"=>$res
+        ]);
         break;
     case 'user_exists':
         $res = $api->does_user_exist($_REQUEST['username']);
+        $response_manager->set_data([
+            "user_exists"=>$res
+        ]);
         break;
     case 'make_user_admin':
         $api->make_user_admin($_REQUEST['username'],$_REQUEST['password']);
         break;
     case 'verify_admin_password':
         $res = $api->verify_admin_password($_REQUEST['username'],$_REQUEST['password']);
+        $response_manager->set_data([
+            "admin_password_was_correct"=>$res
+        ]);
         break;
     case 'change_admin_password':
         //todo : make sure about this and its func 
@@ -84,7 +91,6 @@ switch($func){
         break;
     case 'new_support_message':
         $res = $api->new_support_message($_REQUEST['username'],$_REQUEST['subject'],$_REQUEST['content']);
-        $response_manager->set_data($res);
         break;
     case 'is_support_message_open':
         $res = $api->is_support_message_open((int)$_REQUEST['support_message_id']);
@@ -119,7 +125,7 @@ switch($func){
         break;
     case 'get_plan_transactions':
         $res = $api->get_plan_transactions((int)$_REQUEST['plan_id']);
-        $response_manager->set_data();
+        $response_manager->set_data($res);
         break;
     case 'get_plan_data':
         $res = $api->get_plan_data((int)$_REQUEST['plan_id']);
