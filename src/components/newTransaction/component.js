@@ -20,7 +20,7 @@ class NewTransaction extends Component{
                             componise.renderComponent({
                                 componentName:"tip",
                                 iconSrc:'../common/bootstrap-icons/lightbulb-white.svg',
-                                slot:'اگر کاربر سایت نیستید یا نام خود را به فارسی بنویسید یا برای ثبت نام فوق سریع <a href="../register">اینجا</a> کلیک کنید.'
+                                slot:'اگر کاربر سایت نیستید یا نام خود را به فارسی بنویسید یا برای ثبت نام فوق سریع <a href="#/register">اینجا</a> کلیک کنید.'
                             })
                         </script> */}
 
@@ -48,7 +48,7 @@ class NewTransaction extends Component{
                         componise.renderComponent({
                             componentName:"tip",
                             iconSrc:'../common/bootstrap-icons/lightbulb-white.svg',
-                            slot:'ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید! <a href="../register">اطلاعات بیشتر</a>'
+                            slot:'ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید! <a href="#/register">اطلاعات بیشتر</a>'
                         })
                     </script> */}
                    

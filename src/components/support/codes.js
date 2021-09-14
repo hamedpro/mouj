@@ -66,7 +66,7 @@ class Support extends Component{
                 <div className="col p-0"><h1 className='text-light p-2'>ثبت درخواست پشتیبانی جدید</h1></div>
             </div>
             <SupportOption icon_src={lightning_svg}>
-                <a className="text-info" href="/support/supportForm"><h5>درخواست پشتیبانی سریع</h5></a>
+                <a className="text-info" href="#/support/supportForm"><h5>درخواست پشتیبانی سریع</h5></a>
             </SupportOption>
             
         </div>

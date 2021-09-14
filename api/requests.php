@@ -5,7 +5,6 @@ include_once('common.php');
 include_once('config_db.php');
 include_once('db_methods.php');
 include_once('json_response_manager.php');
-include_once('router.php');
 
 if(!isset($_REQUEST['func'])){
     exit();
@@ -15,7 +14,6 @@ $func = $_REQUEST['func'];
 $db = config_db();
 $api = new api($db);
 $response_manager = new json_response_manager;
-$router = new router;
 
 if($func == "delete_database"){
     $status = $api->delete_database();

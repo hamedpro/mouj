@@ -1,12 +1,7 @@
 import "./styles.css"
-import {custom_ajax} from '../../api_client/custom_ajax'
 import { Component } from "react"
+import { Link } from "react-router-dom"
 class Home extends Component{
-    componentDidMount = ()=>{
-        custom_ajax({
-            url:'http://localhost/mouj/api/test.php'
-        }).then(res=>window.console.log(res))
-    }
     render = ()=>{
         return (
             <div className='home content-container'>
@@ -17,7 +12,7 @@ class Home extends Component{
                     </svg>
                     </div>
                     <div className="col mt-3">
-                        <h2 className="home-option-title"><a href="../new-transaction"  className="text-info">شرکت سریع در طرح</a></h2>
+                        <h2 className="home-option-title"><a href="#/new-transaction"  className="text-info">شرکت سریع در طرح</a></h2>
                         <h4 className='text-secondary info'>با حداقل هزار تومان به جمع میلیونی ما بپیوندید !</h4>
                     </div>
                 </div>
@@ -31,7 +26,7 @@ class Home extends Component{
                     </svg>
                     </div>
                     <div className="col mt-3">
-                        <h2 className="home-option-title"><a href="../charts"  className="text-info">تا به حال چه کرده ایم ؟</a></h2>
+                        <h2 className="home-option-title"><a href="#/charts"  className="text-info">تا به حال چه کرده ایم ؟</a></h2>
                         <h4 className='text-secondary info'>شما میتونید آمار های دقیق فعالیت ما تا این لحظه رو در این قسمت مشاهده کنید</h4>
                     </div>
                 </div>
@@ -44,7 +39,7 @@ class Home extends Component{
                         </svg>
                     </div>
                     <div className="col mt-3">
-                        <h2 className="home-option-title"><a href="../support"  className="text-info">پشتیبانی</a></h2>
+                        <h2 className="home-option-title"><a href="#/support"  className="text-info">پشتیبانی</a></h2>
                         <h4 className='text-secondary info'>درخواست پشتیبانی جدیدی ثبت کنید تا پاسخگوی شما باشیم</h4>
                     </div>
                 </div>
