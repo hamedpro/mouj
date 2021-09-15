@@ -16,6 +16,7 @@ import NewSupportMessage from './components/NewSupportMessage/component';
 import { Register } from './components/register/Register';
 import { PaymentResult } from './components/PaymentResult/component';
 import PaymentGateway from './components/PaymentGateway/component';
+import AdminPage from './components/admin/component';
 class App extends React.Component {
   constructor(){
     super()
@@ -56,6 +57,7 @@ class App extends React.Component {
           <Route exact path="/register" render={props=><Register />}/>
           <Route exact path="/payment-result" render={props=> <PaymentResult />}/>
           <Route exact path="/payment-gateway" render={props=> <PaymentGateway />}/>
+          <Route path="/admin" render={props=> <AdminPage {...props}/>}/>
   
         </Switch>
       </Router>
