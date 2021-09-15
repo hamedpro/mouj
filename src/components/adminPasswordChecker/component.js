@@ -1,5 +1,5 @@
 import { Component } from "react";
-
+import {custom_ajax} from '../../api_client/custom_ajax'
 //get username from localstorage 
 import "./styles.css"
 function bel_bel(el,tempColor){
@@ -12,14 +12,6 @@ function bel_bel(el,tempColor){
 class AdminPasswordCheckPage extends Component{
     constructor(props){
         super(props)
-        /* document.onkeypress = function(e){
-            for(var i = 0;i<10;i++){
-                if(e.key == i.toString()){
-                    document.getElementById("button_"+(i)).click()
-                }
-            }
-        } */
-      
         this.state = {
             password:[],
             username:this.props.match.params.username
@@ -39,18 +31,23 @@ class AdminPasswordCheckPage extends Component{
                 bel_bel(button,"blue");
                 if(self.state.password.length === 4){
                     var joined_password = Number(self.state.password.join(""))
-                    var url = '../api/requests.php?func_name=verify_admin_password&username='+self.state.username+"&password="+joined_password;
-                    fetch(url)
-                    .then(s=>s.text())
-                    .then(s=>{
-                        if(s === "true"){
-                        //if(true){
-                            //redirect to admin panel
-                        }else{
-                            alert('هویت شما تایید نشد، دوباره تلاش کنید.')
+                    custom_ajax({
+                        params:{
+                            func:"verify_admin_password",
+                            password:joined_password,
+                            username:self.state.username
                         }
                     })
-                    self.setState({password:[]})
+                    .then(data=>{
+                        if(data.admin_password_was_correct){
+                            window.localStorage.setItem('admin_username',self.state.username)
+                            window.location.assign('#/admin')
+                        }
+                    })
+                    .finally(()=>{
+                        self.setState({password:[]})    
+                    })
+                    
                 }
             }
 

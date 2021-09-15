@@ -108,7 +108,7 @@ left: 50%;
 		
 transform: translateX(-50%);
 }
-.plan{
+.option{
 	min-height: 50px;
 	width: 100%;
 	background: purple;
@@ -120,14 +120,15 @@ transform: translateX(-50%);
 	align-items: center;
 	transition: 0.3s;
 }
-.plan:hover{
-	background: blue;
+.option:hover{
+	
+background: blue;
 }
-.plan.with_bottom_button{
+.option.with_bottom_button{
 
 padding-bottom: 50px;
 }
-.plan .title{
+.option .title{
 	direction: rtl;
 	color: white;
 	right: 15px;
@@ -136,7 +137,7 @@ padding-bottom: 50px;
 	text-align: right;
 	position: relative;
 }
-.plan .iconsContainer{
+.option .iconsContainer{
 	position: relative;
 	/* background: green; */
 	width: 40%;
@@ -146,26 +147,26 @@ padding-bottom: 50px;
 	overflow-y: hidden;
 	display: inline-block;
 }
-.plan .iconsContainer .icon{position: relative;height: 31px;width: 31px;/* background: red; */display: inline-flex;justify-content: center;align-items: center;top: 50%;border-radius: 7px;transition: 0.4s;margin-right: 8px;/* background: rgba(4, 31, 70,0.15); */}
-.plan .iconsContainer .icon:hover{
+.option .iconsContainer .icon{position: relative;height: 31px;width: 31px;/* background: red; */display: inline-flex;justify-content: center;align-items: center;top: 50%;border-radius: 7px;transition: 0.4s;margin-right: 8px;/* background: rgba(4, 31, 70,0.15); */}
+.option .iconsContainer .icon:hover{
 	
 background: rgba(0,0,255,0.3);
 }
-.plan .iconsContainer .icon svg{
+.option .iconsContainer .icon svg{
 	height:70%;
 	width:70%;
 }
-.plan .right_container{
+.option .right_container{
 	position: relative;
 	display: inline-block;
 	width: 75%;
 	direction: rtl;
 	margin-left: 25px;
 }
-.plan.dont_effect .right_container{
+.option.dont_effect .right_container{
 	left: 18%;
 }
-.plan .right_container .content{
+.option .right_container .content{
 
 direction: rtl;
 

@@ -34,31 +34,36 @@ transform: translateX(-50%);
 #data_container .item:last-child{
     padding-bottom: 8px;
 }
-.plan .right_container.dont_effect{
-    
-width: 86%;
-    
-position: relative;
-    
-left: 50%;
-    
-transform: translateX(-50%);
-}
+
 .bottom_button{
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    background: aqua;
-    display: flex;
-    border-radius: 0px 0px 10px 10px;
-    justify-content: center;
-    align-items: center;
-    direction: rtl;
-    color: darkblue;
-    padding: 10px 0px 10px 0px;
-    transition: 0.3s;
-    text-align: center;
+    
+position: absolute;
+    
+bottom: 0px;
+    
+width: 100%;
+    
+background: aqua;
+    
+display: flex;
+    
+border-radius: 0px 0px 10px 10px;
+    
+justify-content: center;
+    
+align-items: center;
+    
+direction: rtl;
+    
+color: darkblue;
+    
+padding: 10px 0px 10px 0px;
+    
+transition: 0.3s;
+    
+text-align: center;
 }
 .bottom_button:hover{
-    background: darkgreen;
+    
+background: darkgreen;
 }
