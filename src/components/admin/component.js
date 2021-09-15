@@ -6,7 +6,7 @@ import TransactionsSection from "./sections/TransactionsSection"
 import UsersSection from "./sections/UsersSection"
 import SupportMessagesSection from "./sections/SupportMessagesSection"
 import SettingsSection from "./sections/SettingsSection"
-import IntroBox from "../IntroBox/component"
+//import IntroBox from "../IntroBox/component"
 export default class AdminPage extends Component{
     constructor(props){
         if(window.localStorage.getItem('admin_username') == null ){

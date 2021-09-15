@@ -81,7 +81,7 @@ class api{
         $users = $this->get_users();
         $admins = [];
         foreach ($users as $key => $value) {
-            if($value['is_admin'] == true){
+            if($value['is_admin'] == "true"){
                 $admins[] = $value;
             }
         }
