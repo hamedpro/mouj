@@ -1,7 +1,24 @@
 import { Component } from "react";
 import "./styles.css"
-
+//todo => select plan box and 1% for group checkbox
 class NewTransaction extends Component{
+    redirect_to_payment_gateway = () =>{
+        if(! window.confirm('آیا صحت اطلاعات را تایید می کنید؟')) return;
+        //redirect to payment gateway =>
+        let amount = Number(document.getElementById('amount').value);
+        let username = document.getElementById('username').value;
+        let category = document.getElementById('category').value;
+        let info = "empty";
+        var data = {
+            amount,
+            username,
+            category,
+            info,
+            plan_id:2
+        };
+        window.localStorage.setItem('payment_data',JSON.stringify(data))
+        window.location.assign('#/payment-gateway')
+    }
     render(){
         return (
             <div id="new" className="content-container">
@@ -34,7 +51,7 @@ class NewTransaction extends Component{
                     <option value="mouj">شرکت در طرح موج</option>
                         <option value="anese">کمک به همین موسسه</option>
                     </select>
-                    <button className="btn btn-success" id="redirect_to_payment_gateway">ارسال</button>            
+                    <button className="btn btn-success" onClick={this.redirect_to_payment_gateway}>ارسال</button>            
                 </div>
             </div>
             <div className="row justify-content-center">

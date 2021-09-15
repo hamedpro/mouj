@@ -1,3 +1,8 @@
-remember we dont finish all plans on new transaction
-
-convert switch case which is in  requests.php to simple ifs and write tests for response manager and ship data with set value where is nessesary;
+remember we dont finish all plans if nessessary on new transaction
+make sure about backend
+-------
+how requests.php works => 
+create instanse of json_response_manager and assign to $rm
+test all error cases and if any happend add it to response manager
+$rm->done
+---------

@@ -12,8 +12,10 @@ import SupportMessageShowPage from './components/supportMessageShower/component'
 import LoadingPage from './components/LoadingPage/LoadingPage'
 import {GlobalContext} from "./globalContext";
 import NewTransaction from './components/newTransaction/component';
-import SupportForm from './components/supportForm/component';
+import NewSupportMessage from './components/NewSupportMessage/component';
 import { Register } from './components/register/Register';
+import { PaymentResult } from './components/PaymentResult/component';
+import PaymentGateway from './components/PaymentGateway/component';
 class App extends React.Component {
   constructor(){
     super()
@@ -50,8 +52,10 @@ class App extends React.Component {
           <Route exact path="/charts"><Charts></Charts></Route>
           <Route exact path="/new-transaction"><NewTransaction></NewTransaction></Route>
           <Route exact path="/support-message-show-page/:support_message_code" render={props=><SupportMessageShowPage support_message_code={props.match.params.support_message_code} />}></Route>
-          <Route exact path="/support/supportForm" render={props=><SupportForm></SupportForm>}></Route>
+          <Route exact path="/support/new" render={props=><NewSupportMessage />}></Route>
           <Route exact path="/register" render={props=><Register />}/>
+          <Route exact path="/payment-result" render={props=> <PaymentResult />}/>
+          <Route exact path="/payment-gateway" render={props=> <PaymentGateway />}/>
   
         </Switch>
       </Router>

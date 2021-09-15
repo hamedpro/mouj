@@ -1,37 +1,31 @@
 import { Component } from "react";
 import "./styles.css"
-class SupportForm extends Component{
-    submit_data_without_check = async function () {
+import {custom_ajax} from "../../api_client/custom_ajax"
+export default class NewSupportMessage extends Component{
+    submit_data = async function () {
         var user_confirm = window.confirm('آیا صحت اطلاعات را تایید می کنید؟'); 
         if (!user_confirm) return
-        /* var username = document.getElementById('username').value;
+        var username = document.getElementById('username').value;
         var subject = document.getElementById('subject').value;
-        var content = document.getElementById('content').value; */
+        var content = document.getElementById('content').value;
     
-        /* var user_does_exist = await fetch('../api/requests.php' + object_to_query({
-            func_name: 'does_user_exist',
-            username
-        })).then(r => r.text()) == "true"? true:false
-    
-        if(!user_does_exist){
-            alert('you have to register first')
-            //get data from user and register him instantly
-            return 
-        }
-        fetch('../api/requests.php'+object_to_query({
-            func_name: 'new_support_message',
-            subject,
-            content,
-            username
-        }))
-        .then(res => res.text())
-        .then(res => {
-            if (res == "true") {
-                alert('با موفقیت انجام شد');
+        //check if username does not exists in db
+        custom_ajax({
+            params:{
+                func:"new_support_message",
+                subject,
+                content,
+                username
             }
-        }) */
-    
-    
+        })
+        .then(()=>{
+            alert('با موفقیت ثبت شد')
+        },()=>{
+            alert('در فرایند ثبت درخواست خطایی به وجود آمد')
+        })
+        .finally(()=>{
+            window.location.assign("#/support")
+        })
     }
     render(){
         return (
@@ -68,7 +62,7 @@ class SupportForm extends Component{
                 </div>
                 <div className="row mt-2">
                     <div className="col d-grid gap-2">
-                        <button className="btn btn-success" id="submit_data">ثبت اطلاعات</button>
+                        <button className="btn btn-success" id="submit_data" onClick={this.submit_data}>ثبت اطلاعات</button>
                     </div>
                 </div>
                 <hr className="bg-light" />
@@ -93,4 +87,3 @@ class SupportForm extends Component{
         )
     }
 }
-export default SupportForm;

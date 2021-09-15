@@ -19,7 +19,6 @@ class api{
     public function new_transaction($username,$amount,$info,$category,$plan_id){
         $query = "insert into transactions (category,amount,info,username,plan_id) values ('$category','$amount','$info','$username',$plan_id)";
         return $this->db->query($query);
-        
         // finish all other plans =>
         /*  $plans = $this->get_plans();
             foreach ($plans as $key => $value) {

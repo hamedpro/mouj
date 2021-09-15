@@ -1,4 +1,0 @@
-json response manager usage =>
-create instanse
-test all error cases and if any happend add it to response manager
-$rm->response and exit
