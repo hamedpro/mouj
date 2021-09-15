@@ -1,6 +1,6 @@
 .header{
     position: relative;
-    height: 60px;
+    height: 58px;
     margin: 0px;
     padding: 0;
     /* top: 0px; */
@@ -11,23 +11,28 @@
 }
 
 .header svg{
-    height: 75%;
+    height: 70%;
     transition:0.2s;
-    padding: 8px;
-    border-radius: 15px;
+    padding:7px;
+    border-radius: 12px;
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
     right: 10px;
 }
 .header svg:hover{
-    background-color: blue;
+    background-color: #8500eaa2;
 }
 
 .header h2{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 15px;
-    color: white;
+    
+position: absolute;
+    
+top: 50%;
+    
+transform: translateY(-50%);
+    
+left: 15px;
+    
+color: white;
 }

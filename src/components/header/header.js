@@ -1,20 +1,26 @@
 import {Component} from 'react'
 import "./header.css";
 class CustomHeader extends Component{
-    handle_secret_door = ()=>{
-        if(Number(localStorage.getItem('title_click_count')) === 6){
-            localStorage.removeItem('title_click_count')
-            if(window.confirm('are you sure you want to open admin page?')){
-
-            }else{
-                return
-            } 
-            window.location.replace("../admin")
-        }else if(localStorage.getItem('title_click_count') === null){
-            localStorage.setItem('title_click_count',1)
-        }else{
-            localStorage.setItem('title_click_count',Number(localStorage.getItem('title_click_count'))+1)
+    constructor(){
+        super()
+        this.state = {
+            click_count:0
         }
+    }
+    handle_secret_door = ()=>{
+        this.setState((state,props) => ({
+            click_count : state.click_count+1
+        }),()=>{
+            if(this.state.click_count === 7){
+                this.setState((state,props)=>({
+                    click_count:0
+                }))
+                if(! window.confirm('are you sure you want to open secret door ?')) return 
+                window.location.assign('#/select-admin')
+                
+
+            }
+        })
     }
     render(){
         return (

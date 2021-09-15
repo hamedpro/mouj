@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { custom_ajax } from "../../api_client/custom_ajax";
 export class PaymentResult extends Component{
     constructor(){
         super();
