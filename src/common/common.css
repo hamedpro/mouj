@@ -148,15 +148,18 @@ padding-bottom: 50px;
 	overflow-x: auto;
 	overflow-y: hidden;
 	display: inline-block;
+	
 }
-.option .iconsContainer .icon{position: relative;height: 31px;width: 31px;/* background: red; */display: inline-flex;justify-content: center;align-items: center;top: 50%;border-radius: 7px;transition: 0.4s;margin-right: 8px;/* background: rgba(4, 31, 70,0.15); */}
-.option .iconsContainer .icon:hover{
+
+.option .iconsContainer img:hover{
 	
 background: rgba(0,0,255,0.3);
 }
-.option .iconsContainer .icon img{
+.option .iconsContainer img{
 	height:70%;
 	width:70%;
+	max-width: 30px;
+	max-height: 30px;
 }
 .option .right_container{
 	position: relative;
