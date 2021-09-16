@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {custom_ajax, custom_ajax_default_path} from "../../../api_client/custom_ajax"
+import {custom_ajax} from "../../../api_client/custom_ajax"
 import Option from "../../Option/Option"
 import IntroBox from "../../IntroBox/component"
 import box_arrow_up_white from "../../../common/bootstrap-icons/box-arrow-up-white.svg"
@@ -34,8 +34,8 @@ export default class SettingsSection extends Component{
                 <IntroBox title="settings" info="you can modify settings here" />
                 {options.map(option=>{
                     return (
-                        <Option title={option.title} content={option.info}>
-                            <img className="" alt="arrow white svg" src={box_arrow_up_white} onClick={option.handler}/>
+                        <Option title={option.title} content={option.info} key={option.title}>
+                            <img alt="arrow white svg" className="" src={box_arrow_up_white} onClick={option.handler}/>
                         </Option>
                     )
                 })}

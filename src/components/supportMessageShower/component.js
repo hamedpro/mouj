@@ -1,11 +1,42 @@
 import { Component } from "react";
 import "./styles.css"
+import {custom_ajax} from '../../api_client/custom_ajax'
 class SupportMessageShowPage extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            support_message_id:props.support_message_id,
+            subject:"loading",
+            content:"loading"
+        }
+    }
     load_support_message_data = ()=>{
-        var support_message_code = Number(this.props.support_message_code)
-        console.log(support_message_code) 
+        custom_ajax({
+            params:{
+                func:"get_support_message",
+                support_message_id:this.state.support_message_id
+            }
+        })
+        .then(support_message=>{
+            this.setState({
+                subject:support_message.subject,
+                content:support_message.content
+            })
+        })
     }
     componentDidMount = ()=>{
+        this.load_support_message_data()
+    }
+    toggle_support_message_status = ()=>{
+        custom_ajax({
+            params:{
+                func:"toggle_support_message_status",
+                support_message_id:this.state.support_message_id
+            }
+        })
+        .then(r=>{
+            alert('done')
+        })
         this.load_support_message_data()
     }
     render(){
@@ -32,7 +63,7 @@ class SupportMessageShowPage extends Component{
                     </div>
                 </div>
                 <div className="box" id="data_container">
-                
+                    {"موضوع این درخواست پشیبانی"+this.state.subject}
                 </div>
                 
                 <div className="row mt-4" style={{direction:'rtl',textAlign:'right'}}>
@@ -42,9 +73,9 @@ class SupportMessageShowPage extends Component{
                         </h4>
                     </div>
                 </div>
-                <div className="box" id="content_container"></div>
+                <div className="box" id="content_container">{this.state.content}</div>
                 
-                <button className="btn btn-success" id="submit_button">به این گزارش رسیدگی شد</button>
+                <button className="btn btn-success" id="submit_button" onClick={this.toggle_support_message_status}>تغییر وضعیت این گزارش</button>
                 <button className="btn btn-secondary mb-5" id="back_button">بازگشت</button>
   
                 </div>

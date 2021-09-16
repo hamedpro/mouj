@@ -59,8 +59,8 @@ export default class UsersSection extends Component{
                 {this.state.users.map(user=>{
                     return(
                         <Option title={user.username} content={"no info"} key={user.username}>
-                            <img alt={'trash icon white'} src={trash_white_svg} className="icon" onClick={()=>{this.delete_user_handler(user.username)}}/>
-                            <img alt={'award icon white'} src={award_white_svg} className="icon" onClick={()=>{this.make_user_admin(user.username)}}/>
+                            <img alt='trash icon white' src={trash_white_svg} className="icon" onClick={()=>{this.delete_user_handler(user.username)}}/>
+                            <img alt='award icon white' src={award_white_svg} className="icon" onClick={()=>{this.make_user_admin(user.username)}}/>
                         </Option>
                     )
                 })}

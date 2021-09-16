@@ -28,8 +28,8 @@ export default class TransactionsSection extends Component{
                <IntroBox title="transactions" info="you can modify transactions here" />
                 {this.state.transactions.map(tr=>{
                     return(
-                        <Option title={tr.username} info={tr.final_amount_as_rial}>
-                            <img src={trash_white_svg} alt='trash white icon as svg' onClick={()=>this.delete_transaction(tr.id)} />
+                        <Option title={tr.username} info={tr.final_amount_as_rial} kry={tr.id}>
+                            <img alt="trash white icon" src={trash_white_svg}  onClick={()=>this.delete_transaction(tr.id)} />
                         </Option>
                     )
                 })}

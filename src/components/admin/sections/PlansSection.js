@@ -1,7 +1,7 @@
 import { Component } from "react";
 import IntroBox from "../../IntroBox/component"
 import Option from "../../Option/Option"
-import {custom_ajax, custom_ajax_default_path} from "../../../api_client/custom_ajax"
+import {custom_ajax} from "../../../api_client/custom_ajax"
 import trash_white_svg from "../../../common/bootstrap-icons/trash-white.svg"
 export default class SettingPagePlansSection extends Component{
     constructor(){
@@ -44,7 +44,7 @@ export default class SettingPagePlansSection extends Component{
                 this.state.plans.map(plan=>{
                     return (
                         <Option title={plan.title} content={plan.description} key={plan.id}>
-                            <img alt='trash white svg' src={trash_white_svg} onClick={()=>this.delete_plan(plan.id)}></img>
+                            <img alt="trash white svg" src={trash_white_svg} onClick={()=>this.delete_plan(plan.id)} />
                         </Option>
                     )
                 })

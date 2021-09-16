@@ -53,7 +53,7 @@ class App extends React.Component {
           <Route path="/admin-password-check/:username" render={(props)=><AdminPasswordCheckPage {...props} />}></Route>
           <Route exact path="/charts"><Charts></Charts></Route>
           <Route exact path="/new-transaction"><NewTransaction></NewTransaction></Route>
-          <Route exact path="/support-message-show-page/:support_message_code" render={props=><SupportMessageShowPage support_message_code={props.match.params.support_message_code} />}></Route>
+          <Route exact path="/support-message-show-page/:support_message_id" render={props=><SupportMessageShowPage support_message_id={props.match.params.support_message_id} />}></Route>
           <Route exact path="/support/new" render={props=><NewSupportMessage />}></Route>
           <Route exact path="/register" render={props=><Register />}/>
           <Route exact path="/payment-result" render={props=> <PaymentResult />}/>
