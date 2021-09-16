@@ -9,7 +9,7 @@ import Support from './components/support/codes';
 import AdminPasswordCheckPage from './components/adminPasswordChecker/component';
 import Charts from './components/charts/component';
 import SupportMessageShowPage from './components/supportMessageShower/component';
-import LoadingPage from './components/LoadingPage/LoadingPage'
+//import LoadingPage from './components/LoadingPage/LoadingPage'
 import {GlobalContext} from "./globalContext";
 import NewTransaction from './components/newTransaction/component';
 import NewSupportMessage from './components/NewSupportMessage/component';
@@ -42,7 +42,7 @@ class App extends React.Component {
     return (
     <div>
       <GlobalContext.Provider value={this.state}>
-        <LoadingPage progresses={this.state.loading_page_progresses} timer={1}/>
+        {/* <LoadingPage progresses={this.state.loading_page_progresses} timer={1}/> */}
       <div className="mainBackground"></div>
       <CustomHeader />
       <Router>

@@ -111,6 +111,7 @@ transform: translateX(-50%);
 .option{
 	min-height: 50px;
 	width: 100%;
+	direction: rtl;
 	background: purple;
 	border-radius: 17px;
 	position: relative;
@@ -143,6 +144,7 @@ padding-bottom: 50px;
 	width: 40%;
 	height: auto;
 	left: 13px;
+	direction: ltr;
 	overflow-x: auto;
 	overflow-y: hidden;
 	display: inline-block;
@@ -152,7 +154,7 @@ padding-bottom: 50px;
 	
 background: rgba(0,0,255,0.3);
 }
-.option .iconsContainer .icon svg{
+.option .iconsContainer .icon img{
 	height:70%;
 	width:70%;
 }
