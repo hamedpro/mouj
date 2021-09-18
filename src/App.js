@@ -19,6 +19,7 @@ import PaymentGateway from './components/PaymentGateway/component';
 import AdminPage from './components/admin/component';
 import SelectAdminPage from './components/SelectAdmin/component';
 import AboutUs from './components/AboutUs/comp';
+import CustomFooter from './components/CustomFooter/comp';
 class App extends React.Component {
   constructor(){
     super()
@@ -66,6 +67,7 @@ class App extends React.Component {
         </Switch>
       </Router>
       </GlobalContext.Provider>
+      <CustomFooter></CustomFooter>
     </div>
   );
   }
