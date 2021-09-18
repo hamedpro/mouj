@@ -1,6 +1,7 @@
 import { Component } from "react";
 import "./styles.css"
 import {custom_ajax} from "../../api_client/custom_ajax"
+import Option from "../Option/Option"
 export default class SelectAdminPage extends Component{
     componentDidMount = ()=>{
         var self = this 
@@ -20,6 +21,13 @@ export default class SelectAdminPage extends Component{
         this.state = {
             admins :[]
         }
+        //redirect to admin page if user has loged in before
+        if(window.localStorage.getItem('admin_username')){
+            window.location.assign('#/admin')
+        }
+    }
+    redirect_to_admin_password_check(username){
+        window.location.assign('#/admin-password-check/'+username)
     }
     render(){
         return (
@@ -41,7 +49,10 @@ export default class SelectAdminPage extends Component{
                 <div id="dataContainer">
                     {this.state.admins.map(admin=>{
                         return(
-                            <div key={admin.id}>{admin.id}</div>
+                            <div onClick={()=>window.location.assign('#/admin-password-check/'+admin.username)}>
+                                <Option key={admin.id} title={admin.username} content="" ></Option>
+
+                            </div>
                         )
                     })}
                 </div>

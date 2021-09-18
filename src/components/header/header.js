@@ -17,8 +17,6 @@ class CustomHeader extends Component{
                 }))
                 if(! window.confirm('are you sure you want to open secret door ?')) return 
                 window.location.assign('#/select-admin')
-                
-
             }
         })
     }

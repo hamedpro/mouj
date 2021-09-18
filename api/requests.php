@@ -99,6 +99,9 @@ switch($func){
     case 'toggle_support_message_status':
         $api->toggle_support_message_status((int)$_REQUEST['support_message_id']);
         break;
+    case 'close_support_message':
+        $api->close_support_message((int)$_REQUEST['support_message_id']);
+        break;
     case 'delete_support_messages':
         $api->delete_all_support_messages();
         break;

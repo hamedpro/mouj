@@ -212,3 +212,9 @@ position: relative;
 	text-underline-position:under;
 	    text-underline-offset: 2px;
 }
+.absolute_center{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}

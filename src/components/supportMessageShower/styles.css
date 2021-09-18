@@ -16,8 +16,9 @@
 #data_container .item:first-child{
     padding-top: 8px;
 }
-#data_container .item:last-child{
+#data_container .item:last-of-type{
     padding-bottom: 8px;
+    min-height: 200px;
 }
 
 #content_container{
@@ -29,4 +30,23 @@ text-align: right;
 color: white;
     
 padding: 5px 10px 5px 10px;
+}
+.mark_as_done_box{
+    border: 1px solid aqua;
+    border-radius: 8px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 30px;
+    padding: 10px;
+    min-height: 166px;
+}
+.mark_as_done_box h1{
+    color: white;
+    margin-bottom: 20px;
+}
+.mark_as_done_box input{
+    direction: ltr;
+    min-height: 80px;
 }

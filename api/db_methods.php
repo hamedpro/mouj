@@ -108,6 +108,15 @@ class api{
             return $this->db->query($query);
         };
     }
+    public function close_support_message($support_message_id){
+        //todo make sure about error handling of this func 
+        if(! $this->is_support_message_open($support_message_id)){
+            return true;
+        }else{
+            $query = "update support_messages set status = 'closed' where id = $support_message_id";
+            return $this->db->query($query);
+        }
+    }
     public function is_support_message_open($support_message_id){
         $query = "select status from support_messages where id = $support_message_id";
         return mysqli_fetch_assoc($this->db->query($query))['status'] == 'open';

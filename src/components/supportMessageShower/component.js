@@ -1,13 +1,15 @@
 import { Component } from "react";
 import "./styles.css"
 import {custom_ajax} from '../../api_client/custom_ajax'
+import envelope_white from "../../common/bootstrap-icons/envelope-white.svg"
 class SupportMessageShowPage extends Component{
     constructor(props){
         super(props)
         this.state = {
             support_message_id:props.support_message_id,
             subject:"loading",
-            content:"loading"
+            content:"loading",
+            support_message_status:null
         }
     }
     load_support_message_data = ()=>{
@@ -20,17 +22,21 @@ class SupportMessageShowPage extends Component{
         .then(support_message=>{
             this.setState({
                 subject:support_message.subject,
-                content:support_message.content
+                content:support_message.content,
+                support_message_status:support_message.status
             })
         })
+    }
+    get_back_to_admin_page = ()=>{
+        window.location.assign('#/admin/support_messages')
     }
     componentDidMount = ()=>{
         this.load_support_message_data()
     }
-    toggle_support_message_status = ()=>{
+    close_support_message = ()=>{
         custom_ajax({
             params:{
-                func:"toggle_support_message_status",
+                func:"close_support_message",
                 support_message_id:this.state.support_message_id
             }
         })
@@ -62,8 +68,10 @@ class SupportMessageShowPage extends Component{
                         </h4>
                     </div>
                 </div>
-                <div className="box" id="data_container">
-                    {"موضوع این درخواست پشیبانی"+this.state.subject}
+                <div className="box" id="data_container" style={{direction:"rtl",padding:"10px",paddingTop:'5px'}}>
+                    <img src={envelope_white} alt="info circle svg white"/>
+                    <span className="text-white px-1">موضوع :</span>
+                    <span className="text-white">{this.state.subject}</span>
                 </div>
                 
                 <div className="row mt-4" style={{direction:'rtl',textAlign:'right'}}>
@@ -74,9 +82,15 @@ class SupportMessageShowPage extends Component{
                     </div>
                 </div>
                 <div className="box" id="content_container">{this.state.content}</div>
-                
-                <button className="btn btn-success" id="submit_button" onClick={this.toggle_support_message_status}>تغییر وضعیت این گزارش</button>
-                <button className="btn btn-secondary mb-5" id="back_button">بازگشت</button>
+                <div className="mark_as_done_box" style={{display:this.state.support_message_status==="open"?"block":"none"}}>
+                    <h1>mark as done</h1>
+                    <input className="form-control bg-light border-info" type="text" placeholder="description ..."></input>
+                    <button className="btn btn-success mt-2 text-white" onClick={this.close_support_message}>submit</button>
+                </div>
+                <div className="mark_as_done_box" style={{display:this.state.support_message_status==="closed"?"block":"none"}}>
+                    <h1 className='absolute_center text-white'>support message closed in past</h1>
+                </div>
+                <button className="btn btn-info mb-5" id="back_button" onClick={this.get_back_to_admin_page}>بازگشت</button>
   
                 </div>
         )
