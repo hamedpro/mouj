@@ -18,6 +18,7 @@ import { PaymentResult } from './components/PaymentResult/component';
 import PaymentGateway from './components/PaymentGateway/component';
 import AdminPage from './components/admin/component';
 import SelectAdminPage from './components/SelectAdmin/component';
+import "./pop_up"
 class App extends React.Component {
   constructor(){
     super()
