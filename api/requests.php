@@ -62,9 +62,7 @@ switch($func){
         break;
     case 'is_username_available':
         $res = $api->is_username_available($_REQUEST['username']);
-        $response_manager->set_data([
-            "is_username_available"=>$res
-        ]);
+        $response_manager->set_data($res);
         break;
     case 'user_exists':
         $res = $api->does_user_exist($_REQUEST['username']);

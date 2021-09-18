@@ -56,7 +56,7 @@ class api{
     public function is_username_available($username){
         $query = "select * from users where username = '$username'";
         $results = $this->db->query($query);
-        return mysqli_num_rows($results) == 0;
+        return mysqli_num_rows($results) === 0;
     }
     public function does_user_exist($username){
         return $this->is_username_available($username) == false;

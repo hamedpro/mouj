@@ -1,39 +1,42 @@
 import { Component } from "react";
 import "./styles.css"
 import {custom_ajax , custom_ajax_default_path} from "../../api_client/custom_ajax";
+import light_bulb_white from "../../common/bootstrap-icons/lightbulb-white.svg"
 export class Register extends Component{
+    //todo make sure button disable when username is taken
+    //bootstrap disabled class does it now but im not sure
     constructor(props){
         super(props)
         this.state = {
-            username_is_not_available_alert : false
+            entered_username_is_taken : false
         }
     }
     check_if_username_is_available = ()=>{
-        /* var username = document.getElementById('username_input').value;
+        var username = document.getElementById('username_input').value;
         fetch('../api/requests.php?func_name=is_username_available&username='+username,)
-        .then(res=>res.text())
-        .then(res=>{
-            
-            if(res != 'true'){
-                document.getElementById('tips_container_1').style.display = "block";
-                document.getElementById('submit_button').classList.add('disabled');
-            }else{
-                document.getElementById('tips_container_1').style.display = "none";
-                document.getElementById('submit_button').classList.remove('disabled');
+        custom_ajax({
+            params:{
+                func:"is_username_available",
+                username:username
             }
-        }) */
+        })
+        .then(is_username_available=>{
+            this.setState({
+                entered_username_is_taken:! is_username_available
+            })
+        })
     }
     submit_data = ()=>{
         if(! window.confirm('صحت اطلاعات را تایید می کنید ؟')) return false; 
         var username = document.getElementById('username_input').value;
         custom_ajax({
-            url:custom_ajax_default_path,
             params : {
                 func:"new_user",
                 username
             }
         }).then(()=>{
             console.log('new username saved successfuly!')
+            window.location.assign('#/home')
         })
     }
     render = ()=>{
@@ -54,39 +57,29 @@ export class Register extends Component{
             <div className="row justify-content-center mt-3">
                 <div className="col-9" style={{direction:"rtl"}}>
                     <label htmlFor="username_input" className="text-light mb-2">نام کاربری دلخواه شما :</label>
-                    <input type="text" id="username_input" className="form-control" style={{direction:"rtl"}} />
+                    <input type="text" id="username_input" className="form-control" style={{direction:"rtl"}} onChange={this.check_if_username_is_available} />
                 </div>
             </div>
             <div className="row justify-content-center mb-2">
                 <div className="col-9">
-                    <div className="tips_container mt-1" id="tips_container_1" style={{display:"none"}}>
-                        
-                        {/* <script>
-                            componise.renderComponent({
-                                componentName:"tip",
-                                iconSrc:'../common/bootstrap-icons/lightbulb-white.svg',
-                                slot:'<span className="text-danger">کاربر دیگری این نام کاربری را انتخاب کرده است </span>'
-                            })
-                        </script> */}
+                    <div className="tips_container mt-1" id="tips_container_1">
+                        <div style={{display:this.state.entered_username_is_taken?"block":"none"}}>
+                            <img src={light_bulb_white} alt='tip svg icon'/>
+                            <span className="text-danger">این نام کاربری توسط شخص دیگری انتخاب شده است</span>
+                        </div>  
+                            
                     
                     </div>
                 </div>
             </div>
             <div className="row justify-content-center align-items-center">
                 <div className="col-9 d-grid gap-2 mb-2">
-                    <button className="btn btn-success" id="submit_button" onClick={this.submit_data}>ثبت همین نام کاربری</button>
+                    <button className={`btn btn-success ${this.state.entered_username_is_taken?"disabled":""}`} id="submit_button" onClick={this.submit_data}>ثبت همین نام کاربری</button>
                 </div>
             </div>
             <div className="row justify-content-center mt-1">
                 <div className="col-9 tips_container">
                     
-                    {/* <script>
-                        componise.renderComponent({
-                            componentName:"tip",
-                            iconSrc:'../common/bootstrap-icons/lightbulb-white.svg',
-                            slot:'هر لحظه که سوالی به ذهنتان خطور کرد با ما در میان بگذارید <a href="#/support">اطلاعات بیشتر</a>'
-                        })
-                    </script> */}
                 </div>
             </div>
             

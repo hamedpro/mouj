@@ -1,5 +1,6 @@
 import { Component } from "react";
 import "./styles.css"
+import light_bulb_white from "../../common/bootstrap-icons/lightbulb-white.svg"
 //todo => select plan box and 1% for group checkbox
 class NewTransaction extends Component{
     redirect_to_payment_gateway = () =>{
@@ -61,14 +62,11 @@ class NewTransaction extends Component{
             </div>
             <div className="row justify-content-center align-items-center">
                 <div className="col-9 tips_container">
-                    {/* <script>
-                        componise.renderComponent({
-                            componentName:"tip",
-                            iconSrc:'../common/bootstrap-icons/lightbulb-white.svg',
-                            slot:'ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید! <a href="#/register">اطلاعات بیشتر</a>'
-                        })
-                    </script> */}
-                   
+                    
+                   <div>
+                       <img src={light_bulb_white} alt='tip svg icon'/>
+                       <span className="text-light">ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید ! </span><a href="#/register">اطلاعات بیشتر</a>
+                   </div>
                 </div>
             </div>
         
