@@ -28,40 +28,6 @@ class Support extends Component{
 
         <div className="container">
             <div className="row support-option-header mb-2" dir='rtl'>
-                <div className="align-items-center col-2 d-flex justify-content-center"><img alt="empty" src={link_svg} /></div>
-                <div className="col p-0"><h1 className='text-light p-2'>اطلاعات خود موسسه</h1></div>
-            </div>
-            
-            <div className="row px-2">
-                <div className="col-4">
-                    <h3 className="text-secondary" dir="rtl">نام کاربری:</h3>
-                </div>
-                <div className="col d-flex justify-content-start align-items-center">
-                    <h3 className="text-info">حامد یاقوت پور</h3>
-                </div>
-            </div>
-            
-            <div className="row px-2">
-                <div className="col-4">
-                    <h3 className="text-secondary" dir="rtl">نام کاربری:</h3>
-                </div>
-                <div className="col d-flex justify-content-start align-items-center">
-                    <h3 className="text-info">حامد یاقوت پور</h3>
-                </div>
-            </div>
-            
-            <div className="row px-2">
-                <div className="col-4">
-                    <h3 className="text-secondary" dir="rtl">نام کاربری:</h3>
-                </div>
-                <div className="col d-flex justify-content-start align-items-center">
-                    <h3 className="text-info">حامد یاقوت پور</h3>
-                </div>
-            </div>
-            
-            <hr />
-
-            <div className="row support-option-header mb-2" dir='rtl'>
                 <div className="align-items-center col-2 d-flex justify-content-center"><img alt="empty" src={mailbox_svg   } /></div>
                 <div className="col p-0"><h1 className='text-light p-2'>ثبت درخواست پشتیبانی جدید</h1></div>
             </div>

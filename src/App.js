@@ -18,6 +18,7 @@ import { PaymentResult } from './components/PaymentResult/component';
 import PaymentGateway from './components/PaymentGateway/component';
 import AdminPage from './components/admin/component';
 import SelectAdminPage from './components/SelectAdmin/component';
+import AboutUs from './components/AboutUs/comp';
 class App extends React.Component {
   constructor(){
     super()
@@ -60,6 +61,7 @@ class App extends React.Component {
           <Route exact path="/payment-gateway" render={props=> <PaymentGateway />}/>
           <Route exact path="/select-admin" render={props=> <SelectAdminPage />}/>
           <Route path="/admin" render={props=> <AdminPage {...props}/>}/>
+          <Route exact path="/about-us" render={props=> <AboutUs {...props}/>}/>
   
         </Switch>
       </Router>
