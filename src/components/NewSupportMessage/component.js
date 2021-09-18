@@ -1,6 +1,7 @@
 import { Component } from "react";
 import "./styles.css"
 import {custom_ajax} from "../../api_client/custom_ajax"
+import PersianTip from "../../PersianTip/comp";
 export default class NewSupportMessage extends Component{
     submit_data = async function () {
         var user_confirm = window.confirm('آیا صحت اطلاعات را تایید می کنید؟'); 
@@ -67,14 +68,7 @@ export default class NewSupportMessage extends Component{
                 </div>
                 <hr className="bg-light" />
                 <div className="row tips_container">
-                   {/*  <script>
-                        componise.renderComponent({
-                            componentName:"tip",
-                            iconSrc:'../common/bootstrap-icons/lightbulb-white.svg',
-                            slot:'درخواست پشتیبانی شما ان شاء الله به زودی بررسی خواهد شد'
-                        })
-                    </script> */}
-                    
+                    <PersianTip><span className="text-light">درخواست پشتیبانی شما ان شاء الله به زودی بررسی خواهد شد</span></PersianTip>
                 </div>
             </div>
         </div>

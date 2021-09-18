@@ -4,6 +4,10 @@ import {custom_ajax} from "../../api_client/custom_ajax"
 import Option from "../Option/Option"
 export default class SelectAdminPage extends Component{
     componentDidMount = ()=>{
+        //redirect to admin page if user has loged in before
+        if(window.localStorage.getItem('admin_username')){
+            window.location.assign('#/admin')
+        }
         var self = this 
         custom_ajax({
             params:{
@@ -20,10 +24,6 @@ export default class SelectAdminPage extends Component{
         super()
         this.state = {
             admins :[]
-        }
-        //redirect to admin page if user has loged in before
-        if(window.localStorage.getItem('admin_username')){
-            window.location.assign('#/admin')
         }
     }
     redirect_to_admin_password_check(username){
