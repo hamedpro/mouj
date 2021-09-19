@@ -1,7 +1,7 @@
 import { Component } from "react";
 import "./styles.css"
 import {custom_ajax} from "../../api_client/custom_ajax"
-import PersianTip from "../../PersianTip/comp";
+import PersianTip from "../PersianTip/comp";
 export default class NewSupportMessage extends Component{
     submit_data = async function () {
         var user_confirm = window.confirm('آیا صحت اطلاعات را تایید می کنید؟'); 

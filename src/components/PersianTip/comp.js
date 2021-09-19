@@ -1,5 +1,5 @@
 import { Component } from "react";
-import lightbulb_white_svg from "../common/bootstrap-icons/lightbulb-white.svg"
+import lightbulb_white_svg from "../../common/bootstrap-icons/lightbulb-white.svg"
 import "./css.css"
 export default class PersianTip extends Component{
     render(){

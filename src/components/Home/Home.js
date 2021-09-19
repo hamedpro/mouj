@@ -1,51 +1,20 @@
 import "./styles.css"
 import { Component } from "react"
+import HomeOption from "./HomeOption/comp"
+import tornado_white from "../../common/bootstrap-icons/tornado-white.svg"
+import pie_chart_white from "../../common/bootstrap-icons/pie-chart-white.svg"
+import envelope_white_svg from "../../common/bootstrap-icons/envelope-white.svg"
 class Home extends Component{
     render = ()=>{
         return (
-            <div className='home content-container'>
-                <div className="home-option row">
-                    <div className="col-3 d-flex justify-content-center align-items-center m-r-1-percent">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" className="bi bi-tornado option-icon" viewBox="0 0 16 16">
-                        <path d="M1.125 2.45A.892.892 0 0 1 1 2c0-.26.116-.474.258-.634a1.9 1.9 0 0 1 .513-.389c.387-.21.913-.385 1.52-.525C4.514.17 6.18 0 8 0c1.821 0 3.486.17 4.709.452.607.14 1.133.314 1.52.525.193.106.374.233.513.389.141.16.258.374.258.634 0 1.011-.35 1.612-.634 2.102-.04.07-.08.137-.116.203a2.55 2.55 0 0 0-.313.809 2.938 2.938 0 0 0-.011.891.5.5 0 0 1 .428.849c-.06.06-.133.126-.215.195.204 1.116.088 1.99-.3 2.711-.453.84-1.231 1.383-2.02 1.856-.204.123-.412.243-.62.364-1.444.832-2.928 1.689-3.735 3.706a.5.5 0 0 1-.748.226l-.001-.001-.002-.001-.004-.003-.01-.008a2.142 2.142 0 0 1-.147-.115 4.095 4.095 0 0 1-1.179-1.656 3.786 3.786 0 0 1-.247-1.296A.498.498 0 0 1 5 12.5v-.018a.62.62 0 0 1 .008-.079.728.728 0 0 1 .188-.386c.09-.489.272-1.014.573-1.574a.5.5 0 0 1 .073-.918 3.29 3.29 0 0 1 .617-.144l.15-.193c.285-.356.404-.639.437-.861a.948.948 0 0 0-.122-.619c-.249-.455-.815-.903-1.613-1.43-.193-.127-.398-.258-.609-.394l-.119-.076a12.307 12.307 0 0 1-1.241-.334.5.5 0 0 1-.285-.707l-.23-.18C2.117 4.01 1.463 3.32 1.125 2.45zm1.973 1.051c.113.104.233.207.358.308.472.381.99.722 1.515 1.06 1.54.317 3.632.5 5.43.14a.5.5 0 0 1 .197.981c-1.216.244-2.537.26-3.759.157.399.326.744.682.963 1.081.203.373.302.79.233 1.247-.05.33-.182.657-.39.985.075.017.148.035.22.053l.006.002c.481.12.863.213 1.47.01a.5.5 0 1 1 .317.95c-.888.295-1.505.141-2.023.012l-.006-.002a3.894 3.894 0 0 0-.644-.123c-.37.55-.598 1.05-.726 1.497.142.045.296.11.465.194a.5.5 0 1 1-.448.894 3.11 3.11 0 0 0-.148-.07c.012.345.084.643.18.895.14.369.342.666.528.886.992-1.903 2.583-2.814 3.885-3.56.203-.116.399-.228.584-.34.775-.464 1.34-.89 1.653-1.472.212-.393.33-.9.26-1.617A6.74 6.74 0 0 1 10 8.5a.5.5 0 0 1 0-1 5.76 5.76 0 0 0 3.017-.872.515.515 0 0 1-.007-.03c-.135-.673-.14-1.207-.056-1.665.084-.46.253-.81.421-1.113l.131-.23c.065-.112.126-.22.182-.327-.29.107-.62.202-.98.285C11.487 3.83 9.822 4 8 4c-1.821 0-3.486-.17-4.709-.452-.065-.015-.13-.03-.193-.047zM13.964 2a1.12 1.12 0 0 0-.214-.145c-.272-.148-.697-.297-1.266-.428C11.354 1.166 9.769 1 8 1c-1.769 0-3.354.166-4.484.427-.569.13-.994.28-1.266.428A1.12 1.12 0 0 0 2.036 2c.04.038.109.087.214.145.272.148.697.297 1.266.428C4.646 2.834 6.231 3 8 3c1.769 0 3.354-.166 4.484-.427.569-.13.994-.28 1.266-.428A1.12 1.12 0 0 0 13.964 2z"/>
-                    </svg>
-                    </div>
-                    <div className="col mt-3">
-                        <h2 className="home-option-title"><a href="#/new-transaction"  className="text-info">شرکت سریع در طرح</a></h2>
-                        <h4 className='text-secondary info'>با حداقل هزار تومان به جمع میلیونی ما بپیوندید !</h4>
-                    </div>
-                </div>
-                
+            <>
+                <HomeOption title="شرکت سریع در طرح" title_href="#/new-transaction" icon_src={tornado_white} info="با حداقل هزار تومان به جمع میلیونی ما بپیوندید !" />
                 <hr />
-                
-                <div className="home-option row">
-                    <div className="col-3 d-flex justify-content-center align-items-center m-r-1-percent">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" className="bi bi-pie-chart option-icon" viewBox="0 0 16 16">
-                        <path d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793V1.018zm1 0V7.5h6.482A7.001 7.001 0 0 0 8.5 1.018zM14.982 8.5H8.207l-4.79 4.79A7 7 0 0 0 14.982 8.5zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-                    </svg>
-                    </div>
-                    <div className="col mt-3">
-                        <h2 className="home-option-title"><a href="#/charts"  className="text-info">تا به حال چه کرده ایم ؟</a></h2>
-                        <h4 className='text-secondary info'>شما میتونید آمار های دقیق فعالیت ما تا این لحظه رو در این قسمت مشاهده کنید</h4>
-                    </div>
-                </div>
-                
+                <HomeOption title="تا به حال چه کرده ایم ؟" title_href='#/charts' icon_src={pie_chart_white} info='شما میتونید آمار های دقیق فعالیت ما تا این لحظه رو در این قسمت مشاهده کنید' />
                 <hr />
-                <div className="home-option row">
-                    <div className="col-3 d-flex justify-content-center align-items-center m-r-1-percent">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" className="option-icon bi bi-envelope" viewBox="0 0 16 16">
-                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
-                        </svg>
-                    </div>
-                    <div className="col mt-3">
-                        <h2 className="home-option-title"><a href="#/support"  className="text-info">پشتیبانی</a></h2>
-                        <h4 className='text-secondary info'>درخواست پشتیبانی جدیدی ثبت کنید تا پاسخگوی شما باشیم</h4>
-                    </div>
-                </div>
-                
+                <HomeOption title="پشتیبانی" title_href="#/support" info="درخواست پشتیبانی جدیدی ثبت کنید تا پاسخگوی شما باشیم" icon_src={envelope_white_svg} />                
                 <hr />
-
-            </div>
+            </>
         )
     }
 }

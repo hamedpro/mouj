@@ -195,6 +195,9 @@ position: relative;
 .home-option{
     direction:rtl;
 }
+.home-option div img{
+	width: 70%;
+}
 .home-option .option-icon{
     width: 72%;
 }
@@ -217,4 +220,7 @@ position: relative;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+}
+#root{
+	height: 100%;
 }

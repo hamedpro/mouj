@@ -35,26 +35,26 @@ export default class AdminPage extends Component{
             </div>
             
             <div id="dataContainer">
-                <Switch>
-                    <Route exact path='/admin/plans'>
-                        <SettingPagePlansSection />
-                    </Route>
+                
+                <Route exact path='/admin/plans'>
+                    <SettingPagePlansSection />
+                </Route>
 
-                    <Route exact path='/admin/transactions'>
-                        <TransactionsSection />
-                    </Route>
+                <Route exact path='/admin/transactions'>
+                    <TransactionsSection />
+                </Route>
 
-                    <Route exact path='/admin/users'>
-                        <UsersSection />
-                    </Route>
+                <Route exact path='/admin/users'>
+                    <UsersSection />
+                </Route>
 
-                    <Route exact path='/admin/support_messages'>
-                        <SupportMessagesSection />
-                    </Route>
-                    <Route exact path='/admin/settings'>
-                        <SettingsSection />
-                    </Route>
-                </Switch>
+                <Route exact path='/admin/support_messages'>
+                    <SupportMessagesSection />
+                </Route>
+                <Route exact path='/admin/settings'>
+                    <SettingsSection />
+                </Route>
+                
             </div>
         </div>
     )
