@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./styles.css"
-import {custom_ajax , custom_ajax_default_path} from "../../api_client/custom_ajax";
+import {custom_ajax} from "../../api_client/custom_ajax";
 import light_bulb_white from "../../common/bootstrap-icons/lightbulb-white.svg"
 export class Register extends Component{
     //todo make sure button disable when username is taken

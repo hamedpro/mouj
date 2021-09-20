@@ -1,6 +1,6 @@
 import "./styles.css"
 import {Component} from "react"
-import {Switch,Route} from "react-router-dom"
+import {Route} from "react-router-dom"
 import SettingPagePlansSection from "./sections/PlansSection"
 import TransactionsSection from "./sections/TransactionsSection"
 import UsersSection from "./sections/UsersSection"

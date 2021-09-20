@@ -20,8 +20,8 @@ import AdminPage from './components/admin/component';
 import SelectAdminPage from './components/SelectAdmin/component';
 import AboutUs from './components/AboutUs/comp';
 import CustomFooter from './components/CustomFooter/comp';
-import "nprogress/nprogress.css"
-import nprogress from "nprogress"
+//import "nprogress/nprogress.css"
+//import nprogress from "nprogress"
 class App extends React.Component {
   constructor(){
     super()

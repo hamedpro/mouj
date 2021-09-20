@@ -4,7 +4,6 @@ import { Component } from "react"
 import SupportOption from "../supportOption/SupportOption"
 import lightning_svg from "../../common/bootstrap-icons/lightning-fill-white.svg"
 import mailbox_svg from "../../common/bootstrap-icons/mailbox2-white.svg"
-import link_svg from "../../common/bootstrap-icons/link-45deg-white.svg"
 class Support extends Component{
     render(){
         return (

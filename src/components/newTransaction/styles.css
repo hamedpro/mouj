@@ -2,6 +2,49 @@
     direction:rtl;
     text-align:center;
 }
+#new {
+    min-height: 100%;
+    padding-bottom: 20px;
+}
 input,select{
     direction: rtl;
+}
+.scroll-view{
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow-x:scroll;
+    direction: rtl;
+    padding: 10px 0px 10px 0px;
+    overflow-y: hidden;
+}
+#plans_container{
+    height: 100%;
+    width: 150%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    background:blue;
+    position: relative;
+    direction: rtl;
+    right: 10%;
+
+}
+.plans_container_label{
+    right: 10%;
+}
+#plans_container .plan{
+    height: 100%;
+    display: inline-block;
+    min-width: 100px;
+}
+#plans_container .seperator{
+    height: 80%;
+    border-left: 1px solid rgba(21, 0, 114, 0.474);
+    width: 1px;
+    display: inline-block;
+    position: relative;
+    bottom: 50%;
+    transform: translateY(50%);
+
 }
