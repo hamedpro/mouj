@@ -23,9 +23,10 @@ function config_db(){
         username varchar(100),
         amount int(10),
         info varchar(500),
-        category varchar(100),
-        plan_id int(6)
+        plan_id int(6),
+        one_percent_for_team varchar(50)
     )";
+    //one percent for mouj carry a varchar ('true' or "false")
     $db->query($query);
 
     $query = "create table if not exists support_messages(

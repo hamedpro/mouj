@@ -33,8 +33,8 @@ switch($func){
             $_REQUEST['username'],
             (int)$_REQUEST['amount'],
             $_REQUEST['info'],
-            $_REQUEST['category'],
-            (int)$_REQUEST['plan_id']
+            (int)$_REQUEST['plan_id'],
+            $_REQUEST['one_percent_for_team'] == "true" ? true : false
         );
         break;
     case 'get_transactions':

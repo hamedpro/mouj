@@ -16,8 +16,9 @@ class api{
         return get_mysql_table($this->db,'logs');
     }
     
-    public function new_transaction($username,$amount,$info,$category,$plan_id){
-        $query = "insert into transactions (category,amount,info,username,plan_id) values ('$category','$amount','$info','$username',$plan_id)";
+    public function new_transaction($username,$amount,$info,$plan_id,$one_percent_for_team){
+        $one_percent_for_team_as_varchar = $one_percent_for_team ? "true" : "false";
+        $query = "insert into transactions (amount,info,username,plan_id,one_percent_for_team) values ('$amount','$info','$username',$plan_id,'$one_percent_for_team_as_varchar')";
         return $this->db->query($query);
         // finish all other plans =>
         /*  $plans = $this->get_plans();
