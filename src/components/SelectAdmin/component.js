@@ -4,10 +4,7 @@ import {custom_ajax} from "../../api_client/custom_ajax"
 import Option from "../Option/Option"
 export default class SelectAdminPage extends Component{
     componentDidMount = ()=>{
-        //redirect to admin page if user has loged in before
-        if(window.localStorage.getItem('admin_username')){
-            window.location.assign('#/admin')
-        }
+        
         var self = this 
         custom_ajax({
             params:{
@@ -17,6 +14,11 @@ export default class SelectAdminPage extends Component{
         .then(admins=>{
             self.setState({
                 admins:admins
+            },()=>{
+                //redirect to admin page if user has loged in before
+                if(window.localStorage.getItem('admin_username')){
+                    window.location.assign('#/admin')
+                }
             })
         })
     }

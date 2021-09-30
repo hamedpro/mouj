@@ -74,7 +74,7 @@ class Charts extends Component{
                 <div className="user"></div>
             </div>
 
-            <a className="other_users">+23434 users</a>
+            <a href="#/" className="other_users">+23434 users</a>
             </div>
         
         </>

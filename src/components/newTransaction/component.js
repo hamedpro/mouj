@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./styles.css"
 import {custom_ajax} from "../../api_client/custom_ajax"
 import light_bulb_white from "../../common/bootstrap-icons/lightbulb-white.svg"
-import PlansContainer from "./PlansContainer/comp";
+import Plan from "./Plan/comp"
 class NewTransaction extends Component{
     constructor(){
         super()
@@ -11,17 +11,23 @@ class NewTransaction extends Component{
             selected_plan_id : null
         }
     }
-    componentDidMount(){
+    load_plans = ()=>{
         custom_ajax({
             params:{
                 func:"get_plans"
             }
         })
         .then(plans=>{
+            var edited_plans = plans.map(plan=>{
+                return {...plan,props_list:[]}
+            })
             this.setState({
-                plans
+                plans:edited_plans
             })
         })
+    }
+    componentDidMount(){
+        this.load_plans()
     }
     redirect_to_payment_gateway = () =>{
         if(typeof this.state.selected_plan_id !== "number"){
@@ -46,85 +52,83 @@ class NewTransaction extends Component{
     }
     select_plan = (plan_id)=>{
         this.setState({
-            selected_plan_id : plan_id
+            selected_plan_id : Number(plan_id)
         },()=>{
             console.log('plan selected successfuly, plan id: '+plan_id)
         })
     }
     render(){
         return (
-            <div id="new" className="content-container" style={{direction:"rtl"}}>
-            <div className="row justify-content-center align-items-center my-4">
-                <div className="col-8 ">
-                    <h1 className="text-light title" dir='rtl'>شما هم با شرکت در این طرح مسلمانی را خوشحال کنید !</h1>
-                </div>
-                
-            </div>
-            <div className="row justify-content-center align-items-center">
-                <div className="col-9 d-grid gap-2" style={{direction:"rtl"}}>
-                    <label htmlFor="username" className="text-light">نام کاربری :</label>
-                    <input type="text" id="username" className="form-control border-0"/>
-                    
-                   </div>
-            </div> 
-            <div className='mt-4 row justify-content-center align-items-center'>
-                <div className='col-6'>
-                    <b className='text-white' style={{textAlign:"center"}}>انتخاب طرح مورد نظر :</b>
-                </div>
-            </div>
-            <div className='scroll-view mb-3'>
-            <PlansContainer>
-                {this.state.plans.map(plan=>{
-                    return(
-                        <React.Fragment key={plan.id}>
-                        <div className="plan" >
-                            {"plan : "+plan.id}
-                            <button onClick={()=>this.select_plan(Number(plan.id))} >select this plan</button>
-                        </div>
-                       
-                        <div className='seperator' />
-                        </React.Fragment>
-                    )
-                })}
-                <div className='more'>
-                    <div className='circle'>...</div>
-                </div>
-            </PlansContainer>
-                    
-                    
+        <>
+        <div className="row d-flex justify-content-center align-items-center mt-4">
+            <div className="col-8 ">
+                <h3 className="text-light title" dir='rtl'>تراکنش جدید</h3>
             </div>
             
-            <div className="row justify-content-center align-items-center">
-                <div className="col-9 d-grid gap-2" style={{direction:"rtl"}}>
-                    <label htmlFor="amount" className="text-light">مبلغ به ریال :</label>
-                    <input type="number" id="amount" className="form-control border-0" placeholder="مثلا 20000" />
-                    <div className="my-1">
-                        <span className="text-light">یک درصد از مبلغ فوق برای هزینه ها و ... به تیم موج تعلق بگیرد</span>
-                        <input className="mx-2" type="checkbox" id="one_percent_for_team" />
-                    </div>
-                    
-                    <button className="btn btn-success" onClick={this.redirect_to_payment_gateway}>ارسال</button>    
-                    
-                </div>
-            </div> 
-                            
-                
-            <div className="row justify-content-center">
-                <div className="col-9">
-                    <hr className="bg-light" />
-                </div>
-            </div>
-            <div className="row justify-content-center align-items-center">
-                <div className="col-9 tips_container">
-                    
-                   <div>
-                       <img src={light_bulb_white} alt='tip svg icon'/>
-                       <span className="text-light">ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید ! </span><a href="#/register">اطلاعات بیشتر</a>
-                   </div>
-                </div>
-            </div>
-        
         </div>
+        <div className="mt-2 row d-flex justify-content-center">
+            <div className='col-9'>
+                <h6 className="text-secondary dir_rtl" style={{textAlign:"center"}}>با چند کلیک به جمع خیرین طرح موج بپیوندید</h6>
+            </div>
+        </div>
+        <hr className="bg-light" style={{position:"relative",marginLeft:"auto",marginRight:"auto",width:"80%"}} />
+        <div className="row justify-content-center align-items-center">
+            <div className="col-9 d-grid gap-2" style={{direction:"rtl"}}>
+                <label htmlFor="username" className="text-light">نام کاربری :</label>
+                <input type="text" id="username" className="form-control border-0"/>
+                
+                </div>
+        </div> 
+        <div className='mt-4 row justify-content-center align-items-center'>
+            <div className='col-8 d-flex justify-content-center'>
+                <b className='text-white dir_rtl' style={{textAlign:"center"}}>انتخاب طرح مورد نظر :</b>
+            </div>
+        </div>
+        <div className='plans_container'>
+            {this.state.plans.map(plan=>{
+                return(
+                    <Plan 
+                        title={plan.title} 
+                        info={plan.description} 
+                        props_list={plan.props_list} 
+                        button_onclick_handler={()=>this.select_plan(plan.id)}
+                        key={plan.id}
+                        />
+                )
+            })}
+            
+            <a href='#/home'>select other plans</a>
+        </div>
+        <div className="row justify-content-center align-items-center">
+            <div className="col-9 d-grid gap-2" style={{direction:"rtl"}}>
+                <label htmlFor="amount" className="text-light">مبلغ به ریال :</label>
+                <input type="number" id="amount" className="form-control border-0" placeholder="مثلا 20000" />
+                <div className="my-1">
+                    <span className="text-light">یک درصد از مبلغ فوق برای هزینه ها و ... به تیم موج تعلق بگیرد</span>
+                    <input className="mx-2" type="checkbox" id="one_percent_for_team" />
+                </div>
+                
+                <button className="btn btn-success" onClick={this.redirect_to_payment_gateway}>ارسال</button>    
+                
+            </div>
+        </div> 
+                        
+            
+        <div className="row justify-content-center">
+            <div className="col-9">
+                <hr className="bg-light" />
+            </div>
+        </div>
+        <div className="row justify-content-center align-items-center mb-2">
+            <div className="col-9 tips_container">
+                
+                <div>
+                    <img src={light_bulb_white} alt='tip svg icon'/>
+                    <span className="text-light">ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید ! </span><a href="#/register">اطلاعات بیشتر</a>
+                </div>
+            </div>
+        </div>
+    </>
         )
     }
 }
