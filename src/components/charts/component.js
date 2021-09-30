@@ -5,7 +5,7 @@ class Charts extends Component{
         return (
 
    
-    <div>
+    <>
     <div className="row justify-content-center d-flex mt-4">
         <div className="col-9 mb-1">
             <h1 className="text-light rtl-center">تا به حال چه کرده ایم ؟</h1>
@@ -50,9 +50,23 @@ class Charts extends Component{
         <h1 className="text-info">لیست تمام فعالیت ها :</h1>
     </div>
     <div id="timelineBoxesContainer"></div>
-  
-</div>
+    
+    <div id="users_section">
+    <div className="title">users</div>
+    <span className='users_count_badge'>3400+</span>
 
+    <div className="users">
+        <div className="user"></div>
+        <div className="user"></div>
+        <div className="user"></div>
+        <div className="user"></div>
+    </div>
+
+    <a className="other_users">+23434 users</a>
+</div>
+    
+    </>
+    
         )
     }
 }

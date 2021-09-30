@@ -25,6 +25,32 @@ var options = [
                 alert('new plan saved successfuly !')
             })
         }
+    },
+    {
+        title:"delete hole database and reconfigure",
+        info:"be careful when using this option",
+        handler(){
+            if( ! window.confirm('are you completely sure you want to delete all data from db and re configure app ??')){
+                return false
+            }
+            custom_ajax({
+                params:{
+                    func:"delete_database"
+                }
+            }).then(r=>{
+                alert("done successfuly , you will redirect to home page right now !")
+                window.location.assign("#/")
+            },()=>{
+                alert("there was an error in that processs")
+            })
+        }
+    }, 
+    {
+        title:"make user admin",
+        info:"give admin previlages to a user",
+        handler(){
+            alert("you must do it from admins section of this page")
+        }
     }
 ]
 export default class SettingsSection extends Component{
