@@ -228,3 +228,14 @@ transform: translateX(-50%);
     
 position: relative;
 }
+.custom-section{
+    width: 100%;
+    /* background should be selected with style prop on element */
+    border:1px solid transparent; /* to fix its content margin top problem */
+}
+.custom-section-image{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    background: green;
+}
