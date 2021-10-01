@@ -1,6 +1,19 @@
 .custom_footer{
-    background:#00d5ff;
-    min-height: 200px;
+    background:#006ef7;
     width: 100%;
     position: relative;
+    border: 1px solid transparent; /* for content margin problem */
+}
+.custom_footer .mouj-icon {
+    height: 35px;
+    width: 35px;
+    background: blue;
+    border-radius: 8px;
+    display: inline-block;
+    border: 2px solid aqua;
+}
+.custom_footer .icon-note{
+    line-height: 18px;
+    font-size: 13px;
+
 }

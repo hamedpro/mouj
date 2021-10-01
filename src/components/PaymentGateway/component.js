@@ -8,12 +8,29 @@ export default class PaymentGateway extends Component{
         }).then(()=>{
             window.location.assign('#/payment-result')
         },()=>{
-            //saving new transaction was not successful
+            window.alert("saving new transaction to db was not successfuly : [error in custom ajax]")
         })
     }
-    render = ()=>{
+    render(){
         return (
-            <button className="btn btn-success" id="pay_button" onClick={this.pay_button_onclick}>pay</button>
+            <>
+                <div className="d-flex row justify-content-center mt-4">
+                    <div className="col-9">
+                        <h3 className="text-light" style={{direction:'rtl',textAlign:"center"}}>شبیه ساز درگاه پرداخت اینترنتی</h3>
+                    </div>
+                </div>
+                <div className="d-flex row justify-content-center">
+                    <div className="col-9">
+                        <h6 className="text-secondary" style={{direction:'rtl',textAlign:"center"}}>در این فاز تستی ما درگاه پرداخت واقعی نداریم و برای این منظور این صفحه فرایند پرداخت را برای شما شبیه سازی میکند</h6>
+                    </div>
+                </div>
+                <hr className="w-75 mx-auto position-relative bg-light" />
+                <div className="row d-flex justify-content-center mb-4">
+                    <button className="btn btn-success w-75" id="pay_button" onClick={this.pay_button_onclick}>pay</button>
+                </div>
+                
+            </>
+            
         )
     }
 }
