@@ -17,3 +17,33 @@
     font-size: 13px;
 
 }
+.custom_footer .custom-nav-bar{
+    height:40px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-color: blue;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.custom_footer .custom-nav-bar .item {
+    height: 25px;
+    width: 25px;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+}
+.custom_footer .custom-nav-bar .seperator {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    margin-left: 5px;
+    margin-right: 5px ;
+}
+.custom_footer .custom-nav-bar .item a{
+    color:white;
+}
