@@ -154,6 +154,10 @@ switch($func){
         $res = $api->get_last_plan_data();
         $response_manager->set_data($res);
         break;
+    case "subscribe_to_sms":
+        $result = $api->subscribe_to_sms($_REQUEST["username"],$_REQUEST["phone_number"]);
+        $response_manager->test("mysql query was not successful and its return value was false",$result);
+        break;
     default:
         break;
 }

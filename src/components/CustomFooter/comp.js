@@ -1,38 +1,85 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import "./css.css"
 import chevron_compact_right_white from "../../common/bootstrap-icons/chevron-compact-right-white.svg"
+import {custom_ajax} from "../../api_client/custom_ajax"
 export default class CustomFooter extends Component{
+    constructor(){
+        super()
+        this.state = {
+            //todo => this line below 
+            nav_bar_links : [{name:"home",href:'#/home'},{name:"support page",href:'#/support'}]
+        }
+    }
+    subscribe_to_sms = () =>{
+        var username_input = document.getElementById('sms_subscribe_username_input')
+        var phone_number_input = document.getElementById('sms_subscribe_phone_number_input')
+        var username = username_input.value
+        var phone_number = phone_number_input.value
+        custom_ajax({
+            params:{
+                func : "subscribe_to_sms",
+                username,
+                phone_number
+            }
+        })
+        .then(()=>{
+            alert('با موفقیت ثبت شد')
+            username_input.value = ""
+            phone_number_input.value = ""
+        },error =>{
+            alert('خطایی رخ داد بعدا دوباره امتحان کنید')
+        })
+    }
     render(){
         return(
             <div className="custom_footer pb-3 mt-4">
                 <div className="custom-nav-bar">
-                    <div className="item">
-                        <svg viewBox="0 0 16 16" className="bi bi-house person_icon" fill="white" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"></path>
-                            <path fillRule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"></path>
-                        </svg>
-                    </div>
-                    <div className="seperator">
-                        <img alt="chevron compact right white" src={chevron_compact_right_white} />
-                    </div>
-                    <div className="item"><a href="#/home">home</a></div>
+                    <a href="#/">
+                        <div className="item">
+                            <svg viewBox="0 0 16 16" className="bi bi-house person_icon" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"></path>
+                                <path fillRule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"></path>
+                            </svg>
+                        </div>
+                    </a>
+                    
+                    {this.state.nav_bar_links.map(i=>{
+                        return (
+                            <React.Fragment key={i.href}>
+                                <div className="seperator">
+                                    <img alt="chevron compact right white" src={chevron_compact_right_white} />
+                                </div>
+                                <div className="item"><a href={i.href}>{i.name}</a></div>
+                            </React.Fragment>
+                            
+                        )
+                    })}
+                    
                 </div>
                 
-                    <div className="row d-flex justify-content-center my-1 mt-3">
+                    <div className="row d-flex justify-content-center my-1 mt-4">
                         <div className="col-9">
                             <h4 className="text-light" style={{textAlign:"center"}}>عضویت در خبرنامه پیامکی پروژه موج</h4>    
                         </div>
                     </div>
                     <div className="row d-flex justify-content-center">
                         <div className="col-9">
-                            <input placeholder="09123456789" className="form-control" style={{textAlign:"center",direction:"ltr"}}/>    
+                            <input id="sms_subscribe_username_input" placeholder="نام کاربری" className="form-control" style={{textAlign:"center",direction:"ltr"}}/>    
+                        </div>
+                        
+                    </div>
+                    <div className="row d-flex justify-content-center mt-1">
+                        <div className="col-9">
+                            <input id="sms_subscribe_phone_number_input" placeholder="09123456789" className="form-control" style={{textAlign:"center",direction:"ltr"}}/>    
                         </div>
                         
                     </div>
                     
+                    
+                    
                     <div className="row d-flex justify-content-center mt-2">
                         <div className="col-9">
-                            <button className="btn btn-success w-100">عضویت</button>
+                            <button onClick={this.subscribe_to_sms} className="btn btn-success w-100">عضویت</button>
                         </div>
                         
                     </div>
@@ -59,9 +106,9 @@ export default class CustomFooter extends Component{
                             <div className="dir_rtl row d-flex flex-column text-light">
                                 <a className="text-light px-4" href="#/new-transaction">تراکنش جدید</a>
                                 <a className="text-light px-4" href="#/support">درخواست پشتیبانی جدید</a>
-                                <a className="text-light px-4" href="#/charts">صفحه گزارش ها</a>
+                           
                                 <a className="text-light px-4" href="#/about-us">درباره ما</a>
-                                <a className="text-light px-4" href="#terms-of-use">قوانین و شرایط استفاده</a>
+                               
                             </div>
                         </div>
                    </div>

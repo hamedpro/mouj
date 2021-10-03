@@ -20,6 +20,7 @@ import AdminPage from './components/admin/component';
 import SelectAdminPage from './components/SelectAdmin/component';
 import AboutUs from './components/AboutUs/comp';
 import CustomFooter from './components/CustomFooter/comp';
+import VotesPage from "./components/VotesPage/comp"
 //import "nprogress/nprogress.css"
 //import nprogress from "nprogress"
 class App extends React.Component {
@@ -58,14 +59,14 @@ class App extends React.Component {
           <Route exact path="/charts"><Charts></Charts></Route>
           <Route exact path="/new-transaction"><NewTransaction></NewTransaction></Route>
           <Route exact path="/support-message-show-page/:support_message_id" render={props=><SupportMessageShowPage support_message_id={props.match.params.support_message_id} />}></Route>
-          <Route exact path="/support/new" render={props=><NewSupportMessage />}></Route>
+          <Route exact path="/support/support_messages/new" render={props=><NewSupportMessage />}></Route>
           <Route exact path="/register" render={props=><Register />}/>
           <Route exact path="/payment-result" render={props=> <PaymentResult />}/>
           <Route exact path="/payment-gateway" render={props=> <PaymentGateway />}/>
           <Route exact path="/select-admin" render={props=> <SelectAdminPage />}/>
           <Route path="/admin" render={props=> <AdminPage {...props}/>}/>
           <Route exact path="/about-us" render={props=> <AboutUs {...props}/>}/>
-  
+          <Route exact path="/support/votes" render={props=> <VotesPage {...props}/>}/>
         </Switch>
       </Router>
       </GlobalContext.Provider>

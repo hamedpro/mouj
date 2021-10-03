@@ -12,7 +12,7 @@ function config_db(){
         username varchar(100),
         is_admin varchar(100),
         password varchar(100),
-        phone_number int(15)
+        phone_number varchar(15)
     )";
     if(!$db->query($query)){
         echo $db->error;

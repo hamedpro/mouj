@@ -25,16 +25,22 @@ class Support extends Component{
             </div>
         </div>
 
-        <div className="container">
-            <div className="row support-option-header mb-2" dir='rtl'>
+       
+            <div className="row support-option-header mb-2 px-2" dir='rtl'>
                 <div className="align-items-center col-2 d-flex justify-content-center"><img alt="empty" src={mailbox_svg   } /></div>
                 <div className="col p-0"><h1 className='text-light p-2'>ثبت درخواست پشتیبانی جدید</h1></div>
             </div>
             <SupportOption icon_src={lightning_svg}>
-                <a className="text-info" href="#/support/new"><h5>درخواست پشتیبانی سریع</h5></a>
+                <a className="text-info" href="#/support/support_messages/new"><h5>درخواست پشتیبانی سریع</h5></a>
             </SupportOption>
-            
-        </div>
+       
+            <div className="row support-option-header mb-2 px-2 mt-3" dir='rtl'>
+                <div className="align-items-center col-2 d-flex justify-content-center"><img alt="empty" src={mailbox_svg   } /></div>
+                <div className="col p-0"><h1 className='text-light p-2'>شرکت در نظر سنجی ها</h1></div>
+            </div>
+            <SupportOption icon_src={lightning_svg}>
+                <a className="text-info" href="#/support/votes"><h5>بخش نظرسنجی ها</h5></a>
+            </SupportOption>
         
     </div>   
     )
