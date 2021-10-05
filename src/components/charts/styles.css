@@ -105,137 +105,64 @@ padding-bottom: 4px;
     margin-bottom: 7px;
     border-bottom:1px solid rgb(84,84,86);
 }
+
+/* ------------------------------- */
 .lastDoneWork{
     position:relative;
-    min-height: 330px;
-    width:70%;
+    width:94%;
     left:50%;
     transform:translateX(-50%);
-    border-radius:10px;
-    /* border:1px solid purple; */
-    padding-bottom: 50px;
+    border-radius:8px;
     background-color: purple;
 }
-.currentProjectBoxTitle,
-.timelineBoxesTitle{
+.lastDoneWork .main_icon {
+    height: 80px;
+    width: 80px;
+    background:red;
+    border-radius: 8px;
+}
+.lastDoneWork #items .col {
+    direction: rtl ;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.lastDoneWork #items .item {
     direction: rtl;
-    padding-right: 5%;
-    margin-bottom: 10px;
-}
-.lastDoneWork .icon{
-    position: relative;
-    top: 65px;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    height: 100px;
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.lastDoneWork .icon svg{
-    height: 80%;
-    width: 80%;
-}
-.lastDoneWork .progress{
-    position: relative;
-    top: 22px;
-    direction: rtl;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 100%;
-}
-.lastDoneWork .title{
-    position: relative;
-    top: 10px;
-    text-align: center;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.lastDoneWork #progressLabel{
-    direction:rtl;
-    position: relative;
-    color:white;
-    top: 10px;
+    padding-right:15px;
+    background:blue;
+    margin-top: 5px;
+    border-radius: 4px;
+    color: white;
     text-align: right;
-    width: 100%;
-}
-.lastDoneWork .empty{
-    
-position: absolute;
-    
-top: 170px;
-    
-left: 50%;
-    
-transform: translateX(-50%);
-    
-width: 200px;
-    
-padding: 10px;
-    
-border-radius: 21px;
-}
-.lastDoneWork .items{
-
-position: relative;
-
-top: 33px;
-
-height: 90px;
-
-left: 50%;
-
-transform: translateX(-50%);
-
-width: 85%;
-
-border-radius: 0px;
-
-overflow-y: scroll;
-
-direction: rtl;
-
-overflow-x: scroll;
-}
-.lastDoneWork .items div{
-
-position: relative;
-
-background-color: blue;
-
-color: white;
-
-padding: 1px 10px 1px 10px;
-
-border-radius: 8px;
-
-display: inline-block;
-
-margin-left: 4px;
-
-font-size: 14px;
-
-margin-bottom: 4px;
-}
-.my_container{
-    
-width: 85%;
-    
-left: 50%;
-    
-transform: translateX(-50%);
-    
-position: relative;
+    display: inline;
 }
 .custom-section{
     width: 100%;
     /* background should be selected with style prop on element */
     border:1px solid transparent; /* to fix its content margin top problem */
+    margin-bottom: 8px;
 }
 .custom-section-image{
     height: 100px;
     width: 100px;
     border-radius: 10px;
     background: green;
+}
+.custom-section .users{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 98%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.custom-section .users .user{
+    height: 30px;
+    width: 30px;
+    background:darkblue;
+    border-radius: 100px;
+    margin-right: 2px ;
+    margin-left: 2px;
+    margin-bottom: 3px;
 }
