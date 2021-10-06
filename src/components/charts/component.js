@@ -92,7 +92,28 @@ class Charts extends Component{
                 <div className="row timelineBoxesTitle mb-3 dir_rtl px-3 pt-2">
                     <h4 className="text-info">لیست تمام فعالیت ها :</h4>
                 </div>
-                <TimelineBox />
+                <TimelineBox
+                 items={[{title:"hamed",content:"content"},{title:"hamed",content:"content"}]} 
+                 title="morning"
+                />
+                
+                <TimelineBox
+                 items={[{title:"hamed",content:"content"},{title:"hamed",content:"content"}]} 
+                 title="morning"
+                />
+                <TimelineBox
+                 items={[{title:"hamed",content:"content"},{title:"hamed",content:"content"}]} 
+                 title="morning"
+                />
+                <TimelineBox
+                 items={[{title:"hamed",content:"content"},{title:"hamed",content:"content"}]} 
+                 title="morning"
+                />
+                <TimelineBox
+                 items={[{title:"hamed",content:"content"},{title:"hamed",content:"content"}]} 
+                 title="morning"
+                />
+
             </div>
             
             
