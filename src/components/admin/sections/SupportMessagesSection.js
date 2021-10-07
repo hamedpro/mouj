@@ -11,7 +11,7 @@ export default class SupportMessagesSection extends Component{
         }
     }
     open_support_message(support_message_id){
-        window.location.assign("#/support-message-show-page/"+support_message_id)
+        window.location.assign("#/support-messages/"+support_message_id)
     }
     render(){
         return(

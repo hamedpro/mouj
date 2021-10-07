@@ -42,8 +42,9 @@ class SupportMessageShowPage extends Component{
         })
         .then(r=>{
             alert('done')
+            this.load_support_message_data()
         })
-        this.load_support_message_data()
+        
     }
     render(){
         return (
@@ -83,12 +84,12 @@ class SupportMessageShowPage extends Component{
                 </div>
                 <div className="box" id="content_container">{this.state.content}</div>
                 <div className="mark_as_done_box" style={{display:this.state.support_message_status==="open"?"block":"none"}}>
-                    <h1>mark as done</h1>
-                    <input className="form-control bg-light border-info" type="text" placeholder="description ..."></input>
-                    <button className="btn btn-success mt-2 text-white" onClick={this.close_support_message}>submit</button>
+                    <h1 dir="rtl">تغییر وضعیت این گزارش به رسیدگی شده</h1>
+                    <input className="form-control bg-light border-info dir_rtl" style={{textAlign:"right"}} type="text" placeholder="یادداشتی بنویسید ..."></input>
+                    <button className="btn btn-success mt-2 text-white" onClick={this.close_support_message}>تغییر وضعیت</button>
                 </div>
                 <div className="mark_as_done_box" style={{display:this.state.support_message_status==="closed"?"block":"none"}}>
-                    <h1 className='absolute_center text-white'>support message closed in past</h1>
+                    <h1 className='absolute_center text-white'>به این گزارش در گذشته رسیدگی شده است</h1>
                 </div>
                 <button className="btn btn-info mb-5" id="back_button" onClick={this.get_back_to_admin_page}>بازگشت</button>
   

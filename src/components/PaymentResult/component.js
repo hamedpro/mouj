@@ -63,7 +63,7 @@ export class PaymentResult extends Component{
                 </div>
                 <div className="row m-3" dir="rtl"></div>
                     <div className="col-4 d-grid p-1">
-                        <a className="btn btn-outline-danger btn-sm" href="#/support">گزارش خطا</a>
+                        <a className="btn btn-outline-danger btn-sm" href="#/support-messages">گزارش خطا</a>
                     </div>
                     <div className="col d-grid p-1">
                         <a className="btn btn-success" href="#/home">بازگشت به صفحه اصلی</a>

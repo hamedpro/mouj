@@ -7,7 +7,7 @@ export default class CustomFooter extends Component{
         super()
         this.state = {
             //todo => this line below 
-            nav_bar_links : [{name:"home",href:'#/home'},{name:"support page",href:'#/support'}]
+            nav_bar_links : [{name:"home",href:'#/home'},{name:"support page",href:'#/support-messages'}]
         }
     }
     subscribe_to_sms = () =>{
@@ -105,7 +105,7 @@ export default class CustomFooter extends Component{
                             </div>
                             <div className="dir_rtl row d-flex flex-column text-light">
                                 <a className="text-light px-4" href="#/new-transaction">تراکنش جدید</a>
-                                <a className="text-light px-4" href="#/support">درخواست پشتیبانی جدید</a>
+                                <a className="text-light px-4" href="#/support-messages">درخواست پشتیبانی جدید</a>
                            
                                 <a className="text-light px-4" href="#/about-us">درباره ما</a>
                                

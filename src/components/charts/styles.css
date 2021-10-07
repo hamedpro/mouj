@@ -156,6 +156,7 @@ padding-bottom: 4px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    justify-content: flex-end;
 }
 .custom-section .users .user{
     height: 30px;
@@ -165,4 +166,5 @@ padding-bottom: 4px;
     margin-right: 2px ;
     margin-left: 2px;
     margin-bottom: 3px;
+    border:1px solid aqua;
 }

@@ -41,12 +41,13 @@ padding: 5px 10px 5px 10px;
     margin-top: 30px;
     padding: 10px;
     min-height: 166px;
+    direction: rtl;
 }
 .mark_as_done_box h1{
     color: white;
     margin-bottom: 20px;
 }
 .mark_as_done_box input{
-    direction: ltr;
+    direction: rtl;
     min-height: 80px;
 }

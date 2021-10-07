@@ -25,7 +25,7 @@ export default class NewSupportMessage extends Component{
             alert('در فرایند ثبت درخواست خطایی به وجود آمد')
         })
         .finally(()=>{
-            window.location.assign("#/support")
+            window.location.assign("#/support-messages")
         })
     }
     render(){

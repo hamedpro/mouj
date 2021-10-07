@@ -58,14 +58,14 @@ export default class CurrentPlan extends Component{
                         </div> */}
                         {this.state.items_1.map(item=>{
                             return(
-                                <div className="item">{item}</div>
+                                <div className="item" key={item}>{item}</div>
                             )
                         })}
                     </div>
                     <div className="col d-flex flex-column">
                         {this.state.items_2.map(item=>{
                             return(
-                                <div className="item">{item}</div>
+                                <div className="item" key={item}>{item}</div>
                             )
                         })}
                     </div>

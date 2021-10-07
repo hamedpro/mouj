@@ -13,7 +13,7 @@ class Home extends Component{
                 <hr />
                 <HomeOption title="تا به حال چه کرده ایم ؟" title_href='#/charts' icon_src={pie_chart_white} info='شما میتونید آمار های دقیق فعالیت ما تا این لحظه رو در این قسمت مشاهده کنید' />
                 <hr />
-                <HomeOption title="پشتیبانی" title_href="#/support" info="درخواست پشتیبانی جدیدی ثبت کنید تا پاسخگوی شما باشیم" icon_src={envelope_white_svg} />                
+                <HomeOption title="درخواست پشتیبانی" title_href="#/support-messages" info="درخواست پشتیبانی جدیدی ثبت کنید تا پاسخگوی شما باشیم" icon_src={envelope_white_svg} />                
                 <hr />
                 <HomeOption title="درباره ما" title_href="#/about-us" info="برای مشاهده اطلاعات بیشتری درباره ما و این موسسه کلیک کنید" icon_src={award_white_svg} />                
                 <hr />
