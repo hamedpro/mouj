@@ -7,8 +7,29 @@ export default class CustomFooter extends Component{
         super()
         this.state = {
             //todo => this line below 
-            nav_bar_links : [{name:"home",href:'#/home'},{name:"support page",href:'#/support-messages'}]
+            //nav_bar_links : [{name:"home",href:'#/home'},{name:"support page",href:'#/support-messages'}]
+            nav_bar_links : []
         }
+    }
+    componentDidMount(){
+        window.setInterval(()=>{
+            var items = []
+            var splited_hash = window.location.hash.split("/")
+            for(var i=0;i<splited_hash.length;i++){
+                if(i !== 0){
+                    var item = {}
+                    item.name = splited_hash[i]
+                    item.href = "#"
+                    for(var ii =0;ii<i;ii++){
+                        item.href+="/"+splited_hash[ii+1]
+                    }
+                    items.push(item)
+                }
+            }
+            this.setState({
+                nav_bar_links:items
+            })
+        },1000)
     }
     subscribe_to_sms = () =>{
         var username_input = document.getElementById('sms_subscribe_username_input')

@@ -61,8 +61,9 @@ class App extends React.Component {
           <Route exact path="/plans"><Plans></Plans></Route>
           <Route exact path="/plans/:plan_id" render={props=> <PlanShowPage {...props} />}></Route>
           <Route exact path="/new-transaction"><NewTransaction></NewTransaction></Route>
-          <Route exact path="/support-messages/:support_message_id" render={props=><SupportMessageShowPage support_message_id={props.match.params.support_message_id} />}></Route>
           <Route exact path="/support-messages/new" render={props=><NewSupportMessage />}></Route>
+          <Route exact path="/support-messages/:support_message_id" render={props=><SupportMessageShowPage support_message_id={props.match.params.support_message_id} />}></Route>
+          
           <Route exact path="/support-messages" render={props=><SupportMessages />}></Route>
           <Route exact path="/register" render={props=><Register />}/>
           <Route exact path="/payment-result" render={props=> <PaymentResult />}/>
