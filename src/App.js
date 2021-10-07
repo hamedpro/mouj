@@ -21,6 +21,8 @@ import SelectAdminPage from './components/SelectAdmin/component';
 import AboutUs from './components/AboutUs/comp';
 import CustomFooter from './components/CustomFooter/comp';
 import VotesPage from "./components/VotesPage/comp"
+import Plans from  "./components/Plans/comp"
+import PlanShowPage from './components/PlanShowPage/comp';
 //import "nprogress/nprogress.css"
 //import nprogress from "nprogress"
 class App extends React.Component {
@@ -57,6 +59,8 @@ class App extends React.Component {
           <Route exact path="/support"><Support /></Route>
           <Route path="/admin-password-check/:username" render={(props)=><AdminPasswordCheckPage {...props} />}></Route>
           <Route exact path="/charts"><Charts></Charts></Route>
+          <Route exact path="/plans"><Plans></Plans></Route>
+          <Route exact path="/plans/:plan_id" render={props=> <PlanShowPage {...props} />}></Route>
           <Route exact path="/new-transaction"><NewTransaction></NewTransaction></Route>
           <Route exact path="/support-message-show-page/:support_message_id" render={props=><SupportMessageShowPage support_message_id={props.match.params.support_message_id} />}></Route>
           <Route exact path="/support/support_messages/new" render={props=><NewSupportMessage />}></Route>

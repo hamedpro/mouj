@@ -2,12 +2,26 @@ import { Component } from "react";
 import "./styles.css"
 import chevron_left_white from "../../common/bootstrap-icons/chevron-left-white.svg"
 import TimelineBox from "./TimelineBox/TimelineBox";
+import {custom_ajax} from "../../api_client/custom_ajax"
+import CurrentPlan from "./CurrentPlan/comp";
 class Charts extends Component{
-    load_current_plan_data = ()=>{
-
+    constructor(props){
+        super(props)
+        this.state = {
+            plans : []
+        }
     }
-    scroll_to_current_plan_section = ()=>{
-        //todo 
+    componentDidMount(){
+        custom_ajax({
+            params:{
+                func:"get_plans"
+            }
+        })
+        .then(plans=>{
+            this.setState({
+                plans
+            })
+        })
     }
     render(){
         return (
@@ -43,76 +57,31 @@ class Charts extends Component{
             </div>
             <div className="custom-section" style={{background:"deepskyblue"}}>
             <div className="row currentProjectBoxTitle mt-3 d-flex justify-content-center">
-                <div className="col-6">
-                    <h2 className="text-light bg-primary rounded py-1" style={{textAlign:"center"}}>طرح فعلی</h2>
+                <div className="col-9">
+                    <h2 className="text-light bg-primary rounded py-1" style={{textAlign:"center"}}>طرح های باز فعلی</h2>
                 </div>
             </div>
-            <div className="lastDoneWork mb-4">
-                <div className="row pt-2 px-2">         
-                    <div className="col-8 mx-0">
-                        <h2 className="text-light mx-0 dir_rtl">طرح شماره ۲</h2>
-                        <p className="text-light dir_rtl">به نامه نامه نامه نامه نامه نام خداوند بخشنده مهربان</p>
-                    </div>
-                    <div className="col-4 d-flex justify-content-center align-items-center">
-                        <div className="main_icon"></div>
-                    </div>
-                </div>
-                <div id="items" className="row mt-2">
-                    <div className="col d-flex flex-column">
-                        <div className="item">
-                            <div className="icon"></div>
-                            <div className="content">به نام خدا</div>
-                        </div>
-                        <div className="item">به نام خدا</div>
-                        <div className="item">به نام خدا</div>
-                    </div>
-                    <div className="col d-flex flex-column">
-                        <div className="item">به نام خدا</div>
-                        <div className="item">به نام خدا</div>
-                        <div className="item">به نام خدا</div>
-                        
-                        <div className="item">به نام خدا</div>
-                    </div>
-                </div>
-
-                <div className="row dir_rtl px-2 mt-3">
-                    <h5 className="text-light">میزان پیشرفت :‌</h5>
-                </div>
-                <div className='row px-4 pt-2 pb-3'>
-                    <div className="progress">
-                        <div className="progressbar bg-success"></div>
-                    </div>
-                </div>
-                
-                
-            </div>
+            
+            {this.state.plans.filter(plan=>plan.status === "open").map(plan=>{
+                return(
+                    <CurrentPlan plan_id={plan.id} />
+                )
+            })}
             </div>
             
             <div className="custom-section" style={{background:"darkblue"}}>
-                <div className="row timelineBoxesTitle mb-3 dir_rtl px-3 pt-2">
-                    <h4 className="text-info">لیست تمام فعالیت ها :</h4>
+                <div className="row timelineBoxesTitle mb-3 dir_rtl px-3 pt-3">
+                    <h4 className="text-info">لیست تمام طرح ها تا این لحظه :</h4>
                 </div>
-                <TimelineBox
-                 items={[{title:"hamed",content:"content"},{title:"hamed",content:"content"}]} 
-                 title="morning"
-                />
-                
-                <TimelineBox
-                 items={[{title:"hamed",content:"content"},{title:"hamed",content:"content"}]} 
-                 title="morning"
-                />
-                <TimelineBox
-                 items={[{title:"hamed",content:"content"},{title:"hamed",content:"content"}]} 
-                 title="morning"
-                />
-                <TimelineBox
-                 items={[{title:"hamed",content:"content"},{title:"hamed",content:"content"}]} 
-                 title="morning"
-                />
-                <TimelineBox
-                 items={[{title:"hamed",content:"content"},{title:"hamed",content:"content"}]} 
-                 title="morning"
-                />
+                {this.state.plans.map(plan=>{
+                    return(
+                        <TimelineBox
+                        key={plan.id}
+                        title="no title"
+                        items={[{title:plan.title,content:plan.description,url:"#/plans/"+Number(plan.id)}]}
+                        />
+                    )
+                })}
 
             </div>
             

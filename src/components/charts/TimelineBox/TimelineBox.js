@@ -2,12 +2,13 @@ import { Component } from "react";
 var TimelineItem = props=>{
     return (
         <div className="timelineItem">
-            <h5 className="text-light mb-2 mt-2">{props.title}</h5>
+            <a href={props.url}><h5 className="text-light mb-2 mt-2">{props.title}</h5></a>
             <h6 className="text-info">{props.content}</h6>
         </div>
     )
 }
 class TimelineBox extends Component{
+    //props => title:any , items : array ([{title,content,url(title onClick)},...])
     render = ()=>{
         return (
             <div className="timelineBox">
@@ -21,7 +22,7 @@ class TimelineBox extends Component{
                 <div className="timelineItemsContainer">
                    {this.props.items.map(item=>{
                         return (
-                            <TimelineItem title={item.title} content={item.content}></TimelineItem>
+                            <TimelineItem {...item} key={item.url}/>
                         )
                     })} 
                 </div>

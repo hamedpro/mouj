@@ -121,12 +121,12 @@ padding-bottom: 4px;
     background:red;
     border-radius: 8px;
 }
-.lastDoneWork #items .col {
+.lastDoneWork .items .col {
     direction: rtl ;
     padding-left: 20px;
     padding-right: 20px;
 }
-.lastDoneWork #items .item {
+.lastDoneWork .items .item {
     direction: rtl;
     padding-right:15px;
     background:blue;
