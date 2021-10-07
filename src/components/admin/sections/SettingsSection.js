@@ -8,10 +8,10 @@ var options = [
         title:'new plan',
         info:"some info about create new plan option",
         handler(){
-            var starter_username = window.prompt('enter starter username')
-            var final_amount_as_rial = window.prompt('enter final amount as rial')
+            var starter_username = window.localStorage.getItem("admin_username")
             var title = window.prompt('enter its title')
             var description = window.prompt('enter its description')
+            var final_amount_as_rial = window.prompt('enter final amount as rial')
             custom_ajax({
                 params:{
                     func:'new_plan',
