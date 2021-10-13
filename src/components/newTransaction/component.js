@@ -18,7 +18,7 @@ class NewTransaction extends Component{
             }
         })
         .then(plans=>{
-            var edited_plans = plans.map(plan=>{
+            var edited_plans = plans.filter(plan=>plan.status === "open").map(plan=>{
                 return {...plan,props_list:[]}
             })
             this.setState({
@@ -30,25 +30,42 @@ class NewTransaction extends Component{
         this.load_plans()
     }
     redirect_to_payment_gateway = () =>{
-        if(typeof this.state.selected_plan_id !== "number"){
-            alert("لطفا طرح مورد نظر خود را از بین طرح های موجود انتخاب بفرمایید")
-            return false
-        }
-        if(! window.confirm('آیا صحت اطلاعات را تایید می کنید؟')) return;
-        //redirect to payment gateway =>
-        let amount = Number(document.getElementById('amount').value);
         let username = document.getElementById('username').value;
-        let one_percent_for_team = document.getElementById('one_percent_for_team').checked;
-        let info = "empty";
-        var data = {
-            amount,
-            username,
-            one_percent_for_team,
-            info,
-            plan_id:this.state.selected_plan_id
-        };
-        window.localStorage.setItem('payment_data',JSON.stringify(data))
-        window.location.assign('#/payment-gateway')
+        custom_ajax({
+            params:{
+                func:"user_exists",
+                username
+            }
+        })
+        .then(ajax_data=>{
+            if(! window.confirm('آیا صحت اطلاعات را تایید می کنید؟')) return;
+            if(!ajax_data.user_exists){
+                let p = window.confirm('نام کاربری وارد شده در بین اعضای سایت یافت نشد ایا تمایل دارید بدون عضو شدن ادامه دهید ؟')
+                if(!p){
+                    return
+                }
+            }
+            if(typeof this.state.selected_plan_id !== "number"){
+                alert("لطفا طرح مورد نظر خود را از بین طرح های موجود انتخاب بفرمایید")
+                return false
+            }
+            
+            //redirect to payment gateway =>
+            let amount = Number(document.getElementById('amount').value);
+            
+            let one_percent_for_team = document.getElementById('one_percent_for_team').checked;
+            let info = "empty";
+            var data = {
+                amount,
+                username,
+                one_percent_for_team,
+                info,
+                plan_id:this.state.selected_plan_id
+            };
+            window.localStorage.setItem('payment_data',JSON.stringify(data))
+            window.location.assign('#/payment-gateway')
+        })
+        
     }
     select_plan = (plan_id)=>{
         this.setState({
@@ -97,7 +114,7 @@ class NewTransaction extends Component{
                 )
             })}
             
-            <a href='#/home'>select other plans</a>
+            <a href='#/plans'>مشاهده همه طرح ها</a>
         </div>
         <div className="row justify-content-center align-items-center">
             <div className="col-9 d-grid gap-2" style={{direction:"rtl"}}>
@@ -124,7 +141,7 @@ class NewTransaction extends Component{
                 
                 <div>
                     <img src={light_bulb_white} alt='tip svg icon'/>
-                    <span className="text-light">ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید ! </span><a href="#/register">اطلاعات بیشتر</a>
+                    <span className="text-light">ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید ! </span><a href="#/register">ثبت نام آسان</a>
                 </div>
             </div>
         </div>

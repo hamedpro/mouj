@@ -53,14 +53,7 @@ export class PaymentResult extends Component{
                         <h2 className="text-warning" dir="rtl" id="info">{this.state.plan_id}</h2>
                     </div>
                 </div>
-                <div className="row mx-2" dir="rtl">
-                    <div className="col-4">
-                        <h4 className="text-secondary" dir="rtl">برای:</h4>
-                    </div>
-                    <div className="col">
-                        <h2 className="text-warning" dir="rtl" id="category">{this.state.category}</h2>
-                    </div>
-                </div>
+                
                 <div className="row m-3" dir="rtl"></div>
                     <div className="col-4 d-grid p-1">
                         <a className="btn btn-outline-danger btn-sm" href="#/support-messages">گزارش خطا</a>
