@@ -2,6 +2,7 @@ import { Component } from "react";
 import "./styles.css"
 import {custom_ajax} from "../../api_client/custom_ajax"
 import Option from "../Option/Option"
+import arrow_svg from "../../common/bootstrap-icons/chevron-left-white.svg"
 export default class SelectAdminPage extends Component{
     componentDidMount = ()=>{
         
@@ -51,8 +52,10 @@ export default class SelectAdminPage extends Component{
                 <div id="dataContainer">
                     {this.state.admins.map(admin=>{
                         return(
-                            <div onClick={()=>window.location.assign('#/admin-password-check/'+admin.username)}>
-                                <Option key={admin.id} title={admin.username} content="" ></Option>
+                            <div key={admin.id} onClick={()=>window.location.assign('#/admin-password-check/'+admin.username)}>
+                                <Option  title={admin.username} content="کاربر با دسترسی ادمین" >
+                                    <img alt="chevron left white svg" src={arrow_svg} />
+                                </Option>
 
                             </div>
                         )

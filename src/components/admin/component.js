@@ -18,7 +18,10 @@ export default class AdminPage extends Component{
             user_profile_info : "nothing"
         }
     }
-    render = ()=>(
+    render(){
+        return(
+
+        
         <div>
             <div className="profile">
                 <div className="profileImage"></div>
@@ -39,6 +42,9 @@ export default class AdminPage extends Component{
                 <Route exact path='/admin/plans'>
                     <SettingPagePlansSection />
                 </Route>
+                <Route exact path='/admin'>
+                    <SettingPagePlansSection />
+                </Route>
 
                 <Route exact path='/admin/transactions'>
                     <TransactionsSection />
@@ -57,5 +63,7 @@ export default class AdminPage extends Component{
                 
             </div>
         </div>
+        
     )
+        }
 }

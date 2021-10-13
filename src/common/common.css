@@ -145,13 +145,16 @@ padding-bottom: 50px;
 
 .option .iconsContainer img:hover{
 	
-background: rgba(0,0,255,0.3);
+background: gray;
 }
 .option .iconsContainer img{
 	height:70%;
 	width:70%;
 	max-width: 30px;
 	max-height: 30px;
+	padding: 5px;
+	border-radius: 6px;
+	box-sizing: content-box;
 }
 .option .right_container{
 	position: relative;

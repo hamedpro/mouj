@@ -42,6 +42,8 @@ class AdminPasswordCheckPage extends Component{
                         if(data.admin_password_was_correct){
                             window.localStorage.setItem('admin_username',self.state.username)
                             window.location.assign('#/admin')
+                        }else{
+                            alert("رمز عبور وارد شده نادرست بود دوباره تلاش کنید")
                         }
                     })
                     .finally(()=>{

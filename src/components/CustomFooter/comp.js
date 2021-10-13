@@ -35,25 +35,47 @@ export default class CustomFooter extends Component{
         var username_input = document.getElementById('sms_subscribe_username_input')
         var phone_number_input = document.getElementById('sms_subscribe_phone_number_input')
         var username = username_input.value
+        if(typeof username !== "string" || username === ""){
+            alert("نام کاربری صحیح وارد کنید")
+            return
+        }
         var phone_number = phone_number_input.value
+        if(typeof phone_number !== "string" || phone_number.length !== 11){
+            alert('شماره موبایل صحیحی وارد کنید')
+            return
+        }
+
         custom_ajax({
             params:{
-                func : "subscribe_to_sms",
-                username,
-                phone_number
+                func:"user_exists",
+                username:username
             }
+        }).then(data=>{
+            if( !data.user_exists){
+                alert('کاربری با نام کاربری وارد شده وجود نداشت')
+                return
+            }
+                custom_ajax({
+                    params:{
+                        func : "subscribe_to_sms",
+                        username,
+                        phone_number
+                    }
+                })
+                .then(()=>{
+                    alert('با موفقیت ثبت شد')
+                    username_input.value = ""
+                    phone_number_input.value = ""
+                },error =>{
+                    alert('خطایی رخ داد بعدا دوباره امتحان کنید')
+                })
+            
         })
-        .then(()=>{
-            alert('با موفقیت ثبت شد')
-            username_input.value = ""
-            phone_number_input.value = ""
-        },error =>{
-            alert('خطایی رخ داد بعدا دوباره امتحان کنید')
-        })
+        
     }
     render(){
         return(
-            <div className="custom_footer pb-3 mt-4">
+            <div className="custom_footer pb-3 mt-2">
                 <div className="custom-nav-bar">
                     <a href="#/">
                         <div className="item">
