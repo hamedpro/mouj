@@ -11,6 +11,8 @@
 # production
 /build
 /dist
+/mouj-project
+/app_is_not_available/build
 # misc
 .DS_Store
 .env.local

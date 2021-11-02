@@ -1,11 +1,15 @@
 <?php
 function config_db(){
-    $db = new mysqli('localhost','root','');
-    $query = "create database if not exists mouj" ; //todo:make sure about utf-8 support 
+    $mysql_username = "mpkchill_hamed";
+    $mysql_password = "hamed1382H";
+    $mysql_database_name = "mpkchill_mouj";
+
+    $db = new mysqli('localhost',$mysql_username,$mysql_password);
+    $query = "create database if not exists mpkchill_mouj" ; //todo:make sure about utf-8 support 
     $db->query($query);
     $db->close();
 
-    $db = new mysqli('localhost','root','','mouj');
+    $db = new mysqli('localhost',$mysql_username,$mysql_password,$mysql_database_name);
 
     $query = "create table if not exists users(
         id int(10) primary key auto_increment,

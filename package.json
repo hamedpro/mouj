@@ -6,6 +6,7 @@
   },
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build":"parcel build ./src/index.html"
+    "build":"parcel build ./src/index.html",
+    "custom_build": "rm -rf ./mouj-project && parcel build ./src/index.html --public-url ./ --dist-dir ./mouj-project && cp -r ./api ./mouj-project && echo '[mouj-project] folder is ready to deploy'"
   }
 }

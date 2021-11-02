@@ -1,5 +1,5 @@
-export var custom_ajax_default_path = "http://localhost/mouj/api/requests.php";
-export async function custom_ajax({url =custom_ajax_default_path,params={}}){ 
+export async function custom_ajax({params={}}){
+    var url = "https://mpkchiller.com/mouj-project/api/requests.php";
     // note : in reject func of first then block you should use e.message for error handling
     if(Object.keys(params).length !== 0){
         url+= "?";
@@ -12,7 +12,7 @@ export async function custom_ajax({url =custom_ajax_default_path,params={}}){
     }
     var fetch_response = window.fetch(url)
     //todo check if error in fetch_response, throw that
-    console.log('fetch detected : '+url)
+    console.log('fetch request detected to: '+url)
     var parsed_json = null;
     try{
         parsed_json = await fetch_response.then(res=>res.json())
