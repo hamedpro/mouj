@@ -1,5 +1,7 @@
+import * as fs from "fs"
+var env_vars = JSON.parse(fs.readFileSync("../../env_vars.json"))
 export async function custom_ajax({params={}}){
-    var url = "https://mpkchiller.com/mouj-project/api/requests.php";
+    var url = env_vars.api_entry_point;
     // note : in reject func of first then block you should use e.message for error handling
     if(Object.keys(params).length !== 0){
         url+= "?";
@@ -26,4 +28,4 @@ export async function custom_ajax({params={}}){
     }
     return parsed_json['data']
 };
-
+console.log(env_vars)

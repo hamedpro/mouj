@@ -1,0 +1,8 @@
+{
+    "current_env":"development",
+    "mysql_hostname":"localhost",
+    "mysql_username":"root",
+    "mysql_password":"",
+    "mysql_database_name":"mouj",
+    "api_entry_point":"http://localhost:80/mouj/api/requests.php"
+}
