@@ -13,6 +13,7 @@
 /dist
 /mouj-project
 /app_is_not_available/build
+/app_is_not_available/dist
 # misc
 .DS_Store
 .env.local
