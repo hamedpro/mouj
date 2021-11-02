@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<div id="root">
-    
-</div>
-
-<style>
-    #root{
-        height: 100%;
-        width: 100%;
-        background: blue;
-        position: fixed;
-    }
-</style>
+<html>
+    <meta charset="utf-8" />
+    <body>
+        <script src="../custom_loading_page.js"></script>
+        <link rel="stylesheet" href="../custom_loading_page.css">
+        <script>
+            init_custom_loading_page()
+            setInterval(toggle_custom_loading_page,3000)
+        </script>
+    </body>
+</html>
