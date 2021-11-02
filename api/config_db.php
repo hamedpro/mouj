@@ -2,21 +2,18 @@
 function config_db(){
     $env_vars_file = fopen('../env_vars.json',"r");
     $env_vars = json_decode(fread($env_vars_file,filesize('../env_vars.json')));
-    var_dump($env_vars);
+
     $mysql_username = $env_vars->mysql_username;
     $mysql_password = $env_vars->mysql_password;
     $mysql_database_name = $env_vars->mysql_database_name;
     $mysql_hostname = $env_vars->mysql_hostname;
+    
     $db = new mysqli($mysql_hostname,$mysql_username,$mysql_password);
     $query = "create database if not exists $mysql_database_name" ; //todo:make sure about utf-8 support 
     $db->query($query);
     $db->close();
 
     $db = new mysqli($mysql_hostname,$mysql_username,$mysql_password,$mysql_database_name);
-    echo $mysql_hostname;
-    echo $mysql_username;
-    echo $mysql_password;
-    echo $mysql_database_name;
     $query = "create table if not exists users(
         id int(10) primary key auto_increment,
         username varchar(100),
