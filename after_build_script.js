@@ -10,3 +10,4 @@ you must change permitions of php files and folders which contain them
 (for example with chmod command on linux),
 set that folders permition to 755 and set php files permitions to 644,
 otherwise you will get internal server error`)
+console.log('if your machine is running linux you can run [correct_permitions_for_production.bash] with sudo to automate the process of correcting permitions')
