@@ -1,5 +1,6 @@
 .header{
     position: relative;
+    position: sticky;
     height: 58px;
     margin: 0px;
     padding: 0;
@@ -8,6 +9,9 @@
     width: 100%;
     /* left: 0px; */
     direction:ltr;
+    top:0px;
+    z-index:500;
+    opacity: 0.95;
 }
 
 .header svg{

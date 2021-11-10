@@ -24,6 +24,7 @@ import Plans from  "./components/Plans/comp"
 import PlanShowPage from './components/PlanShowPage/comp';
 import Users from "./components/Users/comp"
 import SupportMessages from "./components/SupportMessages/comp"
+import CheckSupportMessageStatus from "./components/CheckSupportMessageStatus/comp"
 //import "nprogress/nprogress.css"
 //import nprogress from "nprogress"
 class App extends React.Component {
@@ -62,6 +63,8 @@ class App extends React.Component {
           <Route exact path="/plans/:plan_id" render={props=> <PlanShowPage {...props} />}></Route>
           <Route exact path="/new-transaction"><NewTransaction></NewTransaction></Route>
           <Route exact path="/support-messages/new" render={props=><NewSupportMessage />}></Route>
+          <Route exact path="/support-messages/check_status" render={props=><CheckSupportMessageStatus />}></Route>
+          
           <Route exact path="/support-messages/:support_message_id" render={props=><SupportMessageShowPage support_message_id={props.match.params.support_message_id} />}></Route>
           <Route exact path="/support-messages" render={props=><SupportMessages />}></Route>
           <Route exact path="/register" render={props=><Register />}/>
