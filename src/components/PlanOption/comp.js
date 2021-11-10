@@ -43,10 +43,10 @@ export default class PlanOption extends Component{
     }
     render(){
         return(
-            <div className="p-2 lastDoneWork mb-4">
+            <div className="p-2 lastDoneWork mb-2">
                 <div className="row">
                     <div className="col-8 mx-0">
-                        <h2 className="text-light mx-0 dir_rtl">{this.state.plan_title}</h2>
+                        <h3 className="text-light mx-0 dir_rtl">{this.state.plan_title}</h3>
                         <p className="text-light dir_rtl my-0">{this.state.plan_description}</p>
                     </div>
                     <div className="p-0 col-4 d-flex justify-content-center">

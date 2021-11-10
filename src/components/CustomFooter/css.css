@@ -1,5 +1,5 @@
 .custom_footer{
-    background:#006ef7;
+    background:#0000cb;
     width: 100%;
     position: relative;
     border: 1px solid transparent; /* for content margin problem */
@@ -22,7 +22,7 @@
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    background-color: #4f4fff;
+    background-color: #2828ff;
     padding-left: 10px;
     padding-right: 10px;
     display: flex;

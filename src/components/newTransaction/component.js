@@ -3,6 +3,7 @@ import "./styles.css"
 import {custom_ajax} from "../../api_client/custom_ajax"
 import light_bulb_white from "../../common/bootstrap-icons/lightbulb-white.svg"
 import Plan from "./Plan/comp"
+import PlanOption from "../PlanOption/comp"
 class NewTransaction extends Component{
     constructor(){
         super()
@@ -71,7 +72,7 @@ class NewTransaction extends Component{
         this.setState({
             selected_plan_id : Number(plan_id)
         },()=>{
-            console.log('plan selected successfuly, plan id: '+plan_id)
+            alert('طرح با موفقیت انتخاب شد . شماره طرح انتخاب شده :‌ ' + plan_id)
         })
     }
     render(){
@@ -90,34 +91,35 @@ class NewTransaction extends Component{
         </div>
         <hr className="bg-light" style={{position:"relative",marginLeft:"auto",marginRight:"auto",width:"80%"}} />
         <div className="row justify-content-center align-items-center">
-            <div className="col-9 d-grid gap-2" style={{direction:"rtl"}}>
-                <label htmlFor="username" className="text-light">نام کاربری :</label>
-                <input type="text" id="username" className="form-control border-0"/>
+            <div className="col-10 d-grid gap-2" style={{direction:"rtl"}}>
+                <label htmlFor="username" className="text-light" >نام کاربری :</label>
+                <input type="text" id="username" placeholder='...' className="form-control border-0" style={{direction:"ltr"}}/>
                 
-                </div>
+            </div>
         </div> 
-        <div className='mt-4 row justify-content-center align-items-center'>
-            <div className='col-8 d-flex justify-content-center'>
+        <div className='mb-1 mt-4 row justify-content-center align-items-center'>
+            <div className='col-10 d-flex justify-content-center'>
                 <b className='text-white dir_rtl' style={{textAlign:"center"}}>انتخاب طرح مورد نظر :</b>
             </div>
         </div>
         <div className='plans_container'>
             {this.state.plans.map(plan=>{
                 return(
-                    <Plan 
-                        title={plan.title} 
-                        info={plan.description} 
-                        props_list={plan.props_list} 
-                        button_onclick_handler={()=>this.select_plan(plan.id)}
-                        key={plan.id}
-                        />
+                    <PlanOption key={plan.id} plan_id={plan.id} button_onclick={()=>{this.select_plan(plan.id)}}/>
                 )
             })}
             
-            <a href='#/plans'>مشاهده همه طرح ها</a>
+            
+        </div>
+        <div className="row dir_rtl d-flex justify-content-start mb-3" style={{marginTop:"-2px"}}>
+            <div className="col-1"></div>
+            <div className="col-6">
+                <a href='#/plans'>مشاهده همه طرح ها</a>
+            </div>
+            
         </div>
         <div className="row justify-content-center align-items-center">
-            <div className="col-9 d-grid gap-2" style={{direction:"rtl"}}>
+            <div className="col-10 d-grid gap-2" style={{direction:"rtl"}}>
                 <label htmlFor="amount" className="text-light">مبلغ به ریال :</label>
                 <input type="number" id="amount" className="form-control border-0" placeholder="مثلا 20000" />
                 <div className="my-1">
@@ -125,7 +127,7 @@ class NewTransaction extends Component{
                     <input className="mx-2" type="checkbox" id="one_percent_for_team" />
                 </div>
                 
-                <button className="btn btn-success" onClick={this.redirect_to_payment_gateway}>ارسال</button>    
+                <button className="btn btn-success" onClick={this.redirect_to_payment_gateway}>پرداخت</button>    
                 
             </div>
         </div> 
@@ -136,12 +138,12 @@ class NewTransaction extends Component{
                 <hr className="bg-light" />
             </div>
         </div>
-        <div className="row justify-content-center align-items-center mb-2">
+        <div className="row justify-content-center align-items-center mb-4">
             <div className="col-9 tips_container">
                 
                 <div>
                     <img src={light_bulb_white} alt='tip svg icon'/>
-                    <span className="text-light">ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید ! </span><a href="#/register">ثبت نام آسان</a>
+                    <span className="text-light">ما آسان ترین نوع ثبت نام را برای این سایت انتخاب کرده ایم، تنها با انتخاب نام کاربری عضو شوید ! </span><a href="#/register">ثبت نام</a>
                 </div>
             </div>
         </div>

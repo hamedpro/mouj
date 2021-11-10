@@ -10,7 +10,7 @@ input,select{
     direction: rtl;
 }
 .plans_container{
-    width: 80%;
+    min-width: 100%;
     position: relative;
     margin-left: 50%;
     transform: translateX(-50%);
