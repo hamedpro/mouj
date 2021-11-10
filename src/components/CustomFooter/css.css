@@ -49,3 +49,13 @@
 .custom_footer .custom-nav-bar .item a{
     color:white;
 }
+#subscribe_to_sms_box{
+    width: 80%;
+    border: 2px solid darkviolet;
+    border-radius: 8px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 28px;
+
+}

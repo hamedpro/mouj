@@ -24,7 +24,12 @@ function config_db(){
     if(!$db->query($query)){
         echo $db->error;
     };
-
+    $query = "create table if not exists sms_subscribers(
+        id int(10) primary key auto_increment,
+        phone_number varchar(20)
+    )";
+    $db->query($query);
+    
     $query = "create table if not exists transactions(
         id int(10) primary key auto_increment,
         username varchar(100),

@@ -221,8 +221,8 @@ class api{
         $last_plan_id = $this->get_last_plan_id();
         return $this->get_plan_data($last_plan_id);
     }
-    public function subscribe_to_sms($username,$phone_number){
-        $q = "update users set phone_number = '$phone_number' where username = '$username' ";
+    public function subscribe_to_sms($phone_number){
+        $q = "insert into sms_subscribers (phone_number) values ('$phone_number')";
         $result =  $this->db->query($q);
         return $result;
     }
