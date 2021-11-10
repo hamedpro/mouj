@@ -3,7 +3,7 @@ import "./styles.css"
 import chevron_left_white from "../../common/bootstrap-icons/chevron-left-white.svg"
 import TimelineBox from "./TimelineBox/TimelineBox";
 import {custom_ajax} from "../../api_client/custom_ajax"
-import CurrentPlan from "./CurrentPlan/comp";
+import PlanOption from "../PlanOption/comp";
 class Charts extends Component{
     constructor(props){
         super(props)
@@ -34,21 +34,7 @@ class Charts extends Component{
             })
         })
     }
-    render_users_icons(){
-        var elements = []
-        if(this.state.users.length > 12){
-            for(let i=0;i<12;i++){
-                elements.push(<div className="user" key={i}/>)
-            }
-            return elements
-        }else{
-            for(let i=0;i<this.state.users.length;i++){
-                elements.push(<div className="user" key={i} />)
-            }
-            return elements
-        }
-        
-    }
+    
     render(){
         return (
         <>
@@ -84,18 +70,18 @@ class Charts extends Component{
             <div className="custom-section" style={{background:"deepskyblue"}} id='current_plans_section'>
             <div className="row currentProjectBoxTitle mt-3 d-flex justify-content-center">
                 <div className="col-9">
-                    <h2 className="text-light bg-primary rounded py-1" style={{textAlign:"center"}}>طرح های باز فعلی</h2>
+                    <h2 className="text-light bg-primary rounded py-1 mb-3" style={{textAlign:"center"}}>طرح های باز فعلی</h2>
                 </div>
             </div>
             
-            {this.state.plans.filter(plan=>plan.status === "open").map(plan=>{
+            {this.state.plans.filter(plan=>{return plan.status === "open"}).map((plan,index)=>{
                 return(
-                    <CurrentPlan plan_id={plan.id} key={plan.id} />
+                    <PlanOption key={index} plan_id={plan.id} button_onclick={()=>{window.location.assign("#/new-transaction")}}/>
                 )
             })}
             </div>
             
-            <div className="custom-section" style={{background:"darkblue"}}>
+            <div className="custom-section pb-3" style={{background:"darkblue"}}>
                 <div className="row timelineBoxesTitle mb-3 dir_rtl px-3 pt-3">
                     <h4 className="text-info">لیست تمام طرح ها تا این لحظه :</h4>
                 </div>
@@ -113,15 +99,20 @@ class Charts extends Component{
             
             
             <div id="users_section" className="custom-section" style={{background:"lightgreen"}}>
-                <div className="row dir_rtl p-2">
-                    <h5 className="text-dark ">اعضا و خیرین پروژه موج</h5>
+                <div className="row dir_rtl p-2 mt-1 px-3">
+                    <h5 className="text-dark">اعضا و خیرین پروژه موج :</h5>
                 </div>
                 <div className="users px-1">
-                    {this.render_users_icons()}
+                    {this.state.users.map((user,index)=>{
+                        return(
+                            <div className="user" key={user.username} onClick={()=>{window.location.assign('#/users/'+user.username);console.log(1)}} />
+                        )
+                    })}
+                    
                     
                 </div>
-                <div className="row dir_rtl px-2 pt-1 pb-2 " style={{textAlign:"right"}}>
-                    <a href="#/users">{this.state.users.length > 12 ? "+"+(this.state.users.length-12)+" کاربر دیگر":"+ صفر کاربر دیگر"}<span>کاربر دیگر</span></a>
+                <div className="row dir_rtl px-2 pt-2 pb-2 " style={{textAlign:"right"}}>
+                    <a href="#/users"> +‌ صفر کاربر دیگر</a>
                 </div>
                 
             </div>

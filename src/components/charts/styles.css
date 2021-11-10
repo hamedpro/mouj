@@ -107,35 +107,7 @@ padding-bottom: 4px;
 }
 
 /* ------------------------------- */
-.lastDoneWork{
-    position:relative;
-    width:94%;
-    left:50%;
-    transform:translateX(-50%);
-    border-radius:8px;
-    background-color: purple;
-}
-.lastDoneWork .main_icon {
-    height: 80px;
-    width: 80px;
-    background:red;
-    border-radius: 8px;
-}
-.lastDoneWork .items .col {
-    direction: rtl ;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.lastDoneWork .items .item {
-    direction: rtl;
-    padding-right:15px;
-    background:blue;
-    margin-top: 5px;
-    border-radius: 4px;
-    color: white;
-    text-align: right;
-    display: inline;
-}
+
 .custom-section{
     width: 100%;
     /* background should be selected with style prop on element */
@@ -159,12 +131,12 @@ padding-bottom: 4px;
     justify-content: flex-end;
 }
 .custom-section .users .user{
-    height: 30px;
-    width: 30px;
+    height: 33px;
+    width: 33px;
     background:darkblue;
     border-radius: 100px;
     margin-right: 2px ;
     margin-left: 2px;
     margin-bottom: 3px;
-    border:1px solid aqua;
+    border:2px solid aqua;
 }

@@ -1,0 +1,35 @@
+.lastDoneWork{
+    position:relative;
+    width:80%;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:8px;
+    background-color: purple;
+}
+.lastDoneWork .main_icon {
+    height: 80px;
+    width: 80px;
+    background:rgb(159, 157, 253);
+    border-radius: 8px;
+    margin: 2px;
+    padding: 0px;
+}
+.lastDoneWork * *:has(.main_icon){
+    padding:0px;
+}
+.lastDoneWork .items .col {
+    direction: rtl ;
+    padding: 0px 10px 0px 10px;
+}
+.lastDoneWork .items .item {
+    direction: rtl;
+    background:rgba(201, 237, 40, 0.344);
+    margin-top: 5px;
+    border-radius: 4px;
+    color: white;
+    text-align: right;
+    display: inline;
+}
+.lastDoneWork .items .item:first-child{
+    margin-top: 10px;
+}
