@@ -11,9 +11,8 @@ export default class CustomFooter extends Component{
             nav_bar_links : []
         }
     }
-    componentDidMount(){
-        window.setInterval(()=>{
-            var items = []
+    update_nav_bar = ()=>{
+        var items = []
             var splited_hash = window.location.hash.split("/")
             for(var i=0;i<splited_hash.length;i++){
                 if(i !== 0){
@@ -29,7 +28,10 @@ export default class CustomFooter extends Component{
             this.setState({
                 nav_bar_links:items
             })
-        },1000)
+    }
+    componentDidMount(){
+        this.update_nav_bar()
+        window.addEventListener('hashchange',this.update_nav_bar)
     }
     subscribe_to_sms = () =>{
         var username_input = document.getElementById('sms_subscribe_username_input')
