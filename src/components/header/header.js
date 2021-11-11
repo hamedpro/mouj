@@ -1,11 +1,14 @@
 import {Component} from 'react'
 import "./header.css";
+import {inject_loading_page,eject_loading_page} from "../CustomLoadingPage/api"
 class CustomHeader extends Component{
     constructor(){
         super()
         this.state = {
             click_count:0
         }
+        inject_loading_page()
+        setTimeout(eject_loading_page,5000)
     }
     handle_secret_door = ()=>{
         this.setState((state,props) => ({

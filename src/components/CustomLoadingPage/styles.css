@@ -1,0 +1,35 @@
+#loading_page_root{
+    height: 100%;
+    position:absolute;
+    z-index: 1000;
+}
+.custom_loading_page{
+    position: fixed;
+    transition: 0.5s ease-in-out;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100%;
+    width: 100%;
+    background:blue;
+}
+.custom_loading_page .mouj-icon{
+    height: 50px;
+    width: 50px;
+    background-color: darkviolet;
+    border-radius: 10px;
+    border: 2px solid aqua;
+}
+.sample_header{
+    position: relative;
+    width: 100%;
+    height: 58px;
+    background-color: indigo
+}
+.custom_loading_page .content {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

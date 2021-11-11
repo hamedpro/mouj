@@ -140,8 +140,8 @@ export default class CustomFooter extends Component{
     
     <div className='row d-flex justify-content-center mt-2'>
         <div className="col-8 d-flex justify-content-center flex-column">
-            <span style={{textAlign:"center"}} className="text-light">under dev with love in tehran </span>
-            <span style={{textAlign:"center"}} className="text-light"><img src={geo_alt_fill_white} alt="geo alt white svg" />tehran</span>
+            <span style={{textAlign:"center"}} className="text-light">under dev with love</span>
+            <span style={{textAlign:"center"}} className="text-light"><img className="px-1" src={geo_alt_fill_white} alt="geo alt white svg" />tehran</span>
         </div>
     </div>
 
