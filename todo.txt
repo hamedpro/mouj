@@ -1,1 +1,0 @@
-write a node js script to change files permitions after successful production build and delete that warning which say please make sure about permitions (in after_build_script.js)

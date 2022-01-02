@@ -1,0 +1,2 @@
+console.log('[note]: please correct permitions for files and folders which you want to deploy')
+console.log('[note]: if you are on a unix base system you can use correct permition for production script which is in scripts folder')

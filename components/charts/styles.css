@@ -1,0 +1,142 @@
+.timelineBox{
+    min-height: 5px;
+    position: relative;
+    width: 90%;
+    left: 51%;
+    transform: translateX(-50%);
+    padding-bottom: 50px;
+}
+.timelineBox .timelineLine{
+    position:absolute;
+    height: 100%;
+    border-left: 1px solid white;
+    right: 20px;
+}
+
+.timelineBox .timelineIcon{
+    
+position: absolute;
+    
+top: 6px;
+    
+height: 27px;
+    
+width: 27px;
+    
+background: rgb(36,36,38);
+    
+right: 7px;
+    
+z-index: 1;
+    
+/* border: 1px solid aqua; */
+    
+border-radius: 3px;
+    
+padding: 10px;
+}
+.timelineBox .timelineIcon svg{
+    
+position: absolute;
+    
+top: 50%;
+    
+height: 70%;
+    
+left: 50%;
+    
+transform: translate(-50%,-50%);
+    
+width: 70%;
+}
+.timelineBox .timelineTitle{
+
+position: absolute;
+
+top: 10px;
+
+right: 37px;
+
+direction: ltr;
+}
+
+.timelineBox .timelineItemsContainer{
+
+position: relative;
+
+width: 97%;
+
+min-height: 70px;
+
+top: 40px;
+
+left: 50%;
+
+transform: translateX(-50%);
+}
+.timelineItem{
+
+position: relative;
+
+min-height: 57px;
+
+width: 100%;
+
+background: rgb(54,54,56);
+
+border: 1px solid rgb(84,84,86);
+
+direction: rtl;
+
+border-bottom:none;
+
+padding-right: 10px;
+
+padding-bottom: 4px;
+}
+.timelineItem:first-of-type{
+    border-top-right-radius: 5px;
+    border-top-left-radius:5px;
+    
+}
+.timelineItem:last-child{
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius:5px;
+    margin-bottom: 7px;
+    border-bottom:1px solid rgb(84,84,86);
+}
+
+/* ------------------------------- */
+
+.custom-section{
+    width: 100%;
+    /* background should be selected with style prop on element */
+    border:1px solid transparent; /* to fix its content margin top problem */
+    margin-bottom: 8px;
+}
+.custom-section-image{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    background: green;
+}
+.custom-section .users{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 98%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: flex-end;
+}
+.custom-section .users .user{
+    height: 33px;
+    width: 33px;
+    background:darkblue;
+    border-radius: 100px;
+    margin-right: 2px ;
+    margin-left: 2px;
+    margin-bottom: 3px;
+    border:2px solid aqua;
+}

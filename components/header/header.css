@@ -1,0 +1,42 @@
+.header{
+    position: relative;
+    position: sticky;
+    height: 58px;
+    margin: 0px;
+    padding: 0;
+    /* top: 0px; */
+    background-color: indigo;
+    width: 100%;
+    /* left: 0px; */
+    direction:ltr;
+    top:0px;
+    z-index:500;
+    opacity: 0.95;
+}
+
+.header svg{
+    height: 70%;
+    transition:0.2s;
+    padding:7px;
+    border-radius: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    right: 10px;
+}
+.header svg:hover{
+    background-color: #8500eaa2;
+}
+
+.header h2{
+    
+position: absolute;
+    
+top: 50%;
+    
+transform: translateY(-50%);
+    
+left: 15px;
+    
+color: white;
+}

@@ -1,5 +1,0 @@
-{
-    "scripts": {
-        "build": "parcel build ./index.html --public-url ./ && echo '[dist] folder is ready to deploy'"
-    }
-}

@@ -6,9 +6,10 @@
   },
   "type": "module",
   "scripts": {
-    "set_env_vars_for_development": "node set_env_vars localhost root '' mouj http://localhost:80/mouj/api/requests.php",
-    "set_env_vars_for_production": "node set_env_vars localhost mpkchill_hamed 'hamed1382H' mpkchill_mouj https://mpkchiller.com/mouj-project/api/requests.php",
-    "start": "npm run set_env_vars_for_development && parcel ./src/index.html",
-    "build": "npm run set_env_vars_for_production && rm -rf ./mouj-project && parcel build ./src/index.html --public-url ./ --dist-dir ./mouj-project && cp -r ./api ./mouj-project && node ./after_build_script.js"
+    "start": "parcel ./index.html",
+    "build": "parcel build ./index.html --public-url ./ && node ./scripts/after_build_script.js"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.1"
   }
 }
