@@ -6,8 +6,8 @@
   },
   "type": "module",
   "scripts": {
-    "start": "parcel ./index.html",
-    "build": "parcel build ./index.html --public-url ./ && node ./scripts/after_build_script.js"
+    "start": "parcel ./indexes/index.html",
+    "build": "parcel build ./indexes/index.html --public-url ./ && node ./scripts/after_build_script.js"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.1"

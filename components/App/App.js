@@ -1,33 +1,33 @@
 import './App.css';
-import "./common/lib/bootstrap.min.css";
-import "./common/common.css"
-import CustomHeader from './components/header/header';
-import Home from './components/Home/Home';
+import "../../common/lib/bootstrap.min.css";
+import "../../common/common.css"
+import CustomHeader from '../header/header';
+import Home from '../Home/Home';
 import React from "react"
 import {Switch,Route,HashRouter as Router} from "react-router-dom";
-import AdminPasswordCheckPage from './components/adminPasswordChecker/component';
-import Charts from './components/charts/component';
-import SupportMessageShowPage from './components/supportMessageShower/component';
-//import LoadingPage from './components/LoadingPage/LoadingPage'
-import NewTransaction from './components/newTransaction/component';
-import NewSupportMessage from './components/NewSupportMessage/component';
-import { Register } from './components/register/Register';
-import { PaymentResult } from './components/PaymentResult/component';
-import PaymentGateway from './components/PaymentGateway/component';
-import AdminPage from './components/admin/component';
-import SelectAdminPage from './components/SelectAdmin/component';
-import AboutUs from './components/AboutUs/comp';
-import CustomFooter from './components/CustomFooter/comp';
-import VotesPage from "./components/VotesPage/comp"
-import Plans from  "./components/Plans/comp"
-import PlanShowPage from './components/PlanShowPage/comp';
-import Users from "./components/Users/comp"
-import SupportMessages from "./components/SupportMessages/comp"
-import CheckSupportMessageStatus from "./components/CheckSupportMessageStatus/comp"
-import { AppIsNotAvailable } from './components/app_is_not_available/component';
+import AdminPasswordCheckPage from '../adminPasswordChecker/component';
+import Charts from '../charts/component';
+import SupportMessageShowPage from '../supportMessageShower/component';
+//import LoadingPage from '../LoadingPage/LoadingPage'
+import NewTransaction from '../newTransaction/component';
+import NewSupportMessage from '../NewSupportMessage/component';
+import { Register } from '../register/Register';
+import { PaymentResult } from '../PaymentResult/component';
+import PaymentGateway from '../PaymentGateway/component';
+import AdminPage from '../admin/component';
+import SelectAdminPage from '../SelectAdmin/component';
+import AboutUs from '../AboutUs/comp';
+import CustomFooter from '../CustomFooter/comp';
+import VotesPage from "../VotesPage/comp"
+import Plans from  "../Plans/comp"
+import PlanShowPage from '../PlanShowPage/comp';
+import Users from "../Users/comp"
+import SupportMessages from "../SupportMessages/comp"
+import CheckSupportMessageStatus from "../CheckSupportMessageStatus/comp"
+import { AppIsNotAvailable } from '../app_is_not_available/component';
 //import "nprogress/nprogress.css"
 //import nprogress from "nprogress"
-import {custom_ajax} from './scripts/custom_ajax'
+import {custom_ajax} from '../../scripts/custom_ajax'
 
 export default function App(){
     window.custom_ajax = custom_ajax
@@ -66,4 +66,6 @@ export default function App(){
     </div>
   );
   }
-  
+  /* i deleted .title margin right from common css make sure it does not break something 
+also for margin it self check that
+we must show all current open plans at charts page not only last of them */
