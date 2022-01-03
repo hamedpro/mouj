@@ -1,6 +1,5 @@
 import { Component } from "react";
 import "./styles.css"
-import {custom_ajax} from '../../custom_ajax'
 import envelope_white from "../../common/bootstrap-icons/envelope-white.svg"
 class SupportMessageShowPage extends Component{
     constructor(props){
@@ -13,7 +12,7 @@ class SupportMessageShowPage extends Component{
         }
     }
     load_support_message_data = ()=>{
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"get_support_message",
                 support_message_id:this.state.support_message_id
@@ -34,7 +33,7 @@ class SupportMessageShowPage extends Component{
         this.load_support_message_data()
     }
     close_support_message = ()=>{
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"close_support_message",
                 support_message_id:this.state.support_message_id

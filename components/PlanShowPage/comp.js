@@ -1,13 +1,11 @@
 import { Component } from "react";
-import { custom_ajax } from "../../custom_ajax";
-
 export default class PlanShowPage extends Component{
     constructor(props){
         super(props)
         this.state = {plan_id:Number(this.props.match.params.plan_id)}
     }
     componentDidMount(){
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"get_plan_data",
                 plan_id : this.state.plan_id

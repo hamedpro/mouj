@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {custom_ajax} from "../../../custom_ajax"
+
 import Option from "../../Option/Option"
 import IntroBox from "../../IntroBox/component"
 import box_arrow_up_white from "../../../common/bootstrap-icons/box-arrow-up-white.svg"
@@ -29,7 +29,7 @@ export default class SupportMessagesSection extends Component{
         
     }
     componentDidMount(){
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:'get_support_messages'
             }

@@ -27,7 +27,10 @@ import CheckSupportMessageStatus from "./components/CheckSupportMessageStatus/co
 import { AppIsNotAvailable } from './components/app_is_not_available/component';
 //import "nprogress/nprogress.css"
 //import nprogress from "nprogress"
+import {custom_ajax} from './scripts/custom_ajax'
+
 export default function App(){
+    window.custom_ajax = custom_ajax
     return (
     <div style={{height:"100%"}}>
       

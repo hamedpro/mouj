@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./css.css"
 import chevron_compact_right_white from "../../common/bootstrap-icons/chevron-compact-right-white.svg"
-import {custom_ajax} from "../../custom_ajax"
+
 import geo_alt_fill_white from "../../common/bootstrap-icons/geo-alt-fill-white.svg"
 export default class CustomFooter extends Component{
     constructor(){
@@ -41,7 +41,7 @@ export default class CustomFooter extends Component{
             alert('شماره موبایل صحیحی وارد کنید')
             return
         }
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func : "subscribe_to_sms",
                 phone_number

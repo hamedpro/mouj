@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {custom_ajax} from "../../../custom_ajax"
+
 import Option from "../../Option/Option"
 import IntroBox from "../../IntroBox/component"
 import box_arrow_up_white from "../../../common/bootstrap-icons/box-arrow-up-white.svg"
@@ -12,7 +12,7 @@ var options = [
             var title = window.prompt('enter its title')
             var description = window.prompt('enter its description')
             var final_amount_as_rial = window.prompt('enter final amount as rial')
-            custom_ajax({
+            window.custom_ajax({
                 params:{
                     func:'new_plan',
                     starter_username,
@@ -33,7 +33,7 @@ var options = [
             if( ! window.confirm('are you completely sure you want to delete all data from db and re configure app ??')){
                 return false
             }
-            custom_ajax({
+            window.custom_ajax({
                 params:{
                     func:"delete_database"
                 }

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Option from "../../Option/Option"
-import {custom_ajax} from "../../../custom_ajax"
+
 import trash_white_svg from "../../../common/bootstrap-icons/trash-white.svg"
 import IntroBox from "../../IntroBox/component"
 export default class TransactionsSection extends Component{
@@ -12,7 +12,7 @@ export default class TransactionsSection extends Component{
     }
     delete_transaction = (transaction_id)=>{
         if(! window.confirm('are you sure you want to delete this transaction ?')) return
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"delete_transaction",
                 transaction_id
@@ -41,7 +41,7 @@ export default class TransactionsSection extends Component{
         this.reload_transactions()
     }
     reload_transactions = ()=>{
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"get_transactions"
             }

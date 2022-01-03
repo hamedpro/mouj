@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./styles.css"
-import {custom_ajax} from "../../custom_ajax"
+
 import light_bulb_white from "../../common/bootstrap-icons/lightbulb-white.svg"
 import Plan from "./Plan/comp"
 import PlanOption from "../PlanOption/comp"
@@ -13,7 +13,7 @@ class NewTransaction extends Component{
         }
     }
     load_plans = ()=>{
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"get_plans"
             }
@@ -32,7 +32,7 @@ class NewTransaction extends Component{
     }
     redirect_to_payment_gateway = () =>{
         let username = document.getElementById('username').value;
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"user_exists",
                 username

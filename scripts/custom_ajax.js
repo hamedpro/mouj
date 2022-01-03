@@ -1,6 +1,8 @@
 export async function custom_ajax({params={}}){
-    var url = "test";
+    var url = "http://localhost:80/mouj-backend/requests.php";
     // note : in reject func of first then block you should use e.message for error handling
+    //todo change url above and use "check server connection script" to detect dev or prod env
+    //todo tell user about set dev and prod urls before build or start parcel
     if(Object.keys(params).length !== 0){
         url+= "?";
         for(var prop in params){

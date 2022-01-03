@@ -1,7 +1,7 @@
 import { Component } from "react";
 import IntroBox from "../../IntroBox/component"
 import Option from "../../Option/Option"
-import {custom_ajax} from "../../../custom_ajax"
+
 import trash_white_svg from "../../../common/bootstrap-icons/trash-white.svg"
 export default class SettingPagePlansSection extends Component{
     constructor(){
@@ -11,7 +11,7 @@ export default class SettingPagePlansSection extends Component{
         }
     }
     reload_plans = ()=>{
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"get_plans"
             }
@@ -24,7 +24,7 @@ export default class SettingPagePlansSection extends Component{
     }
     delete_plan = (plan_id)=>{
         if (! window.confirm('are you sure you want to delete this plan ? ')) return
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"delete_plan",
                 plan_id

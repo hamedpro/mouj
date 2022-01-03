@@ -1,13 +1,13 @@
 import { Component } from "react";
 import "./styles.css"
-import {custom_ajax} from "../../custom_ajax"
+
 import Option from "../Option/Option"
 import arrow_svg from "../../common/bootstrap-icons/chevron-left-white.svg"
 export default class SelectAdminPage extends Component{
     componentDidMount = ()=>{
         
         var self = this 
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"get_admins"
             }

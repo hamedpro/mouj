@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./styles.css"
-import {custom_ajax} from "../../custom_ajax";
+;
 import light_bulb_white from "../../common/bootstrap-icons/lightbulb-white.svg"
 export class Register extends Component{
     //todo make sure button disable when username is taken
@@ -14,7 +14,7 @@ export class Register extends Component{
     check_if_username_is_available = ()=>{
         var username = document.getElementById('username_input').value;
         fetch('../api/requests.php?func_name=is_username_available&username='+username,)
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"is_username_available",
                 username:username
@@ -29,7 +29,7 @@ export class Register extends Component{
     submit_data = ()=>{
         if(! window.confirm('صحت اطلاعات را تایید می کنید ؟')) return false; 
         var username = document.getElementById('username_input').value;
-        custom_ajax({
+        window.custom_ajax({
             params : {
                 func:"new_user",
                 username

@@ -1,9 +1,9 @@
 import { Component } from "react";
-import {custom_ajax} from "../../custom_ajax"
+
 export default class PaymentGateway extends Component{
     pay_button_onclick = ()=>{
         var payment_data = JSON.parse(window.localStorage.getItem('payment_data'))
-        custom_ajax({
+        window.custom_ajax({
             params:{...payment_data,func:"new_transaction"}
         }).then(()=>{
             window.location.assign('#/payment-result')

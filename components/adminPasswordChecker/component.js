@@ -1,5 +1,4 @@
 import { Component } from "react";
-import {custom_ajax} from '../../custom_ajax'
 //get username from localstorage 
 import "./styles.css"
 function bel_bel(el,tempColor){
@@ -31,7 +30,7 @@ class AdminPasswordCheckPage extends Component{
                 bel_bel(button,"blue");
                 if(self.state.password.length === 4){
                     var joined_password = Number(self.state.password.join(""))
-                    custom_ajax({
+                    window.custom_ajax({
                         params:{
                             func:"verify_admin_password",
                             password:joined_password,

@@ -1,7 +1,6 @@
 import {Component} from "react";
 import "./styles.css"
 import lightbulb_white_svg from "../../common/bootstrap-icons/lightbulb-white.svg"
-import { custom_ajax } from "../../custom_ajax";
 export default class PlanOption extends Component{
     constructor(props){
         super(props)
@@ -23,7 +22,7 @@ export default class PlanOption extends Component{
         this.setState({items})
     }
     componentDidMount = ()=>{
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func : 'get_plan_data',
                 plan_id : this.props.plan_id

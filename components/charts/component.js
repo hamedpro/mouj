@@ -2,7 +2,7 @@ import { Component } from "react";
 import "./styles.css"
 import chevron_left_white from "../../common/bootstrap-icons/chevron-left-white.svg"
 import TimelineBox from "./TimelineBox/TimelineBox";
-import {custom_ajax} from "../../custom_ajax"
+
 import PlanOption from "../PlanOption/comp";
 class Charts extends Component{
     constructor(props){
@@ -13,7 +13,7 @@ class Charts extends Component{
         }
     }
     componentDidMount(){
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"get_plans"
             }
@@ -23,7 +23,7 @@ class Charts extends Component{
                 plans
             })
         })
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"get_users"
             }

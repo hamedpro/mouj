@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Option from "../../Option/Option"
-import {custom_ajax} from "../../../custom_ajax"
+
 import IntroBox from "../../IntroBox/component"
 import trash_white_svg from "../../../common/bootstrap-icons/trash-white.svg"
 import award_white_svg from "../../../common/bootstrap-icons/award-white.svg"
@@ -15,7 +15,7 @@ export default class UsersSection extends Component{
         //todo : check if user is admin tell this to user and return 
         if (! window.confirm("are you sure you want to make this user admin? ")) return
         var password = window.prompt("enter a password for his account")
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"make_user_admin",
                 username,
@@ -29,7 +29,7 @@ export default class UsersSection extends Component{
     }
     delete_user_handler = (username)=>{
         if (! window.confirm("are you sure you want to delete this user ? ")) return
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"delete_user",
                 username
@@ -41,7 +41,7 @@ export default class UsersSection extends Component{
         })
     }
     reload_users = ()=>{
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"get_users"
             }

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./styles.css"
-import {custom_ajax} from "../../custom_ajax"
+
 import PersianTip from "../PersianTip/comp";
 export default class NewSupportMessage extends Component{
     submit_data = async function () {
@@ -11,7 +11,7 @@ export default class NewSupportMessage extends Component{
         var content = document.getElementById('content').value;
     
         //check if username does not exists in db
-        custom_ajax({
+        window.custom_ajax({
             params:{
                 func:"new_support_message",
                 subject,
