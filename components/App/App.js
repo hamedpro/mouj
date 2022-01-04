@@ -3,7 +3,7 @@ import "../../common/lib/bootstrap.min.css";
 import "../../common/common.css"
 import CustomHeader from '../header/header';
 import Home from '../Home/Home';
-import React from "react"
+import React, { useState } from "react"
 import {Switch,Route,HashRouter as Router} from "react-router-dom";
 import AdminPasswordCheckPage from '../adminPasswordChecker/component';
 import Charts from '../charts/component';
@@ -28,13 +28,20 @@ import { AppIsNotAvailable } from '../app_is_not_available/component';
 //import "nprogress/nprogress.css"
 //import nprogress from "nprogress"
 import {custom_ajax} from '../../scripts/custom_ajax'
-
+import GlobalContext from "../../scripts/globalContext"
+import AlertModal from '../alertModal/comp';
 export default function App(){
+    const [alertDialogData,changeAlertDialogState] = useState({
+      visibility : true,
+      title : "nothing",
+      content : "nothing"
+    })
     window.custom_ajax = custom_ajax
     return (
+    <GlobalContext.Provider value={{alertDialogData,changeAlertDialogState}}>
+      <AlertModal></AlertModal>
     <div style={{height:"100%"}}>
-      
-        {/* <LoadingPage progresses={this.state.loading_page_progresses} timer={1}/> */}
+      {/* <LoadingPage progresses={this.state.loading_page_progresses} timer={1}/> */}
       <div className="mainBackground"></div>
       <CustomHeader />
       <Router>
@@ -64,6 +71,7 @@ export default function App(){
       
       <CustomFooter></CustomFooter>
     </div>
+    </GlobalContext.Provider>
   );
   }
   /* i deleted .title margin right from common css make sure it does not break something 
